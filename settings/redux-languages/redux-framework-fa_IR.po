@@ -1,0 +1,2493 @@
+# Translation of Plugins - Redux &#8211; Gutenberg Blocks Library &amp; Framework - Stable (latest release) in Persian
+# This file is distributed under the same license as the Plugins - Redux &#8211; Gutenberg Blocks Library &amp; Framework - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-08-29 13:41+0430\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0\n"
+"Language: fa\n"
+"Project-Id-Version: Plugins - Redux &#8211; Gutenberg Blocks Library &amp; Framework - Stable (latest release)\n"
+"POT-Creation-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+
+#: ReduxCore/core/enqueue.php:484
+msgid "Your current options will be replaced with the values of this import. Would you like to proceed?"
+msgstr "تنظیمات های فعلی شما با مقادیر این درون ریزی جایگزین می شود. آیا مایل به ادامه هستید؟"
+
+#: ReduxCore/inc/fields/link_color/field_link_color.php:106
+msgid "Focus"
+msgstr "متمرکز (Focus)"
+
+#: ReduxCore/inc/fields/color_rgba/field_color_rgba.php:72
+msgid "Cancel"
+msgstr "لغو"
+
+#: ReduxCore/inc/fields/color_rgba/field_color_rgba.php:71
+msgid "Choose"
+msgstr "انتخاب"
+
+#: ReduxCore/inc/fields/color_rgba/field_color_rgba.php:74
+msgid "Select Color"
+msgstr "انتخاب رنگ"
+
+#: sample/sample-config.php:1475
+msgid "Users Select Option"
+msgstr "گزینه انتخاب کاربران"
+
+#: ReduxCore/inc/welcome/welcome.php:104
+msgid "If you like <strong>Redux</strong> please leave us a <a href=\"https://wordpress.org/support/view/plugin-reviews/redux-framework?filter=5#postform\" target=\"_blank\" class=\"redux-rating-link\" data-rated=\"Thanks :)\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. A huge thank you from Redux in advance!"
+msgstr "اگر <strong>ردوکس</strong> را دوست دارید.  <a href=\"https://wordpress.org/support/view/plugin-reviews/redux-framework?filter=5#postform\" target=\"_blank\" class=\"redux-rating-link\" data-rated=\"Thanks :)\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> لطفا به ما امتیاز بدهید!!"
+
+#: ReduxCore/framework.php:4000
+msgid "<strong>Redux Framework Notice: </strong>There are references to the Redux Framework support site in your config's <code>share_icons</code> argument.  This is sample data.  Please change or remove this data before shipping your product."
+msgstr "<strong>اعلامیه فریمورک ردوکس </strong>در استدلال <code>share_icons</code> پیکربندی شما به سایت پشتیبانی فریمورک ردوکس اشاره شده است.  این داده های نمونه است.  لطفا این داده ها را قبل از حمل محصول خود تغییر یا حذف کنید."
+
+#: ReduxCore/framework.php:3984
+msgid "<strong>Redux Framework Notice: </strong>There are references to the Redux Framework support site in your config's <code>admin_bar_links</code> argument.  This is sample data.  Please change or remove this data before shipping your product."
+msgstr "<strong>اعلامیه فریمورک ردوکس </strong>در استدلال <code>admin_bar_links</code> پیکربندی شما به سایت پشتیبانی فریمورک ردوکس اشاره شده است.  این داده های نمونه است.  لطفا این داده ها را قبل از حمل محصول خود تغییر یا حذف کنید."
+
+#. Plugin URI of the plugin
+msgid "http://wordpress.org/plugins/redux-framework"
+msgstr "http://wordpress.org/plugins/redux-framework"
+
+#: sample/sample-config.php:2211
+msgid "The field desc is NOT visible in customizer."
+msgstr "فیلد توضیحات(desc) در بخش سفارشی سازی قابل مشاهده نیست."
+
+#: sample/sample-config.php:2210
+msgid "The subtitle is NOT visible in customizer"
+msgstr "زیر عنوان در بخش سفارشی سازی قابل مشاهده نیست"
+
+#: sample/sample-config.php:2209
+msgid "Customizer Only Option"
+msgstr "فقط گزینه های سفارشی سازی"
+
+#: sample/sample-config.php:2202
+msgid "Customizer Only"
+msgstr "فقط سفارشی سازی"
+
+#: sample/sample-config.php:2189
+msgid "You can literally translate the values via key."
+msgstr "شما به معنای واقعی کلمه می توانید مقادیر را از طریق کلید ترجمه کنید."
+
+#: sample/sample-config.php:2188
+msgid "WPML Multi Checkbox"
+msgstr "چک باکس چندگانه WPML"
+
+#: sample/sample-config.php:2174
+msgid "WPML Integration"
+msgstr "ادغام WPML"
+
+#: sample/sample-config.php:2182
+msgid "WPML Text"
+msgstr "متن WPML"
+
+#: sample/sample-config.php:2059
+msgid "JS will be escaped"
+msgstr "جاواسکریپ اجرا نمی‌شود"
+
+#: sample/sample-config.php:2041
+msgid "Custom HTML Allowed (wp_kses)"
+msgstr "HTML دلخواه مجاز است (wp_kses)"
+
+#: sample/sample-config.php:2023
+msgid "All HTML will be stripped"
+msgstr "تمام HTML حذف خواهد شد"
+
+#: sample/sample-config.php:2022
+msgid "Textarea Option - No HTML Validated"
+msgstr "گزینه متنی - هیچ HTML معتبر نیست"
+
+#: sample/sample-config.php:1964
+msgid "This must be a alpha numeric only."
+msgstr "می‌بایست فقط عدد و حروف باشد."
+
+#: sample/sample-config.php:1998
+msgid "Text Option - Custom Callback Validated"
+msgstr "گزینه متن - فراخوان سفارشی اعتبارسنجی شده است"
+
+#: sample/sample-config.php:1985
+msgid "Text Option - Preg Replace Validated"
+msgstr "گزینه متن - جایگزینی Preg اعتبارسنجی شده است"
+
+#: sample/sample-config.php:1974
+msgid "This field's default value was changed by a filter hook!"
+msgstr "مقدار پیش فرض این قسمت توسط یک هوک فیلتر تغییر یافته است!"
+
+#: sample/sample-config.php:2183
+msgid "This string can be translated via WPML."
+msgstr "این رشته را می توان از طریق WPML ترجمه کرد."
+
+#: sample/sample-config.php:2068
+msgid "Field Required / Linking"
+msgstr "فیلد اجباری / پیوند"
+
+#: sample/sample-config.php:1972
+msgid "Text Option - Str Replace Validated"
+msgstr "گزینه متن - جایگزینی رشته اعتبارسنجی شده است"
+
+#: sample/sample-config.php:1946
+msgid "This must be numeric."
+msgstr "باید عدد وارد کنید."
+
+#: sample/sample-config.php:1945
+msgid "Text Option - Numeric Validated"
+msgstr "گزینه متن - اعداد اعتبارسنجی شده‌اند"
+
+#: sample/sample-config.php:1884
+msgid "Callback"
+msgstr "فراخوان"
+
+#: sample/sample-config.php:1869
+msgid "Raw Field <code>full_width</code> False"
+msgstr "فیلد خام <code> full_width </code> نادرست است"
+
+#: sample/sample-config.php:1860
+msgid "Standard Raw Field"
+msgstr "فیلد خام استاندارد"
+
+#: sample/sample-config.php:1804
+msgid "Sorter"
+msgstr "جورچین"
+
+#: sample/sample-config.php:1788
+msgid "Date"
+msgstr "تاریخ"
+
+#: sample/sample-config.php:1764
+msgid "Additional Types"
+msgstr "انواع اضافی"
+
+#: sample/sample-config.php:1713
+msgid "Body Font"
+msgstr "فونت بدنه"
+
+#: sample/sample-config.php:1705
+msgid "Typography"
+msgstr "تایپوگرافی"
+
+#: sample/sample-config.php:1685
+msgid "Spinner"
+msgstr "اسپینر"
+
+#. Description of the plugin
+msgid "Redux is a simple, truly extensible options framework for WordPress themes and plugins."
+msgstr "Redux فریمورک تنظیمات ساده و به شدت قابل توسعه برای افزونه و پوسته های وردپرس است."
+
+#: sample/sample-config.php:1937
+msgid "This must be a URL."
+msgstr "باید یک URL باشد."
+
+#: sample/sample-config.php:1936
+msgid "Text Option - URL Validated"
+msgstr "گزینه متن - URL اعتبارسنجی شده است"
+
+#: sample/sample-config.php:1928
+msgid "Multi Text Option - Color Validated"
+msgstr "گزینه چند متنی - رنگ اعتبارسنجی شده است"
+
+#: sample/sample-config.php:1902
+msgid "Field Validation"
+msgstr "اعتباری سنجی زمینه"
+
+#: sample/sample-config.php:1910
+msgid "Text Option - Email Validated"
+msgstr "گزینه متن - ایمیل اعتبارسنجی شده است"
+
+#: sample/sample-config.php:1963
+msgid "Text Option - No Special Chars Validated"
+msgstr "هیچ کاراکتری معتبر نیست"
+
+#: sample/sample-config.php:1955
+msgid "This must be a comma separated string of numerical values."
+msgstr "باید یک متن شامل اعدادی باشد که با کاما (ویرگول) از هم جدا شده باشند."
+
+#: sample/sample-config.php:1954
+msgid "Text Option - Comma Numeric Validated"
+msgstr "کاما (ویرگول) عددی تایید شده است"
+
+#: sample/sample-config.php:1930
+msgid "If you enter an invalid color it will be removed. Try using the text \"blue\" as a color.  ;)"
+msgstr "درصورت انتخاب رنگ نامعتبر، حذف می شود. از نام رنگ ها به عنوان رنگ استفاده کنید. مثلا blue"
+
+#: sample/sample-config.php:1920
+msgid "Text Option with Data Attributes"
+msgstr "گزینه متنی با خصوصیت های اطلاعاتی"
+
+#: sample/sample-config.php:1852
+msgid "Raw"
+msgstr "خام"
+
+#: sample/sample-config.php:1893
+msgid "This is a completely unique field type"
+msgstr "این یک فیلد کاملا یکتا است"
+
+#: sample/sample-config.php:1670
+msgid "This example displays float values"
+msgstr "این مثال مقادیر شناور را نمایش می دهد"
+
+#. Author URI of the plugin
+msgid "http://reduxframework.com"
+msgstr "http://reduxframework.com"
+
+#. Author of the plugin
+msgid "Team Redux"
+msgstr "تیم Redux"
+
+#: sample/sample-config.php:1878
+msgid "Advanced Features"
+msgstr "خصوصیات پیشرفته"
+
+#: sample/sample-config.php:1727
+msgid "Typography h2.site-description"
+msgstr "تایپوگرافی  h2.site-description"
+
+#: sample/sample-config.php:1796
+msgid "Date Option"
+msgstr "تنظیمات تاریخ"
+
+#: sample/sample-config.php:2058
+msgid "Textarea Option - JS Validated"
+msgstr "تنظیمات Textarea - JS معتبر است"
+
+#: sample/sample-config.php:2032
+msgid "HTML Allowed (wp_kses)"
+msgstr "HTML مجاز (wp_kses)"
+
+#: sample/sample-config.php:2031
+msgid "Textarea Option - HTML Validated"
+msgstr "تنظیمات Textarea - معتبر HTML"
+
+#: sample/sample-config.php:1973 sample/sample-config.php:1986
+#: sample/sample-config.php:1999
+msgid "You decide."
+msgstr "شما تصمیم می گیرید."
+
+#: sample/sample-config.php:1714
+msgid "Specify the body font properties."
+msgstr "خصوصیات فونت بدنه سایت را مشخص کنید."
+
+#: sample/sample-config.php:1749
+msgid "Typography option with each property can be called individually."
+msgstr "تنظیمات تایپوگرافی با هر ویژگی می تواند به صورت جداگانه خوانده شود."
+
+#: sample/sample-config.php:2343
+msgid "<p class=\"description\">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>"
+msgstr "<p class=\"description\">این یک بخش است که با اضافه کردن یک فیلتر به آرایه بخش ها ایجاد شده است. می تواند توسط قالب های چایلد برای اضافه / حذف کردن بخش ها از تنظیمات ها استفاده شود.</p>"
+
+#: sample/sample-config.php:2342
+msgid "Section via hook"
+msgstr "بخش از طریق قلاب"
+
+#: ReduxCore/inc/fields/spacing/field_spacing.php:191
+#: ReduxCore/inc/fields/border/field_border.php:125
+msgid "All"
+msgstr "همه"
+
+#: ReduxCore/inc/tracking.php:135
+msgid "Allow tracking"
+msgstr "اجازه ردیابی"
+
+#: ReduxCore/inc/fields/background/field_background.php:188
+msgid "Background Size"
+msgstr "اندازه پس زمینه"
+
+#: ReduxCore/inc/fields/border/field_border.php:174
+msgid "Border style"
+msgstr "استایل حاشیه"
+
+#: ReduxCore/inc/welcome/views/status_report.php:270
+msgid "Browser"
+msgstr "مرورگر"
+
+#: ReduxCore/inc/tracking.php:175
+msgid "Close"
+msgstr "بستن"
+
+#: ReduxCore/inc/fields/slides/field_slides.php:167
+#: ReduxCore/inc/fields/slides/field_slides.php:220
+msgid "Delete"
+msgstr "حذف"
+
+#: ReduxCore/templates/panel/header.tpl.php:11
+#: ReduxCore/templates/panel/header.tpl.php:49
+msgid "Developer Mode Enabled"
+msgstr "حالت برنامه نویس فعال"
+
+#: ReduxCore/inc/tracking.php:140
+msgid "Do not allow tracking"
+msgstr "اجازه ردیابی نمی دهم"
+
+#: ReduxCore/inc/tracking.php:159
+msgid "Email Address"
+msgstr "آدرس ایمیل"
+
+#: ReduxCore/inc/welcome/welcome.php:347 sample/barebones-config.php:151
+#: sample/sample-config.php:190
+msgid "Extensions"
+msgstr "افزونه‌ها"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:478
+msgid "Font Color"
+msgstr "رنگ فونت"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:480
+msgid "Font color"
+msgstr "رنگ فونت"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:325
+msgid "Font script"
+msgstr "اسکریپت فونت"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:442
+#: ReduxCore/inc/fields/dimensions/field_dimensions.php:172
+msgid "Height"
+msgstr "ارتفاع"
+
+#: ReduxCore/inc/tracking.php:129
+msgid "Help improve Our Panel"
+msgstr "کمک به بهبود پنل ما"
+
+#: ReduxCore/inc/fields/spacing/field_spacing.php:236
+#: ReduxCore/inc/fields/border/field_border.php:159
+msgid "Left"
+msgstr "چپ"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:459
+#: ReduxCore/inc/fields/typography/field_typography.php:460
+msgid "Letter Spacing"
+msgstr "فاصله حروف"
+
+#: ReduxCore/inc/tracking.php:156
+msgid "Newsletter"
+msgstr "خبرنامه"
+
+#: ReduxCore/framework.php:225 ReduxCore/framework.php:229
+msgid "Options"
+msgstr "تنظیمات"
+
+#: ReduxCore/inc/welcome/welcome.php:211
+msgid "Redux Framework Changelog"
+msgstr "گزارش تغییرات فریم ورک ردوکس"
+
+#: ReduxCore/inc/tracking.php:153
+msgid "Redux Generator"
+msgstr "ژنراتور ردوکس"
+
+#: class.redux-plugin.php:416
+msgid "Repo"
+msgstr "مخزن"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:433
+msgid "Size"
+msgstr "اندازه"
+
+#: ReduxCore/inc/welcome/welcome.php:359
+msgid "Status"
+msgstr "وضعیت"
+
+#: ReduxCore/inc/welcome/views/status_report.php:705
+msgid "Theme"
+msgstr "پوسته"
+
+#: ReduxCore/inc/fields/background/field_background.php:124
+#: ReduxCore/inc/fields/color_gradient/field_color_gradient.php:79
+#: ReduxCore/inc/fields/color_gradient/field_color_gradient.php:91
+#: ReduxCore/inc/fields/color/field_color.php:73
+msgid "Transparent"
+msgstr "شفاف"
+
+#: ReduxCore/inc/welcome/welcome.php:203
+msgid "Welcome to Redux Framework"
+msgstr "به فریم ورک ردوکس خوش آمدید"
+
+#: ReduxCore/inc/tracking.php:151
+msgid "Welcome to the Redux Demo Panel"
+msgstr "به پنل Redux نسخه ی نمایشی خوش آمدید"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:450
+#: ReduxCore/inc/fields/typography/field_typography.php:451
+msgid "Word Spacing"
+msgstr "فاصله کلمات"
+
+#: ReduxCore/framework.php:1759
+msgid "clicking"
+msgstr "کلیک کردن"
+
+#: ReduxCore/inc/tracking.php:155
+msgid "donation"
+msgstr "کمک کردن مالی"
+
+#: ReduxCore/inc/tracking.php:152
+msgid "our documentation"
+msgstr "اسناد و مدارک ما"
+
+#: sample/barebones-config.php:267 sample/sample-config.php:413
+msgid "Text"
+msgstr "متن"
+
+#: sample/sample-config.php:1621
+msgid "Slider"
+msgstr "اسلایدر"
+
+#: sample/sample-config.php:1614
+msgid "Slider / Spinner"
+msgstr "اسلایدر / اسپینر"
+
+#: sample/sample-config.php:1553
+msgid "Preset"
+msgstr "از پیش تنظیم شده"
+
+#: sample/sample-config.php:1629
+msgid "Slider Example 1"
+msgstr "اسلایدر نمونه 1"
+
+#: sample/sample-config.php:1653
+msgid "Slider Example 3 with two sliders"
+msgstr "نمونه اسلایدر 3 با دو اسلایدر"
+
+#: sample/sample-config.php:1642
+msgid "This example displays the value in a text box"
+msgstr "این نمونه مقدار را در یک جعبه متنی نشان می دهد"
+
+#: sample/sample-config.php:1630
+msgid "This slider displays the value as a label."
+msgstr "این اسلایدر مقدار را به عنوان یک برچسب نمایش می دهد."
+
+#: sample/sample-config.php:1284
+msgid "Theme Stylesheet"
+msgstr "شیوه نامه پوسته"
+
+#: sample/sample-config.php:1261
+msgid "Select"
+msgstr "انتخاب"
+
+#: sample/sample-config.php:1255
+msgid "Select Fields"
+msgstr "انتخاب رشته"
+
+#: sample/sample-config.php:1218
+msgid "Switch Off"
+msgstr "خاموش کردن"
+
+#: sample/sample-config.php:1211
+msgid "Switch On"
+msgstr "روشن کردن"
+
+#: sample/sample-config.php:1202
+msgid "Switch"
+msgstr "عوض کردن"
+
+#: sample/sample-config.php:1113
+msgid "Section"
+msgstr "بخش"
+
+#: sample/sample-config.php:1018
+msgid "Info"
+msgstr "اطلاعات"
+
+#: ReduxCore/inc/extensions/customizer/extension_customizer.php:689
+#: ReduxCore/core/enqueue.php:452
+msgid "You have changes that are not saved. Would you like to save them now?"
+msgstr "تغییرات انجام شده ذخیره نشده اند. آیا میخواهید تغییرات را ذخیره کنید؟"
+
+#: ReduxCore/inc/extensions/customizer/extension_customizer.php:690
+#: ReduxCore/core/enqueue.php:460
+msgid "Are you sure? Resetting will lose all custom values."
+msgstr "آیا مطمئنید؟ با راه اندازی مجدد ممکن است مقادیر وارد شده از بین بروند."
+
+#: ReduxCore/core/enqueue.php:493
+msgid "Please Wait"
+msgstr "لطفا منتظر بمانید"
+
+#: ReduxCore/core/enqueue.php:505
+msgid "There was a problem with your action. Please try again or reload the page."
+msgstr "یک مشکل با اقدام شما وجود دارد. لطفا بارگذاری مجدد صفحه با  دوباره امتحان کنید."
+
+#: ReduxCore/core/panel.php:204
+msgid "Settings have changed, you should save them!"
+msgstr "تنظیمات تغییر کردند ، باید ذخیره شون کنید!"
+
+#. Plugin Name of the plugin
+#: ReduxCore/framework.php:221 ReduxCore/inc/welcome/welcome.php:203
+msgid "Redux Framework"
+msgstr "فریمورک ریداکس"
+
+#: ReduxCore/framework.php:1751
+msgid "Disable"
+msgstr "غیرفعال کردن"
+
+#: ReduxCore/framework.php:1757
+msgid "moving the mouse over"
+msgstr "افکت روی ماوس"
+
+#: ReduxCore/inc/class.redux_admin_notices.php:111
+msgid "Dismiss"
+msgstr "رد"
+
+#: ReduxCore/inc/extensions/import_export/extension_import_export.php:120
+msgid "Import / Export"
+msgstr "درون ریزی / برون بری"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:116
+msgid "WARNING! This will overwrite all existing option values, please proceed with caution!"
+msgstr "اخطار! اینکار سبب حذف همه مقادیر قبلی می شود، لطفا با احتیاط انجام دهید!"
+
+#: ReduxCore/inc/fields/background/field_background.php:157
+msgid "Background Clip"
+msgstr "کلیپ پس‌زمینه"
+
+#: ReduxCore/inc/fields/background/field_background.php:173
+msgid "Background Origin"
+msgstr "مبدا پس‌زمینه"
+
+#: ReduxCore/inc/fields/background/field_background.php:203
+msgid "Background Attachment"
+msgstr "الصاق بک گراند"
+
+#: ReduxCore/inc/fields/color_gradient/field_color_gradient.php:68
+msgid "From "
+msgstr "از "
+
+#: ReduxCore/inc/fields/dimensions/field_dimensions.php:183
+#: ReduxCore/inc/fields/dimensions/field_dimensions.php:184
+#: ReduxCore/inc/fields/spacing/field_spacing.php:245
+#: ReduxCore/inc/fields/spacing/field_spacing.php:246
+msgid "Units"
+msgstr "واحدها"
+
+#: ReduxCore/inc/fields/multi_text/field_multi_text.php:62
+msgid "Add More"
+msgstr "بیشتر اضافه کن"
+
+#: ReduxCore/inc/fields/password/field_password.php:62
+#: sample/sample-config.php:467
+msgid "Password"
+msgstr "رمز عبور"
+
+#: ReduxCore/inc/fields/select/field_select.php:83
+#: ReduxCore/inc/fields/select_image/field_select_image.php:54
+msgid "Select an item"
+msgstr "انتخاب یک مورد"
+
+#: ReduxCore/inc/fields/select/field_select.php:134
+#: ReduxCore/inc/fields/select_image/field_select_image.php:134
+msgid "No items of this type were found."
+msgstr "از این نوع آیتم پیدا نشد."
+
+#: ReduxCore/inc/fields/slides/field_slides.php:68
+msgid "Slide"
+msgstr "اسلايد"
+
+#: ReduxCore/inc/fields/slides/field_slides.php:149
+#: ReduxCore/inc/fields/slides/field_slides.php:204
+#: sample/sample-config.php:1862 sample/sample-config.php:1871
+msgid "Description"
+msgstr "توضیح"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:258
+#: ReduxCore/inc/fields/typography/field_typography.php:259
+msgid "Backup Font Family"
+msgstr "خانواده قلم پشتیبان"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:321
+msgid "Font subsets"
+msgstr "زیر مجموعه فونت ها"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:325
+msgid "Subsets"
+msgstr "زیر مجموعه"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:365
+#: ReduxCore/inc/fields/typography/field_typography.php:366
+#: ReduxCore/inc/fields/typography/field_typography.php:367
+msgid "Text Transform"
+msgstr "شکل متن"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:388
+#: ReduxCore/inc/fields/typography/field_typography.php:389
+#: ReduxCore/inc/fields/typography/field_typography.php:390
+msgid "Font Variant"
+msgstr "متغییر فونت"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:408
+#: ReduxCore/inc/fields/typography/field_typography.php:409
+#: ReduxCore/inc/fields/typography/field_typography.php:410
+msgid "Text Decoration"
+msgstr "دکوراسیون متن"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:1014
+msgid "Google Webfonts"
+msgstr "گوگل Webfonts"
+
+#: ReduxCore/inc/tracking.php:130
+msgid "Please helps us improve our panel by allowing us to gather anonymous usage stats so we know which configurations, plugins and themes to test to ensure compatibility."
+msgstr "برای بهبود پنل  به ما کمک کنید تا بتوانیم آزمایشاتی در سیستم های مختلف تست کنیم."
+
+#: ReduxCore/inc/tracking.php:153
+msgid "Want to get a head start? Use the %1$s. It will create a customized boilerplate theme or a standalone admin folder complete with all things Redux (with the help of Underscores and TGM). Save yourself a headache and try it today."
+msgstr "آیا می خواهید برای شروع به سر؟ با استفاده از %1$s. آن را به یک موضوع تکیهکلامهای سفارشی و یا یک پوشه محیط مدیریت مستقل با همه چیز Redux به (با کمک زیرخط و TGM) ایجاد کنید. جویی در هزینه خود سردرد و امروز آن را امتحان کنید."
+
+#: ReduxCore/inc/tracking.php:154 ReduxCore/inc/welcome/welcome.php:227
+msgid "Redux Extensions"
+msgstr "افزونه های Redux"
+
+#: ReduxCore/inc/tracking.php:154
+msgid "Did you know we have extensions, which greatly enhance the features of Redux?  Visit our %1$s to learn more!"
+msgstr "آیا شما می دانید ما پسوندهایی داریم که تا حد زیادی افزایش ویژگی های Redux را به دنبال دارد؟ سایت ما مراجعه کنید %1$s برای کسب اطلاعات بیشتر!"
+
+#: ReduxCore/inc/tracking.php:154
+msgid "extensions directory"
+msgstr "پسوند دایرکتوری"
+
+#: ReduxCore/inc/tracking.php:155
+msgid "Like Redux?"
+msgstr "مثل ردوکس؟"
+
+#: ReduxCore/inc/validation/colorrgba/validation_colorrgba.php:16
+#: ReduxCore/inc/validation/color/validation_color.php:15
+#: ReduxCore/inc/validation/color_rgba/validation_color_rgba.php:14
+msgid "This field must be a valid color value."
+msgstr "این فیلد باید یک مقدار رنگ درست باشد."
+
+#: ReduxCore/inc/validation/css/validation_css.php:39
+msgid "Unsafe strings were found in your CSS and have been filtered out."
+msgstr "رشته های ناامن در CSS شما یافت نشد و فیلتر شده است."
+
+#: ReduxCore/inc/welcome/views/support.php:8
+#: ReduxCore/inc/welcome/views/about.php:8
+#: ReduxCore/inc/welcome/views/changelog.php:10
+#: ReduxCore/inc/welcome/views/status_report.php:34
+#: ReduxCore/inc/welcome/views/credits.php:10
+#: ReduxCore/inc/welcome/views/extensions.php:81
+msgid "Version %s"
+msgstr "ورژن%s"
+
+#: ReduxCore/inc/welcome/views/about.php:15
+msgid "What is Redux Framework?"
+msgstr "چارچوب Redux  چیست؟"
+
+#: ReduxCore/inc/welcome/views/about.php:17
+msgid ""
+"Redux Framework is the core of many products on the web. It is an option framework which developers use to\n"
+"            enhance their products."
+msgstr "چارچوب Redux  هسته اصلی بسیاری از محصولات در وب است. این یک چارچوب است که توسعه دهندگان استفاده میکنند به منظور ارتقاء محصولات خود."
+
+#: ReduxCore/inc/welcome/views/about.php:22
+msgid "Learn More"
+msgstr "بارگذاری بیشتر"
+
+#: ReduxCore/inc/welcome/views/about.php:28
+msgid "New in this Release"
+msgstr "جدید در این نسخه"
+
+#: ReduxCore/inc/welcome/views/changelog.php:2
+msgid "Redux Framework - Changelog"
+msgstr "چارچوب Redux - تغییرات"
+
+#: ReduxCore/inc/welcome/views/changelog.php:5
+#: ReduxCore/inc/welcome/views/status_report.php:30
+msgid "Our core mantra at Redux is backwards compatibility. With hundreds of thousands of instances worldwide, you can be assured that we will take care of you and your clients."
+msgstr "مارتن هسته اصلی ما در Redux سازگاری عقب است. با صدها هزار مورد در سراسر جهان، می توانید مطمئن باشید که ما از شما و مشتریان خود مراقبت خواهیم کرد."
+
+#: ReduxCore/inc/welcome/views/credits.php:2
+msgid "Redux Framework - A Community Effort"
+msgstr "چارچوب Redux - یک تلاش جامعه"
+
+#: ReduxCore/inc/welcome/views/credits.php:5
+msgid "We recognize we are nothing without our community. We would like to thank all of those who help Redux to be what it is. Thank you for your involvement."
+msgstr "We recognize we are nothing without our community. We would like to thank all of those who help Redux to be what it is. Thank you for your involvement."
+
+#: ReduxCore/inc/welcome/views/extensions.php:76
+msgid "Supercharge your Redux experience. Our extensions provide you with features that will take your products to the next level."
+msgstr "تجربه  Redux  را لبریز کنید  . پسود های ما  ویژگی هایی برای شما فراهم می کند که که محصولات خود را به سطح بعدی را برساند."
+
+#: ReduxCore/inc/welcome/views/status_report.php:26
+msgid "Redux Framework - System Status"
+msgstr "چارچوب Redux - وضعیت سیستم"
+
+#: ReduxCore/inc/welcome/views/status_report.php:43
+msgid "Please copy and paste this information in your ticket when contacting support:"
+msgstr "خواهشمندیمً در صورت درخواست پشتیبانی این اطلاعات را لحاظ کنید:"
+
+#: ReduxCore/inc/welcome/views/status_report.php:48
+msgid "Get System Report"
+msgstr "دریافت گزارش سیستم"
+
+#: ReduxCore/inc/welcome/views/status_report.php:53
+msgid "Understanding the Status Report"
+msgstr "درک وضعیت گزارش"
+
+#: ReduxCore/inc/welcome/views/status_report.php:73
+msgid "WordPress Environment"
+msgstr "محیط وردپرس"
+
+#: ReduxCore/inc/welcome/views/status_report.php:103
+msgid "The version of Redux Framework installed on your site."
+msgstr "نسخه Redux چارچوب نصب شده در سایت شما."
+
+#: ReduxCore/inc/welcome/views/status_report.php:111
+msgid "Redux Data Directory Writable"
+msgstr "دایرکتوری دایرکتوری Redux"
+
+#: ReduxCore/inc/welcome/views/status_report.php:120
+msgid "To allow data saving, make <code>%s</code> writable."
+msgstr "برای اجاره دادن  صرفه جویی در داده ها، را <code>%s</code> قابل نوشتن کنید."
+
+#: ReduxCore/inc/welcome/views/status_report.php:126
+msgid "WP Content URL"
+msgstr "آدرس محتوا WP"
+
+#: ReduxCore/inc/welcome/views/status_report.php:129
+msgid "The location of Wordpress's content URL."
+msgstr "آدرس موقعیت محتوای وردپرسی."
+
+#: ReduxCore/inc/welcome/views/status_report.php:137
+msgid "WP Version"
+msgstr "نسخه وردپرس"
+
+#: ReduxCore/inc/welcome/views/status_report.php:151
+msgid "Whether or not you have WordPress Multisite enabled."
+msgstr "آیا شما وردپرس چند سایته (مولتی سایت) را فعال دارید یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:176
+msgid "The current Reading mode of Wordpress."
+msgstr "حالت خواندن فعلی وردپرس."
+
+#: ReduxCore/inc/welcome/views/status_report.php:188
+msgid "The currently selected page which acts as the site's Front Page."
+msgstr "صفحه انتخابی که در حال حاضر به عنوان صفحه اصلی سایت عمل می کند."
+
+#: ReduxCore/inc/welcome/views/status_report.php:229
+msgid "Database Table Prefix"
+msgstr "پیشوند جدول پایگاه داده"
+
+#: ReduxCore/inc/welcome/views/status_report.php:232
+msgid "The prefix structure of the current Wordpress database."
+msgstr "ساختار پیشوند پایگاه داده فعلی وردپرس."
+
+#: ReduxCore/inc/welcome/views/status_report.php:240
+msgid "WP Debug Mode"
+msgstr "حالت اشکال زدایی وردپرس"
+
+#: ReduxCore/inc/welcome/views/status_report.php:243
+msgid "Displays whether or not WordPress is in Debug Mode."
+msgstr "حالت دیباگ وردپرس را نمایش دهد یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:255
+msgid "Language"
+msgstr "زبان"
+
+#: ReduxCore/inc/welcome/views/status_report.php:277
+msgid "Browser Info"
+msgstr "اطلاعات مرورگر"
+
+#: ReduxCore/inc/welcome/views/status_report.php:297
+msgid "Server Environment"
+msgstr "محیط سرور"
+
+#: ReduxCore/inc/welcome/views/status_report.php:304
+msgid "Server Info"
+msgstr "اطلاعات سرور"
+
+#: ReduxCore/inc/welcome/views/status_report.php:315
+msgid "Localhost Environment"
+msgstr "وردپرس محیط لوکال"
+
+#: ReduxCore/inc/welcome/views/status_report.php:318
+msgid "Is the server running in a localhost environment."
+msgstr "آیا سرور در محیط محلی فعال است."
+
+#: ReduxCore/inc/welcome/views/status_report.php:332
+msgid "PHP Version"
+msgstr "نسخه PHP"
+
+#: ReduxCore/inc/welcome/views/status_report.php:335
+msgid "The version of PHP installed on your hosting server."
+msgstr "نسخه PHP نصب شده روی سرور هاست شما."
+
+#: ReduxCore/inc/welcome/views/status_report.php:343
+msgid "ABSPATH"
+msgstr "ABSPATH"
+
+#: ReduxCore/inc/welcome/views/status_report.php:365
+msgid "PHP Time Limit"
+msgstr "محدودیت زمان PHP"
+
+#: ReduxCore/inc/welcome/views/status_report.php:366
+msgid "The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)"
+msgstr "مقدار زمانی (میلی ثانیه) که سایت شما صرف یک عملیات واحد صرف میکند قبل از تایم اوت"
+
+#: ReduxCore/inc/welcome/views/status_report.php:370
+msgid "PHP Max Input Vars"
+msgstr "حداکثر ورودی های PHP"
+
+#: ReduxCore/inc/welcome/views/status_report.php:375
+msgid "PHP Display Errors"
+msgstr "خطاهای نمایش پی اچ پی"
+
+#: ReduxCore/inc/welcome/views/status_report.php:387
+msgid "SUHOSIN Installed"
+msgstr "وضعیت نصب SUHOSIN"
+
+#: ReduxCore/inc/welcome/views/status_report.php:399
+msgid "MySQL Version"
+msgstr "ورژن mysql"
+
+#: ReduxCore/inc/welcome/views/status_report.php:400
+msgid "The version of MySQL installed on your hosting server."
+msgstr "نسخه MySQL نصب شده روی سرور هاست شما."
+
+#: ReduxCore/inc/welcome/views/status_report.php:412
+msgid "The default timezone for your server."
+msgstr "زمان محلی پیشفرض سرور شما."
+
+#: ReduxCore/inc/welcome/views/status_report.php:416
+msgid "Default timezone is %s - it should be UTC"
+msgstr "زمان محلی پیشفرض %s است - باید UTC باشد"
+
+#: ReduxCore/inc/welcome/views/status_report.php:428
+msgid "Used when communicating with remote services with PHP."
+msgstr "در هنگام برقراری ارتباط با خدمات از راه دور با پی اچ پی استفاده می شود."
+
+#: ReduxCore/inc/welcome/views/status_report.php:473
+msgid "Remote Post"
+msgstr "ارسال از راه دور"
+
+#: ReduxCore/inc/welcome/views/status_report.php:479
+msgid "wp_remote_post() failed. Many advanced features may not function. Contact your hosting provider."
+msgstr "wp_remote_post () شکست خورده است. بسیاری از ویژگی های پیشرفته ممکن است عملکردی نداشته باشند. با ارائهدهنده خدمات میزبانی خود تماس بگیرید."
+
+#: ReduxCore/inc/welcome/views/status_report.php:482
+#: ReduxCore/inc/welcome/views/status_report.php:497
+msgid "Error: %s"
+msgstr "خطا: %s"
+
+#: ReduxCore/inc/welcome/views/status_report.php:489
+msgid "Remote Get"
+msgstr "دریافت از راه دور"
+
+#: ReduxCore/inc/welcome/views/status_report.php:495
+msgid "wp_remote_get() failed. This is needed to get information from remote servers. Contact your hosting provider."
+msgstr "wp_remote_get  شکست خورده است. این برای دریافت اطلاعات از سرورهای راه دور مورد نیاز است. با ارائه دهنده خدمات میزبانی خود تماس بگیرید."
+
+#: ReduxCore/inc/welcome/views/status_report.php:531
+msgid "Active Plugins"
+msgstr "افزونه های فعال"
+
+#: ReduxCore/inc/welcome/views/status_report.php:546
+msgid "Visit plugin homepage"
+msgstr "مشاهده صفحه اصلی افزونه"
+
+#: ReduxCore/inc/welcome/views/status_report.php:572
+msgid "Redux Instance: "
+msgstr "مثال Redux "
+
+#: ReduxCore/inc/welcome/views/status_report.php:579
+msgid "The opt_name argument for this instance of Redux."
+msgstr "استدلال opt_name برای این مثال Redux."
+
+#: ReduxCore/inc/welcome/views/status_report.php:587
+msgid "The global_variable argument for this instance of Redux."
+msgstr "استدلال global_variable برای این نمونه از Redux."
+
+#: ReduxCore/inc/welcome/views/status_report.php:605
+msgid "The page slug denotes the string used for the options panel page for this instance of Redux."
+msgstr "شجره نامه نشان دهنده رشته مورد استفاده برای صفحه پنل گزینه برای این نمونه از Redux است."
+
+#: ReduxCore/inc/welcome/views/status_report.php:610
+msgid "The page permissions variable sets the permission level required to access the options panel for this instance of Redux."
+msgstr "متغیر مجوز صفحه تعیین سطح مجاز مورد نیاز برای دسترسی به پانل گزینه برای این نمونه از Redux."
+
+#: ReduxCore/inc/welcome/views/status_report.php:645
+msgid "The specified template path containing custom template files for this instance of Redux."
+msgstr "مسیر قالب مشخص شده حاوی فایل های قالب سفارشی برای این نمونه Redux است."
+
+#: ReduxCore/inc/welcome/views/status_report.php:710
+msgid "Name"
+msgstr "اسم"
+
+#: ReduxCore/inc/welcome/views/status_report.php:715
+msgid "Version"
+msgstr "ورژن"
+
+#: ReduxCore/inc/welcome/views/status_report.php:733
+msgid "Child Theme"
+msgstr "تم کودک"
+
+#: ReduxCore/inc/welcome/views/status_report.php:734
+msgid "Displays whether or not the current theme is a child theme."
+msgstr "نشان می دهد که تم فعلی تم کودک است یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:759
+msgid "Parent Theme Author URL"
+msgstr "آدرس پوسته والد"
+
+#: ReduxCore/inc/welcome/views/support.php:2
+msgid "Redux Framework - Support"
+msgstr "فریم ورک ردوکس - پشتیبانی"
+
+#: ReduxCore/inc/welcome/views/support.php:19
+#: ReduxCore/inc/welcome/views/support.php:40
+msgid "Generate a Support URL"
+msgstr "یک URL پشتیبانی ایجاد کنید"
+
+#: ReduxCore/inc/welcome/views/support.php:20
+msgid "Select Support Type"
+msgstr "انتخاب نوع پشتیبانی"
+
+#: ReduxCore/inc/welcome/views/support.php:21
+#: ReduxCore/inc/welcome/views/support.php:87
+msgid "How to Get Support"
+msgstr "چگونه پشتیبانی بگیریم"
+
+#: ReduxCore/inc/welcome/views/support.php:56
+msgid "What type of user are you?"
+msgstr "شما چه نوع کاربری هستید؟"
+
+#: ReduxCore/inc/welcome/views/support.php:65
+msgid "I am a user, using a pre-built product."
+msgstr "من یک کاربر هستم، با استفاده از یک محصول از پیش ساخته شده."
+
+#: ReduxCore/inc/welcome/views/support.php:70
+msgid "Developer"
+msgstr "توسعه دهنده"
+
+#: ReduxCore/inc/welcome/views/support.php:92
+msgid "Please proceed to the Redux Framework issue tracker and supply us with your support URL below. Please also provide any information that will help us to reproduce your issue."
+msgstr "لطفا به ردیاب موضوع Redux Framework بروید و URL زیر را برای ما ارسال کنید. لطفا همچنین هر گونه اطلاعاتی را ارائه دهید که به ما کمک می کند مسئله خود را دوباره تولید کنید."
+
+#: ReduxCore/inc/welcome/views/support.php:105
+msgid "Please be sure to include for your developer - via cut and paste - the Support URL in the box below."
+msgstr "از طریق برش و چسباندن - نشانی اینترنتی را در کادر زیر وارد کنید ابتدا مطمئن شوید."
+
+#: ReduxCore/inc/welcome/views/support.php:134
+msgid "Should the developer not be responsive, read the <a href=\"%s\" target=\"_blank\">following article</a> before asking for support from us directly."
+msgstr "باید توسعه پاسخگو نمی باشد، به عنوان خوانده شده <a href=\"%s\" target=\"_blank\">مقاله زیر</a>  قبل از پرسیدن برای حمایت از ما به طور مستقیم."
+
+#: ReduxCore/inc/welcome/welcome.php:181
+msgid "Support hash could not be generated. Please try again later."
+msgstr "امکان ایجاد هش پشتیبانی وجود نداشت. دوباره امتحان کنید."
+
+#: ReduxCore/inc/welcome/welcome.php:236
+msgid "The people that develop Redux Framework"
+msgstr "به فریم‌ورک ری‌داکس خوش آمدید"
+
+#: ReduxCore/inc/welcome/welcome.php:519
+msgid "View %s"
+msgstr "نمایش %s"
+
+#: ReduxCore/templates/panel/footer.tpl.php:57
+#: ReduxCore/templates/panel/header_stickybar.tpl.php:22
+msgid "Save Changes"
+msgstr "ذخيره تغييرات"
+
+#: ReduxCore/templates/panel/footer.tpl.php:64
+#: ReduxCore/templates/panel/header_stickybar.tpl.php:29
+msgid "Reset All"
+msgstr "ریست همه"
+
+#: ReduxCore/templates/panel/header_stickybar.tpl.php:15
+msgid "Expand"
+msgstr "توسعه دادن"
+
+#: class.redux-plugin.php:314
+msgid "Redux Framework has an embedded demo."
+msgstr "چارچوب Redux دارای نسخه ی نمایشی جاسازی شده است."
+
+#: class.redux-plugin.php:417
+msgid "Builder"
+msgstr "سازنده"
+
+#: class.redux-plugin.php:425
+msgid "Activate Demo Mode"
+msgstr "حالت نسخه ی نمایشی را فعال کنید"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:116
+msgid "Import"
+msgstr "درون ریزی"
+
+#: ReduxCore/inc/validation/no_html/validation_no_html.php:15
+msgid "You must not enter any HTML in this field, all HTML tags have been removed."
+msgstr "شما نباید هر کدام از این فیلد را وارد کنید، تمام تگ های HTML حذف شده اند."
+
+#: ReduxCore/inc/validation/no_special_chars/validation_no_special_chars.php:16
+msgid "You must not enter any special characters in this field, all special characters have been removed."
+msgstr "شما نباید هیچ کاراکتر خاصی در این قسمت وارد کنید، تمام کاراکترهای خاص حذف شده اند."
+
+#: ReduxCore/inc/validation/numeric_not_empty/validation_numeric_not_empty.php:16
+#: ReduxCore/inc/validation/numeric/validation_numeric.php:16
+msgid "You must provide a numerical value for this option."
+msgstr "شما باید یک عددی برای این گزینه ارائه کنید."
+
+#: ReduxCore/inc/validation/url/validation_url.php:16
+msgid "You must provide a valid URL for this option."
+msgstr "شما باید یک URL معتبر برای این گزینه ارائه کنید."
+
+#: ReduxCore/inc/welcome/views/status_report.php:388
+msgid "Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself.  If enabled on your server, Suhosin may need to be configured to increase its data submission limits."
+msgstr "سحوزین یک سیستم حفاظت پیشرفته برای نصب PHP است. این برنامه برای محافظت از سرورهای شما از یک سو در برابر تعدادی از مشکلات شناخته شده در برنامه های PHP و از سوی دیگر در برابر آسیب پذیری های ناشناخته بالقوه در این برنامه ها و یا هسته پی اچ پی طراحی شده است. اگر در سرور شما فعال باشد، ممکن است سوحوزین باید پیکربندی شود تا محدودیت ارسال داده ها را افزایش دهد."
+
+#: sample/sample-config.php:1355
+msgid "Pages Select Option"
+msgstr "گزینه انتخاب صفحات"
+
+#: sample/sample-config.php:1032 sample/sample-config.php:1039
+#: sample/sample-config.php:1047 sample/sample-config.php:1055
+#: sample/sample-config.php:1064 sample/sample-config.php:1071
+#: sample/sample-config.php:1079 sample/sample-config.php:1088
+#: sample/sample-config.php:1097 sample/sample-config.php:1106
+msgid "This is a title."
+msgstr "این یک عنوان است."
+
+#: sample/sample-config.php:907
+msgid "Gallery"
+msgstr "گالری"
+
+#: sample/sample-config.php:899
+msgid "Media Uploads"
+msgstr "بارگذاری مدیا"
+
+#: ReduxCore/inc/class.redux_cdn.php:79
+msgid "%s CDN unavailable.  Some controls may not render properly."
+msgstr "CDN %s در دسترس نیست. بعضی از فیلد ها ممکن است درست کار نکنند."
+
+#: ReduxCore/inc/fields/link_color/field_link_color.php:102
+msgid "Active"
+msgstr "فعال"
+
+#: ReduxCore/core/panel.php:156
+msgid "All Defaults Restored!"
+msgstr "تمامی مقادیر پیشفرض بازگردانی شدند !"
+
+#: ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:138
+#: ReduxCore/inc/extensions/customizer/inc/customizer_section.php:79
+msgid "Back"
+msgstr "بازگشت"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:132
+msgid "Copy Data"
+msgstr "کپی کردن اطلاعات"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:133
+msgid "Download Data File"
+msgstr "دانلود فایل بکاپ"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:120
+msgid "Export Options"
+msgstr "برون‌بری تنظیمات"
+
+#: ReduxCore/inc/class.redux_filesystem.php:50
+#: ReduxCore/inc/class.redux_filesystem.php:289
+msgid "File Permission Issues"
+msgstr "مشکل دسترسی به فایل"
+
+#: ReduxCore/inc/welcome/welcome.php:219 class.redux-plugin.php:418
+msgid "Get Support"
+msgstr "دریافت پشتیبانی"
+
+#: ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:146
+msgid "Help"
+msgstr "راهنمایی"
+
+#: ReduxCore/framework.php:1768
+msgid "Hints"
+msgstr "راهنمایی ها"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:91
+msgid "Import Options"
+msgstr "درون‌ریزی تنظیمات"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:95
+msgid "Import from File"
+msgstr "درون‌ریزی از فایل"
+
+#: ReduxCore/framework.php:2784
+msgid "Invalid user capability.  Please reload the page and try again."
+msgstr "نقش کاربری نامعتبر. لطفا صفحه را مجددا بارگزاری کرده و دوباره امتحان کنید."
+
+#: ReduxCore/inc/fields/switch/field_switch.php:44
+msgid "Off"
+msgstr "غیرفعال"
+
+#: ReduxCore/inc/class.redux_cdn.php:74
+msgid "Please wait a few minutes, then try refreshing the page. Unable to load some remotely hosted scripts."
+msgstr "لطفا بعد از چند دقیقه صبر کردن صفحه را دوباره لود کنید. در بارگزاری چند اسکریپت با خطا مواجه شدیم."
+
+#: ReduxCore/inc/class.redux_cdn.php:79
+msgid "Redux Framework Warning"
+msgstr "اخطار فریمورک رداکس"
+
+#: ReduxCore/inc/fields/link_color/field_link_color.php:90
+msgid "Regular"
+msgstr "معمولی"
+
+#: ReduxCore/inc/fields/media/field_media.php:213
+#: ReduxCore/inc/fields/multi_text/field_multi_text.php:72
+#: ReduxCore/inc/fields/multi_text/field_multi_text.php:79
+#: ReduxCore/inc/fields/multi_text/field_multi_text.php:89
+#: ReduxCore/inc/fields/background/field_background.php:321
+#: ReduxCore/inc/fields/slides/field_slides.php:133
+#: ReduxCore/inc/fields/slides/field_slides.php:190
+msgid "Remove"
+msgstr "حذف"
+
+#: ReduxCore/inc/fields/spacing/field_spacing.php:222
+#: ReduxCore/inc/fields/border/field_border.php:145
+msgid "Right"
+msgstr "راست"
+
+#: ReduxCore/core/panel.php:170
+msgid "Section Defaults Restored!"
+msgstr "تمامی مقادیر پیشفرض این بخش بازگردانی شدند !"
+
+#: ReduxCore/inc/welcome/views/support.php:52
+msgid "Select Your Support Type"
+msgstr "نوع پشتیبانی خود را انتخاب کنید"
+
+#: ReduxCore/core/panel.php:141
+msgid "Settings Imported!"
+msgstr "تنظیمات درون‌ریزی شد!"
+
+#: ReduxCore/core/panel.php:184
+msgid "Settings Saved!"
+msgstr "تنظیمات ذخیره شد !"
+
+#: ReduxCore/inc/extensions/options_object/options_object/field_options_object.php:107
+msgid "Show Object in Javascript Console Object"
+msgstr "نمایش آبجکت در کنسول مرورگر"
+
+#: sample/barebones-config.php:276 sample/barebones-config.php:293
+#: sample/sample-config.php:423 sample/sample-config.php:431
+#: sample/sample-config.php:443 sample/sample-config.php:495
+#: sample/sample-config.php:1861 sample/sample-config.php:1870
+msgid "Subtitle"
+msgstr "زیرنویس"
+
+#: ReduxCore/inc/welcome/views/status_report.php:716
+msgid "The installed version of the current active theme."
+msgstr "نسخه قالب فعلی شما."
+
+#: ReduxCore/templates/panel/header.tpl.php:34
+msgid "This has been automatically enabled because"
+msgstr "این مورد به صورت خودکار فعال شده است چون"
+
+#: ReduxCore/inc/fields/slides/field_slides.php:145
+#: ReduxCore/inc/fields/slides/field_slides.php:200
+msgid "Title"
+msgstr "عنوان"
+
+#: ReduxCore/inc/fields/spacing/field_spacing.php:215
+#: ReduxCore/inc/fields/border/field_border.php:138
+msgid "Top"
+msgstr "بالا"
+
+#: ReduxCore/inc/welcome/views/support.php:63
+msgid "User"
+msgstr "کاربر"
+
+#: ReduxCore/inc/fields/password/field_password.php:63
+msgid "Username"
+msgstr "نام کاربری"
+
+#: ReduxCore/inc/fields/link_color/field_link_color.php:98
+msgid "Visited"
+msgstr "دیده شده"
+
+#: ReduxCore/templates/panel/header.tpl.php:20
+msgid "WP_DEBUG is enabled"
+msgstr "حالت دیباگ وردپرس (WP_DEBUG) فعال است"
+
+#: ReduxCore/core/panel.php:65
+msgid "Warning- This options panel will not work properly without javascript!"
+msgstr "اخطار - این پنل تنظیمات بدون جاوااسکریپت به درستی کار نمی کند !"
+
+#: ReduxCore/inc/fields/dimensions/field_dimensions.php:156
+msgid "Width"
+msgstr "طول"
+
+#: ReduxCore/framework.php:2864
+msgid "Your panel has no fields. Nothing to save."
+msgstr "پنل تنظیمات شما هیچ فیلدی برای ذخیره ندارد‌."
+
+#: ReduxCore/core/panel.php:212
+msgid "error(s) were found!"
+msgstr "خطا های یافت شد!"
+
+#: sample/sample-config.php:1467
+msgid "Elusive Icons Select Option"
+msgstr "گزینه انتخاب آیکون های Elusive"
+
+#: sample/sample-config.php:1459
+msgid "Capabilities Select Option"
+msgstr "گزینه انتخاب دسترسی ها"
+
+#: sample/sample-config.php:1425
+msgid "Post Type Multi Select Option + Sortable"
+msgstr "انتخاب چند پست تایپ + مرتب سازی"
+
+#: sample/sample-config.php:1128 sample/sample-config.php:1134
+msgid "Field Title"
+msgstr "عنوان فیلد"
+
+#: ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:89
+msgid "Press return or enter to open this panel"
+msgstr "برای باز شدن این پنجره دکمه بازگشت یا اینتر را بزنید"
+
+#. translators: %s is the site/panel title in the Customizer
+#: ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:114
+#: ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:142
+msgid "You are customizing %s"
+msgstr "شما در حال شخصی‌سازی %s هستید"
+
+#: ReduxCore/inc/extensions/customizer/inc/customizer_section.php:72
+msgid "Press return or enter to open"
+msgstr "برای بازکردن کلید ورود را بفشارید"
+
+#: ReduxCore/inc/extensions/customizer/inc/customizer_section.php:122
+msgid "Press return or enter to expand"
+msgstr "برای بازکردن و توسعه دادن کلید ورود را بفشارید"
+
+#: sample/sample-config.php:1527
+msgid "Images Option (with tiles => true)"
+msgstr "تنظیمات تصاویر(with tiles => true)"
+
+#: sample/sample-config.php:1482
+msgid "Image Select"
+msgstr "تصویر را انتخاب کنید"
+
+#: sample/sample-config.php:1163
+msgid "Button Set"
+msgstr "تنظیم دکمه"
+
+#: sample/sample-config.php:1156
+msgid "Switch & Button Set"
+msgstr "تنظیم سوئیچ و دکمه"
+
+#: sample/sample-config.php:1145
+msgid "And now you can add more fields below and outside of the indent."
+msgstr "و اکنون می توانید قسمت های بیشتری را در زیر و خارج از تورفتگی اضافه کنید."
+
+#: sample/sample-config.php:1129 sample/sample-config.php:1135
+msgid "Field Subtitle"
+msgstr "زیرعنوان فیلد"
+
+#: sample/sample-config.php:1121
+msgid "Section Example"
+msgstr "مثال بخش"
+
+#: sample/sample-config.php:1007
+msgid "The spacer to the section menu as seen to the left (after this section block) is the divide \"section\". Also the divider below is the divide \"field\"."
+msgstr "فاصله برای منوی بخش همانطور که در سمت چپ مشاهده می شود (پس از این بخش) بخش \"تقسیم\" است. همچنین تقسیم کننده زیر قسمت \"تقسیم\" است."
+
+#: sample/sample-config.php:1005
+msgid "Divide"
+msgstr "جدا کنند"
+
+#: sample/sample-config.php:998
+msgid "Presentation Fields"
+msgstr "فیلد های ارائه"
+
+#: sample/sample-config.php:976
+msgid "Slides"
+msgstr "اسلایدها"
+
+#: sample/sample-config.php:965
+msgid "Upload Anything - Disabled Mode"
+msgstr "هر چیزی را بارگذاری کنید - حالت غیرفعال"
+
+#: sample/sample-config.php:923
+msgid "Media"
+msgstr "رسانه ها"
+
+#: sample/sample-config.php:837
+msgid "Spacing"
+msgstr "فاصله"
+
+#: sample/sample-config.php:824
+msgid "Dimensions (Width) Option"
+msgstr "تنظیمات ابعاد (عرض)"
+
+#: sample/sample-config.php:801
+msgid "Dimensions"
+msgstr "ابعاد"
+
+#: sample/sample-config.php:757
+msgid "Border"
+msgstr "کادر"
+
+#: sample/sample-config.php:739
+msgid "Background"
+msgstr "پس زمینه"
+
+#: sample/sample-config.php:732
+msgid "Design Fields"
+msgstr "فیلد های طراحی"
+
+#: sample/sample-config.php:700
+msgid "Palette Color Option"
+msgstr "تنظیمات پالت رنگ"
+
+#: sample/sample-config.php:692
+msgid "Palette Colors"
+msgstr "پالت رنگ ها"
+
+#: sample/sample-config.php:667
+msgid "Link Color"
+msgstr "رنگ لینک"
+
+#: sample/sample-config.php:627
+msgid "Color Gradient"
+msgstr "رنگ گرادینت"
+
+#: sample/sample-config.php:613
+msgid "Pick a title color for the theme (default: #000)."
+msgstr "یک عنوان رنگی برای قالب انتخاب کنید(پیشفرض: #000)."
+
+#: sample/sample-config.php:612
+msgid "Site Title Color"
+msgstr "رنگ عنوان سایت"
+
+#: sample/sample-config.php:603
+msgid "Color"
+msgstr "رنگ"
+
+#: sample/sample-config.php:596
+msgid "Color Selection"
+msgstr "انتخاب رنگ"
+
+#: sample/sample-config.php:582
+msgid "Paste your PHP code here."
+msgstr "کد PHP خود را در اینجا جایگذاری کنید."
+
+#: sample/sample-config.php:581
+msgid "PHP Code"
+msgstr "کد PHP"
+
+#: sample/sample-config.php:571
+msgid "Paste your JS code here."
+msgstr "کد JS خود را در اینجا جایگذاری کنید."
+
+#: sample/sample-config.php:570
+msgid "JS Code"
+msgstr "کد JS"
+
+#: sample/sample-config.php:555
+msgid "For full documentation on the this field, visit: "
+msgstr "برای مستندات کامل در مورد این زمینه ، بازدید کنید: "
+
+#: sample/sample-config.php:551
+msgid "ACE Editor"
+msgstr "ویرایشگر ACE"
+
+#: sample/sample-config.php:543
+msgid "Editor - Full Width"
+msgstr "ویرایشگر - تمام عرض"
+
+#: sample/sample-config.php:527
+msgid "Editor w/o Media Button"
+msgstr "ویرایشگر W / O دکمه های رسانه ای"
+
+#: sample/sample-config.php:521
+msgid "Use any of the features of WordPress editor inside your panel!"
+msgstr "از هر یک از ویژگی های ویرایشگر وردپرس در داخل پنل خود استفاده کنید!"
+
+#: sample/sample-config.php:520
+msgid "Editor"
+msgstr "ویرایشگر"
+
+#: sample/sample-config.php:511
+msgid "WordPress Editor"
+msgstr "ویرایشگر وردپرس"
+
+#: sample/sample-config.php:504
+msgid "Editors"
+msgstr "ویرایشگران"
+
+#: sample/sample-config.php:486
+msgid "Textarea"
+msgstr "Textarea"
+
+#: sample/sample-config.php:462
+msgid "Field Decription"
+msgstr "توضیحات فیلد"
+
+#: sample/sample-config.php:461
+msgid "Field subtitle"
+msgstr "زیرنویس فیلد"
+
+#: sample/sample-config.php:460
+msgid "Multi Text Option"
+msgstr "تنظیمات متن چندگانه"
+
+#: sample/sample-config.php:452
+msgid "Multi Text"
+msgstr "متن چندگانه"
+
+#: sample/sample-config.php:430
+msgid "Text Field w/ Hint"
+msgstr "فیلد متن w/ اشاره"
+
+#: sample/sample-config.php:372
+msgid "Sortable"
+msgstr "قابل مرتب سازی"
+
+#: sample/sample-config.php:364
+msgid "Radio Option w/ Menu Data"
+msgstr "تنظیمات دکمه های رادیویی w/ داده های منو"
+
+#: sample/sample-config.php:341
+msgid "Radio"
+msgstr "دکمه های رادیویی"
+
+#: sample/sample-config.php:289
+msgid "Checkbox"
+msgstr "چک باکس"
+
+#: sample/sample-config.php:283
+msgid "These are really basic fields!"
+msgstr "اینها زمینه های اساسی هستند!"
+
+#: sample/sample-config.php:1026
+msgid "This is the info field, if you want to break sections up."
+msgstr "اگر می خواهید بخش ها را خراب کنید ، این قسمت اطلاعات است."
+
+#: sample/sample-config.php:1185
+msgid "Button Set, Multi Select"
+msgstr "تنظیم دکمه ، چند انتخاب"
+
+#: sample/sample-config.php:1171
+msgid "Button Set Option"
+msgstr "تنظیمات تنظیم دکمه"
+
+#: sample/sample-config.php:1450
+msgid "User Role Select Option"
+msgstr "تنظیمات نقش کاربر  را انتخاب کنید"
+
+#: sample/sample-config.php:1389
+msgid "Menus Select Option"
+msgstr "تنظیمات فهرست ها را انتخاب کنید"
+
+#: sample/sample-config.php:1372
+msgid "Tags Select Option"
+msgstr "تنظیمات برچسب ها را انتخاب کنید"
+
+#: sample/sample-config.php:1347
+msgid "Categories Multi Select Option"
+msgstr "تنظیمات چند دسته بندی ها را انتخاب کنید"
+
+#: sample/sample-config.php:1338
+msgid "Categories Select Option"
+msgstr "تنظیمات دسته بندی ها را انتخاب کنید"
+
+#: sample/sample-config.php:1332
+msgid "You can easily add a variety of data from WordPress."
+msgstr "به راحتی می توانید داده های متنوعی از وردپرس اضافه کنید."
+
+#: sample/sample-config.php:1578 sample/sample-config.php:1586
+#: sample/sample-config.php:1604
+msgid "Select Image"
+msgstr "تصویر را انتخاب کنید"
+
+#: sample/sample-config.php:1317
+msgid "Multi Select Option"
+msgstr "تنظیمات چندگانه را انتخاب کنید"
+
+#: sample/sample-config.php:1292
+msgid "Select Option with optgroup"
+msgstr "تنظیمات را با optgroup انتخاب کنید"
+
+#: sample/sample-config.php:1270
+msgid "Select Option"
+msgstr "تنظیمات را انتخاب کنید"
+
+#: sample/sample-config.php:381 sample/sample-config.php:395
+msgid "Define and reorder these however you want."
+msgstr "به هر حال شما می خواهید این موارد را تعریف و ترتیب بندی کنید."
+
+#: sample/sample-config.php:380 sample/sample-config.php:394
+msgid "Sortable Text Option"
+msgstr "تنظیمات متن قابل مرتب سازی"
+
+#: sample/sample-config.php:1491
+msgid "Images Option for Layout"
+msgstr "تنظیمات تصاویر برای طرح بندی"
+
+#: sample/sample-config.php:1536
+msgid "Images Option"
+msgstr "تنظیمات تصاویر"
+
+#: sample/sample-config.php:350
+msgid "Radio Option"
+msgstr "تنظیمات رادیویی(Radio Option)"
+
+#: sample/sample-config.php:333
+msgid "Multi Checkbox Option (with sidebar data)"
+msgstr "تنظیمات چک باکس چندگانه(با داده های سایدبار)"
+
+#: sample/sample-config.php:325
+msgid "Multi Checkbox Option (with menu data)"
+msgstr "تنظیمات چک باکس چندگانه(با داده های فهرست)"
+
+#: sample/sample-config.php:306
+msgid "Multi Checkbox Option"
+msgstr "تنظیمات چک باکس چندگانه"
+
+#: sample/sample-config.php:299 sample/sample-config.php:307
+#: sample/sample-config.php:326 sample/sample-config.php:334
+#: sample/sample-config.php:351 sample/sample-config.php:365
+#: sample/sample-config.php:1172 sample/sample-config.php:1186
+#: sample/sample-config.php:1271 sample/sample-config.php:1293
+#: sample/sample-config.php:1318 sample/sample-config.php:1339
+#: sample/sample-config.php:1348 sample/sample-config.php:1356
+#: sample/sample-config.php:1365 sample/sample-config.php:1373
+#: sample/sample-config.php:1382 sample/sample-config.php:1390
+#: sample/sample-config.php:1399 sample/sample-config.php:1407
+#: sample/sample-config.php:1416 sample/sample-config.php:1434
+#: sample/sample-config.php:1443 sample/sample-config.php:1451
+#: sample/sample-config.php:1460 sample/sample-config.php:1468
+#: sample/sample-config.php:1476 sample/sample-config.php:1492
+#: sample/sample-config.php:1537 sample/sample-config.php:1797
+msgid "No validation can be done on this field type"
+msgstr "هیچ گونه اعتبار سنجی در این نوع فیلد قابل انجام نیست"
+
+#: sample/sample-config.php:298
+msgid "Checkbox Option"
+msgstr "تنظیمات چک باکس"
+
+#: sample/sample-config.php:494 sample/sample-config.php:2040
+msgid "Textarea Option - HTML Validated Custom"
+msgstr "تنظیمات Textarea - سفارشی معتبر HTML"
+
+#: sample/sample-config.php:813 sample/sample-config.php:826
+msgid "You can enable or disable any piece of this field. Width, Height, or Units."
+msgstr "می توانید هر قطعه از این قسمت را فعال یا غیرفعال کنید. عرض ، ارتفاع یا واحدها."
+
+#: sample/sample-config.php:812 sample/sample-config.php:825
+msgid "Allow your users to choose width, height, and/or unit."
+msgstr "به کاربران خود اجازه دهید عرض ، ارتفاع و / یا واحد را انتخاب کنند."
+
+#: sample/sample-config.php:811
+msgid "Dimensions (Width/Height) Option"
+msgstr "تنظیمات ابعاد (عرض / ارتفاع)"
+
+#: sample/sample-config.php:860 sample/sample-config.php:885
+msgid "Allow your users to choose the spacing or margin they want."
+msgstr "به کاربران خود اجازه دهید فاصله یا فاصله بیرونی (margin) مورد نظر خود را انتخاب کنند."
+
+#: sample/sample-config.php:859 sample/sample-config.php:884
+msgid "Padding/Margin Option"
+msgstr "تنظیمات فاصله درونی (padding) و فاصله بیرونی (Margin)"
+
+#: sample/sample-config.php:765 sample/sample-config.php:782
+msgid "Header Border Option"
+msgstr "تنظیمات مرزبندی سربرگ(Header Border)"
+
+#: sample/sample-config.php:675
+msgid "Links Color Option"
+msgstr "تنظیمات رنگ لینک ها"
+
+#: sample/sample-config.php:636 sample/sample-config.php:676
+#: sample/sample-config.php:701 sample/sample-config.php:766
+#: sample/sample-config.php:783
+msgid "Only color validation can be done on this field type"
+msgstr "فقط اعتبار سنجی رنگ در این نوع فیلد قابل انجام است"
+
+#: sample/sample-config.php:635
+msgid "Header Gradient Color Option"
+msgstr "تنظیمات رنگ گرادینت سربرگ"
+
+#: sample/sample-config.php:655
+msgid "Gives you the RGBA color."
+msgstr "به شما رنگ RGBA می دهد."
+
+#: sample/sample-config.php:646 sample/sample-config.php:654
+msgid "Color RGBA"
+msgstr "رنگ RGBA"
+
+#: sample/sample-config.php:620
+msgid "Pick a background color for the footer (default: #dd9933)."
+msgstr "یک رنگ پس زمینه را برای پاورقی انتخاب کنید(پیشفرض: #dd9933)."
+
+#: sample/sample-config.php:619
+msgid "Footer Background Color"
+msgstr "رنگ پس زمینه پاورقی"
+
+#: sample/sample-config.php:748
+msgid "Body background with image, color, etc."
+msgstr "پس زمینه بدنه سایت با تصویر ، رنگ و غیره."
+
+#: sample/sample-config.php:747
+msgid "Body Background"
+msgstr "پس زمینه بدنه اصلی قالب"
+
+#: sample/sample-config.php:1285
+msgid "Select your themes alternative color scheme."
+msgstr "طرح های جایگزین طرح های زمینه را انتخاب کنید."
+
+#: sample/sample-config.php:561
+msgid "Paste your CSS code here."
+msgstr "کد CSS خود را در اینجا جایگذاری کنید."
+
+#: sample/sample-config.php:560
+msgid "CSS Code"
+msgstr "کد CSS"
+
+#: sample/sample-config.php:990
+msgid "Give us a link!"
+msgstr "به ما یک لینک دهید!"
+
+#: sample/sample-config.php:989
+msgid "Description Here"
+msgstr "توضیحات در اینجا"
+
+#: sample/sample-config.php:988
+msgid "This is a title"
+msgstr "این یک عنوان است"
+
+#: sample/sample-config.php:986
+msgid "This field will store all slides values into a multidimensional array to use into a foreach loop."
+msgstr "این قسمت تمام مقادیر اسلایدها را در یک آرایه چند بعدی برای استفاده در یک حلقه foreach ذخیره می کند."
+
+#: sample/sample-config.php:985
+msgid "Unlimited slides with drag and drop sortings."
+msgstr "اسلایدها نامحدود با مرتب سازی درگ و رها."
+
+#: sample/sample-config.php:984
+msgid "Slides Options"
+msgstr "تنظیمات اسلایدها"
+
+#: sample/sample-config.php:1528
+msgid "Select a background pattern."
+msgstr "انتخاب الگوی پس زمینه."
+
+#: sample/sample-config.php:1245
+msgid "Switch2 - Enable the above switch and this one for patterns to show"
+msgstr "Switch2 - سوئیچ بالا و این یکی را برای نمایش الگوهای فعال کنید"
+
+#: sample/sample-config.php:1238 sample/sample-config.php:1247
+msgid "Items set with a fold to this ID will hide unless this is set to the appropriate value."
+msgstr "موارد تنظیم شده با این شناسه پنهان می شوند ، مگر اینکه این مقدار به مقدار مناسب تنظیم شود."
+
+#: sample/sample-config.php:1237 sample/sample-config.php:1246
+msgid "Also called a \"fold\" parent."
+msgstr "همچنین به اولیای \"برابر\" گفته می شود."
+
+#: sample/sample-config.php:1236
+msgid "Switch - This and the next switch required for patterns to show"
+msgstr "سوئیچ - این و سوئیچ بعدی برای نمایش الگوهای مورد نیاز است"
+
+#: sample/sample-config.php:1227
+msgid "Look, it's on! Also hidden child elements!"
+msgstr "ببین ، روشن است! همچنین عناصر کودک پنهان!"
+
+#: sample/sample-config.php:1226
+msgid "Switch - Nested Children, Enable to show"
+msgstr "سوئیچ - کودکان تو در تو ، نمایش برای فعال کردن"
+
+#: sample/sample-config.php:1212 sample/sample-config.php:1219
+msgid "Look, it's on!"
+msgstr "ببین ، روشن است!"
+
+#: sample/sample-config.php:300 sample/sample-config.php:308
+#: sample/sample-config.php:327 sample/sample-config.php:335
+#: sample/sample-config.php:352 sample/sample-config.php:366
+#: sample/sample-config.php:382 sample/sample-config.php:396
+#: sample/sample-config.php:496 sample/sample-config.php:637
+#: sample/sample-config.php:677 sample/sample-config.php:702
+#: sample/sample-config.php:769 sample/sample-config.php:787
+#: sample/sample-config.php:917 sample/sample-config.php:1173
+#: sample/sample-config.php:1187 sample/sample-config.php:1272
+#: sample/sample-config.php:1294 sample/sample-config.php:1319
+#: sample/sample-config.php:1340 sample/sample-config.php:1349
+#: sample/sample-config.php:1357 sample/sample-config.php:1366
+#: sample/sample-config.php:1374 sample/sample-config.php:1383
+#: sample/sample-config.php:1391 sample/sample-config.php:1400
+#: sample/sample-config.php:1408 sample/sample-config.php:1417
+#: sample/sample-config.php:1427 sample/sample-config.php:1435
+#: sample/sample-config.php:1444 sample/sample-config.php:1452
+#: sample/sample-config.php:1461 sample/sample-config.php:1477
+#: sample/sample-config.php:1538 sample/sample-config.php:1798
+#: sample/sample-config.php:1912 sample/sample-config.php:1922
+#: sample/sample-config.php:1931 sample/sample-config.php:1938
+#: sample/sample-config.php:1947 sample/sample-config.php:1956
+#: sample/sample-config.php:1965 sample/sample-config.php:1987
+#: sample/sample-config.php:2024 sample/sample-config.php:2033
+#: sample/sample-config.php:2042 sample/sample-config.php:2060
+msgid "This is the description field, again good for additional info."
+msgstr "این قسمت توضیحات است ، برای اطلاعات بیشتر خوب است."
+
+#: sample/sample-config.php:916
+msgid "Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader"
+msgstr "با انتخاب تصاویر جدید یا آپلود تصاویر جدید با استفاده از آپلودکننده بومی وردپرس ، یک گالری جدید ایجاد کنید"
+
+#: sample/sample-config.php:954
+msgid "Media No Preview"
+msgstr "رسانه بدون پیش نمایش"
+
+#: sample/sample-config.php:947 sample/sample-config.php:955
+msgid "This represents the minimalistic view. It does not have the preview box or the display URL in an input box. "
+msgstr "این نمایانگر دیدگاه حداقلی است. جعبه پیش نمایش یا آدرس اینترنتی نمایش در جعبه ورودی ندارد. "
+
+#: sample/sample-config.php:946
+msgid "Media w/o URL"
+msgstr "رسانه ها w/o آدرس اینترنتی"
+
+#: sample/sample-config.php:932
+msgid "Media w/ URL"
+msgstr "رسانه w/ آدرس اینترنتی"
+
+#: sample/sample-config.php:936 sample/sample-config.php:948
+#: sample/sample-config.php:956 sample/sample-config.php:970
+msgid "Upload any media using the WordPress native uploader"
+msgstr "هر رسانه ای را با استفاده از آپلودکننده بومی وردپرس بارگذاری کنید"
+
+#: sample/sample-config.php:935 sample/sample-config.php:969
+msgid "Basic media uploader with disabled URL input field."
+msgstr "بارگذاری کننده رسانه اصلی با زمینه ورودی آدرس اینترنتی غیرفعال است."
+
+#: sample/barebones-config.php:292
+msgid "Text Area Field"
+msgstr "فیلد منطقه متن"
+
+#: sample/barebones-config.php:284
+msgid "Text Area"
+msgstr "منطقه متن"
+
+#: sample/barebones-config.php:277 sample/barebones-config.php:294
+#: sample/sample-config.php:424 sample/sample-config.php:432
+#: sample/sample-config.php:444
+msgid "Field Description"
+msgstr "توضیحات زمینه"
+
+#: sample/barebones-config.php:275 sample/sample-config.php:422
+#: sample/sample-config.php:442
+msgid "Text Field"
+msgstr "فیلد متن"
+
+#: sample/barebones-config.php:262
+msgid "Basic fields as subsections."
+msgstr "زمینه های اصلی به عنوان زیرمجموعه ها."
+
+#: sample/barebones-config.php:260 sample/sample-config.php:281
+msgid "Basic Fields"
+msgstr "فیلد های اصلی"
+
+#: sample/barebones-config.php:243
+msgid "Basic field with no subsections."
+msgstr "زمینه اصلی و بدون زیر مجموعه."
+
+#: sample/barebones-config.php:241
+msgid "Basic Field"
+msgstr "فیلد اصلی"
+
+#: sample/barebones-config.php:139 sample/sample-config.php:178
+#: sample/sample-config.php:2227
+msgid "Documentation"
+msgstr "مستندات"
+
+#: sample/barebones-config.php:190 sample/sample-config.php:229
+msgid "<p>This text is displayed below the options panel. It isn't required, but more info is always better! The footer_text field accepts all HTML.</p>"
+msgstr "<p>این متن در زیر پنل تنظیمات ها نمایش داده می شود. لازم نیست، اما اطلاعات بیشتر همیشه بهتر است! قسمت footer_text تمام HTML را می پذیرد.</p>"
+
+#: sample/barebones-config.php:268 sample/barebones-config.php:285
+#: sample/sample-config.php:293 sample/sample-config.php:345
+#: sample/sample-config.php:375 sample/sample-config.php:414
+#: sample/sample-config.php:454 sample/sample-config.php:469
+#: sample/sample-config.php:488 sample/sample-config.php:514
+#: sample/sample-config.php:547 sample/sample-config.php:605
+#: sample/sample-config.php:628 sample/sample-config.php:647
+#: sample/sample-config.php:668 sample/sample-config.php:693
+#: sample/sample-config.php:753 sample/sample-config.php:759
+#: sample/sample-config.php:803 sample/sample-config.php:839
+#: sample/sample-config.php:909 sample/sample-config.php:925
+#: sample/sample-config.php:978 sample/sample-config.php:1007
+#: sample/sample-config.php:1020 sample/sample-config.php:1115
+#: sample/sample-config.php:1165 sample/sample-config.php:1204
+#: sample/sample-config.php:1263 sample/sample-config.php:1484
+#: sample/sample-config.php:1580 sample/sample-config.php:1623
+#: sample/sample-config.php:1687 sample/sample-config.php:1707
+#: sample/sample-config.php:1790 sample/sample-config.php:1806
+#: sample/sample-config.php:1854 sample/sample-config.php:1886
+msgid "For full documentation on this field, visit: "
+msgstr "برای مستندات کامل در این زمینه ، به این آدرس مراجعه کنید: "
+
+#: sample/barebones-config.php:186 sample/sample-config.php:225
+msgid "<p>This text is displayed above the options panel. It isn't required, but more info is always better! The intro_text field accepts all HTML.</p>"
+msgstr "<p>این متن در زیر پنل تنظیمات ها نمایش داده می شود. لازم نیست، اما اطلاعات بیشتر همیشه بهتر است! قسمت intro_text تمام HTML را می پذیرد.</p>"
+
+#: sample/barebones-config.php:184 sample/sample-config.php:223
+msgid "<p>Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: <strong>$%1$s</strong></p>"
+msgstr "<p>آیا می دانید که ردوکس یک متغیر جهانی را برای شما تعیین می کند؟ برای دسترسی به هر یک از تنظیمات های ذخیره شده خود از درون کد خود می توانید از متغیر جهانی خود استفاده کنید: <strong>$%1$s</strong></p>"
+
+#: sample/barebones-config.php:35 sample/barebones-config.php:36
+#: sample/sample-config.php:77 sample/sample-config.php:78
+msgid "Sample Options"
+msgstr "تنظیمات های نمونه"
+
+#: sample/barebones-config.php:217 sample/sample-config.php:257
+msgid "<p>This is the sidebar content, HTML is allowed.</p>"
+msgstr "<p>این محتوای سایدبار است ، HTML مجاز است.</p>"
+
+#: sample/barebones-config.php:210 sample/sample-config.php:250
+msgid "Theme Information 2"
+msgstr "اطلاعات قالب 2"
+
+#: sample/barebones-config.php:206 sample/barebones-config.php:211
+#: sample/sample-config.php:246 sample/sample-config.php:251
+msgid "<p>This is the tab content, HTML is allowed.</p>"
+msgstr "<p>این محتوای سایدبار است ، HTML مجاز است.</p>"
+
+#: sample/barebones-config.php:205 sample/sample-config.php:245
+msgid "Theme Information 1"
+msgstr "اطلاعات قالب 1"
+
+#: sample/barebones-config.php:251
+msgid "Example subtitle."
+msgstr "عنوان زیرنویس."
+
+#: sample/barebones-config.php:250
+msgid "Example description."
+msgstr "توضیحات مثال."
+
+#: sample/barebones-config.php:249
+msgid "Example Text"
+msgstr "متن نمونه"
+
+#: class.redux-plugin.php:423
+msgid "Deactivate Demo Mode"
+msgstr "غیر فعال کردن حالت نسخه ی نمایشی"
+
+#: class.redux-plugin.php:415
+msgid "Docs"
+msgstr "اسناد"
+
+#: class.redux-plugin.php:314
+msgid "Click here to activate the sample config file."
+msgstr "برای فعال کردن پرونده پیکربندی نمونه اینجا را کلیک کنید."
+
+#: ReduxCore/templates/panel/header.tpl.php:58
+msgid "FORCED DEV MODE OFF ENABLED"
+msgstr "FORCED DEV MODE OFF ENABLED"
+
+#: ReduxCore/templates/panel/header.tpl.php:36
+msgid "If you are not a developer, your theme/plugin author shipped with developer mode enabled. Contact them directly to fix it."
+msgstr "اگر شما یک برنامه نویس نیستید ، نویسنده قالب / افزونه شما با حالت توسعه دهنده ارسال شده است. برای رفع آن مستقیماً با آنها تماس بگیرید."
+
+#: ReduxCore/templates/panel/header.tpl.php:31
+msgid "and"
+msgstr "و"
+
+#: ReduxCore/templates/panel/header.tpl.php:26
+msgid "you are working in a localhost environment"
+msgstr "شما در یک محیط محلی کار می کنید"
+
+#: ReduxCore/templates/panel/footer.tpl.php:69
+#: ReduxCore/templates/panel/header_stickybar.tpl.php:33
+msgid "Working..."
+msgstr "کار ..."
+
+#: ReduxCore/templates/panel/footer.tpl.php:62
+#: ReduxCore/templates/panel/header_stickybar.tpl.php:27
+msgid "Reset Section"
+msgstr "بازگردانی پیش فرض بخش"
+
+#: ReduxCore/inc/welcome/welcome.php:356 sample/barebones-config.php:145
+#: sample/sample-config.php:184
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: ReduxCore/inc/welcome/welcome.php:353
+msgid "Credits"
+msgstr "سازندگان"
+
+#: ReduxCore/inc/welcome/welcome.php:350
+msgid "Changelog"
+msgstr "ثبت تغییرات"
+
+#: ReduxCore/inc/welcome/welcome.php:344
+msgid "What's New"
+msgstr "تازگی چه خبر"
+
+#: ReduxCore/inc/welcome/welcome.php:244
+msgid "Redux Framework Status"
+msgstr "وضعیت فریمورک ردوکس"
+
+#: ReduxCore/inc/welcome/views/support.php:101
+msgid "Listed below are the Wordpress plugins and/or theme installed on your site that utilize Redux Framework. We do not directly support products created with our framework.  It is the responsibility of the plugin or theme developer to support their work. You will need to contact the author(s) of the products listed below with your support questions."
+msgstr "افزونه های وردپرس و / یا مضمون نصب شده در سایت شما در لیست زیر وجود دارد که از فریمورک ردوکس استفاده می کنند. ما به طور مستقیم از محصولات ایجاد شده با چارچوب خود پشتیبانی نمی کنیم. این وظیفه افزونه یا توسعه دهنده موضوع است که از کارهای آنها پشتیبانی کند. شما باید سؤالات پشتیبانی خود را با نویسنده (بازدید کنندگان) محصولات ذکر شده در زیر تماس بگیرید."
+
+#: ReduxCore/inc/welcome/views/support.php:72
+msgid "I am a developer, building a product using Redux."
+msgstr "من یک توسعه دهنده هستم ، با استفاده از ردوکس ، محصولی را می سازم."
+
+#: ReduxCore/inc/welcome/views/support.php:35
+msgid "This will provide to your developer all the information they may need to remedy your issue. This action WILL send information securely to a remote server. To see the type of information sent, please look at the  <a href=\"%s\">Status tab</a>."
+msgstr "با این کار اطلاعاتی را که برای رفع مشکل شما نیاز دارند ، به توسعه دهنده شما ارائه می دهد.این اقدام اطلاعات را به صورت ایمن به سرور راه دور ارسال می کند.برای دیدن نوع اطلاعات ارسال شده ، لطفاً به <a href=\"%s\">برگه وضعیت</a>. مراجعه کنید."
+
+#: ReduxCore/inc/welcome/views/support.php:31
+msgid "To get started, we will need to generate a support hash."
+msgstr "برای شروع ، ما باید یک هش پشتیبانی را تولید کنیم."
+
+#: ReduxCore/inc/welcome/views/support.php:27
+msgid "Submit a Support Request"
+msgstr "درخواست پشتیبانی ارسال کنید"
+
+#: ReduxCore/inc/welcome/views/support.php:4
+msgid "We are an open source project used by developers to make powerful control panels."
+msgstr "ما یک پروژه منبع باز هستیم که توسط توسعه دهندگان برای ساخت پنل های کنترل قدرتمند از ان  استفاده می شود."
+
+#: ReduxCore/inc/welcome/views/status_report.php:761
+msgid "The parent theme developers URL."
+msgstr "آدرس اینترنتی برنامه نویسان قالب اصلی."
+
+#: ReduxCore/inc/welcome/views/status_report.php:754
+msgid "The installed version of the parent theme."
+msgstr "نسخه نصب شده از قالب اصلی."
+
+#: ReduxCore/inc/welcome/views/status_report.php:752
+msgid "Parent Theme Version"
+msgstr "نسخه قالب اصلی"
+
+#: ReduxCore/inc/welcome/views/status_report.php:747
+msgid "The name of the parent theme."
+msgstr "نام قالب اصلی."
+
+#: ReduxCore/inc/welcome/views/status_report.php:745
+msgid "Parent Theme Name"
+msgstr "نام قالب اصلی"
+
+#: ReduxCore/inc/welcome/views/status_report.php:737
+msgid "If you're modifying Redux Framework or a parent theme you didn't build personally, we recommend using a child theme. See: <a href=\"%s\" target=\"_blank\">How to create a child theme</a>"
+msgstr "اگر در حال تغییر دادن فریمورک ردوکس یا یک قالب اصلی هستید که شخصاً آن را ایجاد نکرده اید ، توصیه می کنیم از یک قالب چایلد استفاده کنید.مشاهده کنید: <a href=\"%s\" target=\"_blank\"> نحوه ایجاد یک قالب چایلد </a>"
+
+#: ReduxCore/inc/welcome/views/status_report.php:729
+msgid "The theme developers URL."
+msgstr "آدرس اینترنتی توسعه دهندگان قالب."
+
+#: ReduxCore/inc/welcome/views/status_report.php:728
+msgid "Author URL"
+msgstr "ادرس اینترنتی نویسنده"
+
+#: ReduxCore/inc/welcome/views/status_report.php:722
+msgid "is available"
+msgstr "در دسترس است"
+
+#: ReduxCore/inc/welcome/views/status_report.php:711
+msgid "The name of the current active theme."
+msgstr "نام قالب فعال فعلی."
+
+#: ReduxCore/inc/welcome/views/status_report.php:676
+msgid "Indicates the installed Redux extensions and their version numbers."
+msgstr "افزونه های نصب شده ردوکس و شماره نسخه آنها را نشان می دهد."
+
+#: ReduxCore/inc/welcome/views/status_report.php:650
+msgid "List of template files overriding the default Redux template files."
+msgstr "لیست پرونده های قالب حاوی پرونده های پیش فرض قالب ردوکس ."
+
+#: ReduxCore/inc/welcome/views/status_report.php:636
+msgid "The output_tag variable sets whether or not dynamic CSS will be generated for the customizer and Google fonts for this instance of Redux."
+msgstr "متغیر input_tag تعیین می کند که آیا CSS پویا برای دلخواه و قلم های گوگل برای این نمونه از ردوکس ایجاد می شود یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:631
+msgid "Indicates if output flag for globally shutting off all CSS output is enabled for this instance of Redux."
+msgstr "نشان می دهد که آیا پرچم خروجی برای خاموش کردن جهانی در کل خروجی CSS برای این نمونه از ردوکس فعال است."
+
+#: ReduxCore/inc/welcome/views/status_report.php:626
+msgid "Indicates if the compiler flag is enabled for this instance of Redux."
+msgstr "نشان می دهد که آیا پرچم کامپایلر برای این نمونه از ردوکس  فعال است یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:620
+msgid "The page parent variable sets where the options menu will be placed on the WordPress admin sidebar for this instance of Redux."
+msgstr "متغیر پدر و مادر صفحه را تعیین می کند که منوی تنظیمات ها در این بخش از ردوکس  در سایدبار مدیر وردپرس قرار خواهد گرفت."
+
+#: ReduxCore/inc/welcome/views/status_report.php:615
+msgid "This variable set whether or not the menu is displayed as an admin menu item for this instance of Redux."
+msgstr "این متغیر تنظیم می کند که آیا این منو به عنوان مورد منوی سرپرست برای این نمونه از ردوکس نمایش داده می شود یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:600
+msgid "Indicates if ajax based saving is enabled for this instance of Redux."
+msgstr "نشان می دهد که پس انداز آژاکس (ajax) برای این نمونه از ردوکس  فعال شده است یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:595
+msgid "Indicates if developer mode is enabled for this instance of Redux."
+msgstr "نشان می دهد که اگر حالت توسعه دهنده برای این نمونه از ردوکس فعال است یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:553
+msgctxt "by author"
+msgid "by %s"
+msgstr "توسط  %s"
+
+#: ReduxCore/inc/welcome/views/status_report.php:490
+msgid "Used to grab information from remote servers for updates updates."
+msgstr "برای گرفتن اطلاعات از سرورهای از راه دور برای به روزرسانی های به روز استفاده می شود."
+
+#: ReduxCore/inc/welcome/views/status_report.php:474
+msgid "Used to send data to remote servers."
+msgstr "برای ارسال داده به سرورهای از راه دور استفاده می شود."
+
+#: ReduxCore/inc/welcome/views/status_report.php:434
+msgid "Your server does not have fsockopen or cURL enabled - cURL is used to communicate with other servers. Please contact your hosting provider."
+msgstr "سرور شما fsockopen یا cURL را فعال نمی کند - از cURL برای برقراری ارتباط با دیگر سرورها استفاده می شود. لطفاً با ارائه دهنده میزبان خود تماس بگیرید."
+
+#: ReduxCore/inc/welcome/views/status_report.php:410
+msgid "Default Timezone is UTC"
+msgstr "پیش فرض منطقه زمانی UTC است"
+
+#: ReduxCore/inc/welcome/views/status_report.php:405
+msgid "The largest filesize that can be uploaded to your WordPress installation."
+msgstr "بزرگترین پرونده ای که می تواند در نصب وردپرس شما بارگذاری شود."
+
+#: ReduxCore/inc/welcome/views/status_report.php:404
+msgid "Max Upload Size"
+msgstr "حداکثر اندازه بارگذاری"
+
+#: ReduxCore/inc/welcome/views/status_report.php:376
+msgid "Determines if PHP will display errors within the browser."
+msgstr "تعیین می کند که PHP خطاها را در مرورگر نشان می دهد یا خیر."
+
+#: ReduxCore/inc/welcome/views/status_report.php:371
+msgid "The maximum number of variables your server can use for a single function to avoid overloads."
+msgstr "حداکثر تعداد متغیرهایی که سرور شما می تواند از یک تابع برای جلوگیری از اضافه بارها استفاده کند."
+
+#: ReduxCore/inc/welcome/views/status_report.php:360
+msgid "PHP Post Max Size"
+msgstr "حداکثر اندازه PHP ارسال"
+
+#: ReduxCore/inc/welcome/views/status_report.php:356
+#: ReduxCore/inc/welcome/views/status_report.php:361
+msgid "The largest filesize that can be contained in one post."
+msgstr "بزرگترین پرونده ای که می تواند در یک نوشته موجود باشد."
+
+#: ReduxCore/inc/welcome/views/status_report.php:355
+msgid "PHP Memory Limit"
+msgstr "محدودیت  حافظه PHP"
+
+#: ReduxCore/inc/welcome/views/status_report.php:346
+msgid "The ABSPATH variable on the server."
+msgstr "متغیر ABSPATH بر روی سرور."
+
+#: ReduxCore/inc/welcome/views/status_report.php:307
+msgid "Information about the web server that is currently hosting your site."
+msgstr "اطلاعات در مورد سرور وب که در حال حاضر میزبان سایت شما است."
+
+#: ReduxCore/inc/welcome/views/status_report.php:280
+msgid "Information about web browser current in use."
+msgstr "اطلاعات مربوط به مرورگر وب موجود در حال استفاده."
+
+#: ReduxCore/inc/welcome/views/status_report.php:258
+msgid "The current language used by WordPress. Default = English"
+msgstr "زبان فعلی مورد استفاده وردپرس است.پیشفرض = English"
+
+#: ReduxCore/inc/welcome/views/status_report.php:220
+msgid "%s - We recommend setting memory to at least 40MB. See: <a href=\"%s\" target=\"_blank\">Increasing memory allocated to PHP</a>"
+msgstr "%s -  توصیه می کنیم حافظه را حداقل 40 مگابایت تنظیم کنید. مشاهده کنید:<a href=\"%s\" target=\"_blank\">افزایش حافظه اختصاص داده شده به PHP</a>"
+
+#: ReduxCore/inc/welcome/views/status_report.php:213
+msgid "The maximum amount of memory (RAM) that your site can use at one time."
+msgstr "حداکثر مقدار حافظه (RAM) که سایت شما می تواند در یک زمان استفاده کند."
+
+#: ReduxCore/inc/welcome/views/status_report.php:210
+msgid "WP Memory Limit"
+msgstr "محدودیت حافظه WP"
+
+#: ReduxCore/inc/welcome/views/status_report.php:199
+msgid "The currently selected page in where blog posts are displayed."
+msgstr "صفحه انتخاب شده در حال حاضر که در آن پست های وبلاگ نمایش داده می شود."
+
+#: ReduxCore/inc/welcome/views/status_report.php:196
+msgid "Posts Page"
+msgstr "صفحه نوشته ها"
+
+#: ReduxCore/inc/welcome/views/status_report.php:185
+msgid "Front Page"
+msgstr "صفحه اول"
+
+#: ReduxCore/inc/welcome/views/status_report.php:174
+msgid "Front Page Display"
+msgstr "نمایش صفحه اول"
+
+#: ReduxCore/inc/welcome/views/status_report.php:165
+msgid "The current permalink structure as defined in Wordpress Settings->Permalinks."
+msgstr "ساختار پیوند مجدد فعلی همانطور که در تنظیمات وردپرس تعریف شده است  تنظیمات وردپرس-> لینک های یکتا."
+
+#: ReduxCore/inc/welcome/views/status_report.php:162
+msgid "Permalink Structure"
+msgstr "ساختار لینک های ثابت (Permalink Structure)"
+
+#: ReduxCore/inc/welcome/views/status_report.php:148
+msgid "WP Multisite"
+msgstr "WP Multisite"
+
+#: ReduxCore/inc/welcome/views/status_report.php:140
+msgid "The version of WordPress installed on your site."
+msgstr "نسخه وردپرس نصب شده در سایت شما."
+
+#: ReduxCore/inc/welcome/views/status_report.php:114
+msgid "Redux and its extensions write data to the <code>uploads</code> directory. This directory must be writable."
+msgstr "ردوکس و پسوندهای آن داده ها را در فهرست<code> بارگذاریها</code> می نویسند. این فهرست باید نوشته شود."
+
+#: ReduxCore/inc/welcome/views/status_report.php:100
+msgid "Redux Version"
+msgstr "نسخه ردوکس"
+
+#: ReduxCore/inc/welcome/views/status_report.php:92
+msgid "The root URL of your site."
+msgstr "آدرس اینترنتی اصلی سایت شما."
+
+#: ReduxCore/inc/welcome/views/status_report.php:89
+msgid "Site URL"
+msgstr "آدرس اینترنتی سایت"
+
+#: ReduxCore/inc/welcome/views/status_report.php:83
+msgid "The URL of your site's homepage."
+msgstr "آدرس صفحه اصلی سایت شما."
+
+#: ReduxCore/inc/welcome/views/status_report.php:80
+msgid "Home URL"
+msgstr "آدرس اینترنتی صفحه اصلی"
+
+#: ReduxCore/inc/welcome/views/status_report.php:63
+msgid "Copy for Support"
+msgstr "برای پشتیبانی کپی کنید"
+
+#: ReduxCore/inc/welcome/views/status_report.php:62
+msgid "Copied!"
+msgstr "کپی شد!"
+
+#: ReduxCore/inc/welcome/views/extensions.php:89
+msgid "While some are built specificially for developers, extensions such as Custom Fonts are sure to make any user happy."
+msgstr "در حالی که برخی به طور خاص برای توسعه دهندگان ساخته شده اند ، پسوندهایی مانند فونت های سفارشی مطمئناً هر کاربر را راضی می کند."
+
+#: ReduxCore/inc/welcome/views/extensions.php:73
+msgid "Redux Framework - Extensions"
+msgstr "فریمورک ردوکس - برنامه های افزودنی"
+
+#: ReduxCore/inc/welcome/views/credits.php:18
+msgid "Redux is created by a community of developers world wide. Want to have your name listed too? <a href=\"%d\" target=\"_blank\">Contribute to Redux</a>."
+msgstr "ردوکس  توسط جامعه ای از توسعه دهندگان در سراسر جهان ایجاد شده است. آیا می خواهید نام شما نیز ذکر شود؟<a href=\"%d\" target=\"_blank\">به ردوکس کمک کنید</a>."
+
+#: ReduxCore/inc/welcome/views/about.php:5
+msgid "Thank you for updating to the latest version! Redux Framework %s is a huge step forward in Redux Development. Look at all that's new."
+msgstr "با تشکر از شما برای به روز کردن آخرین نسخه! فریمورک ردوکس %s یک گام بزرگ در توسعه ردوکس است. به همه چیز جدید نگاه کنید."
+
+#: ReduxCore/inc/welcome/views/about.php:2
+msgid "Welcome to Redux Framework %s"
+msgstr "به چهارچوب ریداکس خوش آمدید %s"
+
+#: ReduxCore/inc/validation/unique_slug/validation_unique_slug.php:16
+msgid "That URL slug is in use, please choose another. <code>%s</code> is open for use."
+msgstr "آن نامک آدرس اینترنتی در حال استفاده است،لطفا یکی دیگر را انتخاب کنید.<code>%s</code> برای استفاده باز است."
+
+#: ReduxCore/inc/validation/not_empty/validation_not_empty.php:16
+msgid "This field cannot be empty. Please provide a value."
+msgstr "این فیلد نمی تواند خالی باشد لطفا یک مقدار پر کنید."
+
+#: ReduxCore/inc/validation/email/validation_email.php:16
+#: ReduxCore/inc/validation/email_not_empty/validation_email_not_empty.php:16
+msgid "You must provide a valid email for this option."
+msgstr "شما باید یک ایمیل معتبر برای این گزینه فراهم کنید ."
+
+#: ReduxCore/inc/validation/date/validation_date.php:16
+msgid "This field must be a valid date."
+msgstr "این فیلد باید دارای یک تاریخ معتبر باشد."
+
+#: ReduxCore/inc/validation/comma_numeric/validation_comma_numeric.php:16
+msgid "You must provide a comma separated list of numerical values for this option."
+msgstr "شما باید یک لیست که مقادیر عددی با کاما جدا شده باشند را برای این گزینه فراهم  کنید ."
+
+#: ReduxCore/inc/tracking.php:163
+msgid "Subscribe"
+msgstr "اشتراک گذاری"
+
+#: ReduxCore/inc/tracking.php:156
+msgid "If you'd like to keep up to with all things Redux, please subscribe to our newsletter"
+msgstr "اگر می خواهید با همه موارد ردوکس همراه باشید ، لطفا در خبرنامه ما عضو شوید"
+
+#: ReduxCore/inc/tracking.php:155
+msgid "leave us a favorable review on WordPress.org"
+msgstr "یک دیدگاه مطلوب در WordPress.org بگذارید"
+
+#: ReduxCore/inc/tracking.php:155
+msgid "If so, please %1$s and consider making a %2$s to keep development of Redux moving forward."
+msgstr "در این صورت ، لطفاً  %1$s را در نظر بگیرید و %2$s را برای ادامه روند پیشرفت ردوکس در نظر بگیرید."
+
+#: ReduxCore/inc/tracking.php:152
+msgid "This panel demonstrates the many features of Redux.  Before digging in, we suggest you get up to speed by reviewing %1$s."
+msgstr "این پنل ویژگی های بسیاری از ردوکس را نشان می دهد.  قبل از حفر ، پیشنهاد می کنیم با بررسی%1$s. سرعت خود را افزایش دهید."
+
+#: ReduxCore/inc/tracking.php:152
+msgid "Getting Started"
+msgstr "شروع کنید"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:36
+msgid "It appears that you have embedded the full Redux package inside your theme. You need only embed the <strong>ReduxCore</strong> folder. Embedding anything else will get your rejected from theme submission. Suspected Redux package file(s):"
+msgstr "به نظر می رسد که شما بسته کامل ردوکس  را درون طرح خود تعبیه کرده اید.شما فقط باید پوشه<strong>هسته ردوکس</strong> را جاسازی کنید. جاسازی هر چیز دیگری شما را از ارسال موضوع رد می کند. پرونده بسته مشکوک ردوکس:"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:23
+msgid "PHP Unit Testing"
+msgstr "تست واحد PHP"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:22
+msgid "CI Testing FIle"
+msgstr "فایل تست CI"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:21
+msgid "Redux Boostrap Tests"
+msgstr "تست های بوت استرپ ردوکس"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:20
+msgid "Redux Plugin File"
+msgstr "فایل افزونه ردوکس"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:19
+msgid "Redux Unit Testing"
+msgstr "تست واحد ردوکس"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:18
+msgid "Redux Code Styles"
+msgstr "کدهای استایل ردوکس"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:17
+msgid "Redux Resting Diles"
+msgstr "Redux Resting Diles"
+
+#: ReduxCore/inc/themecheck/checks/full_package.php:16
+msgid "Redux localization utilities"
+msgstr "برنامه های محلی سازی ردوکس"
+
+#: ReduxCore/inc/themecheck/checks/embedded.php:40
+msgid "<span class=\"tc-lead tc-recommended\">RECOMMENDED</span>: The following arguments MUST be used for WP.org submissions, or you will be rejected because of your Redux configuration."
+msgstr "<span class=\"tc-lead tc-recommended\">توصیه شده</span>: آرگومان های زیر برای ارسال WP.org باید استفاده شود ، یا به دلیل پیکربندی ردوکس خود رد خواهید شد."
+
+#: ReduxCore/inc/themecheck/checks/embedded.php:38
+msgid "Optional"
+msgstr "اختیاری"
+
+#: ReduxCore/inc/themecheck/checks/embedded.php:24
+msgid "<span class=\"tc-lead tc-required\">REQUIRED</span>: You MUST delete <strong> %s </strong>, or your theme will be rejected by WP.org theme submission because of Redux."
+msgstr "<span class=\"tc-lead tc-required\">ضروری</span>:شما باید<strong> %s </strong>,یا قالب شما به دلیل ردوکس توسط ارسال قالب WP.org رد می شود."
+
+#: ReduxCore/inc/themecheck/checks/embedded.php:15
+msgid "<span class=\"tc-lead tc-recommended\">RECOMMENDED</span>: If you are submitting to WordPress.org Theme Repository, it is <strong>strongly</strong> suggested that you read <a href=\"%s\" target=\"_blank\">this document</a>, or your theme will be rejected because of Redux."
+msgstr "<span class=\"tc-lead tc-recommended\">توصیه شده</span>:اگر در حال ارسال به مخزن قالب WordPress.org هستید ،<strong> به شدت</strong>پیشنهاد شده است که  <a href=\"%s\" target=\"_blank\">این سند را بخوانید</a>، یا قالب شما به دلیل ردوکس رد می شود."
+
+#: ReduxCore/inc/fields/typography/field_typography.php:913
+msgid "Standard Fonts"
+msgstr "فونت های استاندارد"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:441
+#: ReduxCore/inc/fields/typography/field_typography.php:442
+msgid "Line Height"
+msgstr "ارتفاع خط"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:432
+#: ReduxCore/inc/fields/typography/field_typography.php:433
+msgid "Font Size"
+msgstr "اندازه فونت"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:342
+#: ReduxCore/inc/fields/typography/field_typography.php:343
+#: ReduxCore/inc/fields/typography/field_typography.php:344
+msgid "Text Align"
+msgstr "تراز متن"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:323
+msgid "Font Subsets"
+msgstr "زیر مجموعه های فونت"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:281
+msgid "Style"
+msgstr "سبک"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:274
+msgid "Font Weight &amp; Style"
+msgstr "عرض فونت  &amp; سبک"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:273
+#: ReduxCore/inc/fields/typography/field_typography.php:281
+msgid "Font style"
+msgstr "سبک فونت"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:232
+msgid "Font family"
+msgstr "خانواده فونت"
+
+#: ReduxCore/inc/fields/typography/field_typography.php:231
+msgid "Font Family"
+msgstr "خانواده فونت"
+
+#: ReduxCore/inc/fields/switch/field_switch.php:41
+msgid "On"
+msgstr "روشن"
+
+#: ReduxCore/inc/fields/slides/field_slides.php:223
+msgid "Add %s"
+msgstr "اضافه کردن %s"
+
+#: ReduxCore/inc/fields/slides/field_slides.php:153
+#: ReduxCore/inc/fields/slides/field_slides.php:207
+msgid "URL"
+msgstr "نشانی"
+
+#: ReduxCore/inc/fields/slides/field_slides.php:73
+#: ReduxCore/inc/fields/slides/field_slides.php:174
+msgid "New %s"
+msgstr "جدید %s"
+
+#: ReduxCore/inc/fields/link_color/field_link_color.php:94
+msgid "Hover"
+msgstr "شناور"
+
+#: ReduxCore/inc/fields/gallery/field_gallery.php:74
+msgid "Clear Gallery"
+msgstr "پاک کردن گالری"
+
+#: ReduxCore/inc/fields/gallery/field_gallery.php:73
+#: sample/sample-config.php:915
+msgid "Add/Edit Gallery"
+msgstr "افزودن / ویرایش گالری"
+
+#: ReduxCore/inc/fields/color_gradient/field_color_gradient.php:82
+msgid "To "
+msgstr "به "
+
+#: ReduxCore/inc/fields/media/field_media.php:206
+#: ReduxCore/inc/fields/background/field_background.php:314
+#: ReduxCore/inc/fields/slides/field_slides.php:126
+#: ReduxCore/inc/fields/slides/field_slides.php:188
+msgid "Upload"
+msgstr "بارگذاری"
+
+#: ReduxCore/inc/fields/media/field_media.php:153
+#: ReduxCore/inc/fields/background/field_background.php:277
+msgid "No media selected"
+msgstr "هیچ فایلی انتخاب نشده"
+
+#: ReduxCore/inc/fields/background/field_background.php:223
+msgid "Background Position"
+msgstr "موقعیت پس‌زمینه"
+
+#: ReduxCore/inc/fields/background/field_background.php:141
+msgid "Background Repeat"
+msgstr "تکرار پس‌زمینه"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:134
+msgid "Copy Export URL"
+msgstr "آدرس برون ریزی را کپی کنید"
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:111
+msgid "Input the URL to another sites options set and hit Import to load the options from that site."
+msgstr "آدرس بک آپ را در این قسمت وارد کنید و با زدن دکمه درون ریزی تنظیمات سایت را از آدرس بک آپ بازگردانید."
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:124
+msgid "Here you can copy/download your current option settings. Keep this safe as you can use it as a backup should anything go wrong, or you can use it to restore your settings on this site (or any other site)."
+msgstr "در اینجا می توانید تنظیمات فعلی خود را کپی/ دانلود کنید. فایل را در جایی امن نگهدارید؛ چرا که اگر مشکل پیش بیاید، می توانید از آن برای بازگردانی تنظیمات در این وب سایت یا هر وب سایت دیگری استفاده کنید."
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:104
+msgid "Input your backup file below and hit Import to restore your sites options from a backup."
+msgstr "فایل بک آپ خود را در این قسمت وارد کنید و با زدن دکمه درون ریزی تنظیمات سایت را از فایل بک آپ بازگردانید."
+
+#: ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:98
+msgid "Import from URL"
+msgstr "درون ریزی از آدرس"
+
+#: ReduxCore/inc/extensions/customizer/extension_customizer.php:726
+msgid "Your current options will be replaced with the values of this preset.  Would you like to proceed?"
+msgstr "تنظیمات های فعلی شما با مقادیر از پیش تعیین شده جایگزین می شوند.  آیا مایل به ادامه هستید؟"
+
+#: ReduxCore/inc/extensions/customizer/extension_customizer.php:725
+msgid "Are you sure?  Resetting will lose all custom values."
+msgstr "آیا مطمئن هستید ؟ تمام مقادیر وارد شده از بین خواهند رفت."
+
+#: ReduxCore/inc/extensions/customizer/extension_customizer.php:724
+msgid "You have changes that are not saved.  Would you like to save them now?"
+msgstr "شما تغییرات ذخیره نشده ای دارید. آیا می خواهید آنها را ذخیره کنید؟"
+
+#: ReduxCore/inc/extensions/options_object/options_object/field_options_object.php:104
+#: ReduxCore/inc/extensions/options_object/extension_options_object.php:82
+msgid "Options Object"
+msgstr "تنظیمات اشیاء"
+
+#: ReduxCore/inc/class.redux_helpers.php:657
+msgid "<code>%s</code> version <strong style=\"color:red\">%s</strong> is out of date. The core version is %s"
+msgstr "<code>%s</code> نسخه <strong style=\"color:red\">%s</strong>قدیمی نیست .نسخه %s اصلی است"
+
+#: ReduxCore/inc/class.redux_filesystem.php:50
+#: ReduxCore/inc/class.redux_filesystem.php:289
+msgid "We were unable to modify required files. Please ensure that <code>%1s</code> has the proper read-write permissions, or modify your wp-config.php file to contain your FTP login credentials as <a href=\"%2s\" target=\"_blank\">outlined here</a>."
+msgstr "ما نتوانستیم پرونده های مورد نیاز را اصلاح کنیم. لطفاً اطمینان حاصل کنید که <code>%1s</code> از مجوز خواندن و نوشتن مناسب برخوردار است ، یا فایل wp-config.php خود را اصلاح کنید تا اطلاعات ورود به سیستم FTP شما به عنوان <a href=\"%2s\" target=\"_blank\"> باشد در اینجا مشخص شده است </a>."
+
+#: ReduxCore/inc/class.redux_cdn.php:76
+msgid "If you are developing offline, please download and install the <a href=\"%s\" target=\"_blank\">Redux Vendor Support</a> plugin/extension to bypass the our CDN and avoid this warning"
+msgstr "اگر به صورت آفلاین در حال توسعه هستید ، لطفاً افزونه <a href=\"%s\" target=\"_blank\">پشتیبانی فروشنده ی ردوکس</a>  را بارگیری کرده و از این هشدار جلوگیری کنید"
+
+#: ReduxCore/framework.php:2775
+msgid "Invalid security credential.  Please reload the page and try again."
+msgstr "اعتبارنامه امنیتی نامعتبر است.  لطفا صفحه را مجددا بارگذاری کنید و دوباره تلاش کنید."
+
+#: ReduxCore/framework.php:1895
+msgid "Default"
+msgstr "پیش‌فرض"
+
+#: ReduxCore/framework.php:1763
+msgid "Hints are tooltips that popup when %d the hint icon, offering addition information about the field in which they appear.  They can be %d d by using the link below."
+msgstr "نکات راهنمایی های ابزار است که وقتی %d نماد اشاره را نشان می دهد ، اطلاعات دیگری درباره زمینه ای که در آن ظاهر می شود ارائه می دهد. با استفاده از پیوند زیر می توانند %d باشند."
+
+#: ReduxCore/framework.php:1746
+msgid "Enable"
+msgstr "فعال"
+
+#: ReduxCore/framework.php:221
+msgid "Options panel created using %1$s"
+msgstr "پنل تنظیمات ها با استفاده از%1$s ایجاد شد"
+
+#: ReduxCore/core/panel.php:312
+msgid "<strong>Your panel has bundled outdated copies of Redux Framework template files</strong> &#8211; if you encounter functionality issues this could be the reason. Ensure you update or remove them."
+msgstr "<strong>پنل شما نسخه های قدیمی از پرونده های قالب فریمورک ردوکس را بهم پیوسته است</strong> &#8211;اگر با مشکلات عملکردی روبرو شدید می تواند دلیل این امر باشد. اطمینان حاصل کنید که آنها را به روز کنید یا حذف کنید."
+
+#: ReduxCore/core/panel.php:220
+msgid "warning(s) were found!"
+msgstr "اخطار(هایی) پیدا شده اند!"
+
+#: ReduxCore/core/enqueue.php:504
+msgid "There was an error saving. Here is the result of your action:"
+msgstr "هنگام ذخیره خطایی روی داد در اینجا نتیجه عمل شما آمده است:"
+
+#: ReduxCore/inc/extensions/customizer/extension_customizer.php:691
+#: ReduxCore/core/enqueue.php:476
+msgid "Your current options will be replaced with the values of this preset. Would you like to proceed?"
+msgstr "تنظیمات های فعلی شما با مقادیر از پیش تعیین شده جایگزین می شوند. آیا مایل به ادامه هستید؟"
+
+#: ReduxCore/core/enqueue.php:468
+msgid "Are you sure? Resetting will lose all custom values in this section."
+msgstr "آیا مطمئن هستید ؟ تمام مقادیر وارد شده در این بخش از بین خواهند رفت."
+
+#: ReduxCore/inc/fields/spacing/field_spacing.php:229
+#: ReduxCore/inc/fields/border/field_border.php:152
+msgid "Bottom"
+msgstr "پایین"
+
+#: ReduxCore/inc/extensions/import_export/import_export/class-redux-import-export.php:83
+msgid "Import from Clipboard"
+msgstr "درون ریزی از کیبورد"
+
+#: ReduxCore/inc/extensions/import_export/import_export/class-redux-import-export.php:89
+msgid "Upload file"
+msgstr "بارگذاری فایل"
+
+#: ReduxCore/inc/extensions/import_export/import_export/class-redux-import-export.php:96
+msgid "Paste your clipboard data here."
+msgstr "داده های کیبورد خود را اینجا بگذارید."
+
+#: ReduxCore/inc/extensions/import_export/import_export/class-redux-import-export.php:133
+msgid "Copy to Clipboard"
+msgstr "کپی در کیبورد"
+
+#: ReduxCore/inc/extensions/import_export/import_export/class-redux-import-export.php:136
+msgid "Export File"
+msgstr "برون بری در قالب فایل"

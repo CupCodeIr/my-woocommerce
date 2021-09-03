@@ -1,0 +1,207 @@
+# Copyright (C) 2021 Artin
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: CupCode Sample Plugin 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cupcode-sample-"
+"plugin\n"
+"POT-Creation-Date: 2021-09-02T06:38:57+00:00\n"
+"PO-Revision-Date: 2021-09-02 11:12+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: cupcode-sample-text-domain\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+
+#. Plugin Name of the plugin
+msgid "CupCode Sample Plugin"
+msgstr "افزونه نمونه کاپ کد"
+
+#. Plugin URI of the plugin
+msgid "https://cupcode.xyz/en/portfolio/cupcode-sample-plugin"
+msgstr "https://cupcode.xyz/portfolio/cupcode-sample-plugin"
+
+#. Description of the plugin
+msgid "CupCode sample plugin which implements Redux.io option panel."
+msgstr "افزونه نمونه کاپ کد که دارای پنل تنظیمات Redux.io است."
+
+#. Author of the plugin
+msgid "Artin"
+msgstr "آرتین"
+
+#. Author URI of the plugin
+#. translators: Plugin author website link
+#: settings/init.php:38
+msgid "https://cupcode.xyz/en"
+msgstr "https://cupcode.xyz"
+
+#: cupcode-sample-plugin.php:55
+msgid ""
+"CupCode Sample plugin is dependent to Woocommerce and Digits plugins but at "
+"least one of them is not active!"
+msgstr ""
+"افزونه نمونه کاپ کد وابسته به افزونه های دیجیتس و ووکامرس است ولی دستکم یکی "
+"از آن ها فعال نیست!"
+
+#: settings/init.php:9 settings/init.php:12 settings/init.php:13
+msgctxt "options-panel"
+msgid "Sample Options"
+msgstr "تنظیمات نمونه"
+
+#: settings/init.php:21
+msgctxt "options-panel"
+msgid "https://github.com/cupcodeir"
+msgstr "https://github.com/cupcodeir"
+
+#: settings/init.php:22
+msgctxt "options-panel"
+msgid "Follow us on Github"
+msgstr "ما را در گیت هاب دنبال کنید"
+
+#: settings/init.php:26
+msgctxt "options-panel"
+msgid "https://instagram.com/cup_code/"
+msgstr "https://instagram.com/cup_code/"
+
+#: settings/init.php:27
+msgctxt "options-panel"
+msgid "Follow us on Instagram"
+msgstr "ما را در اینستاگرام دنبال کنید"
+
+#: settings/init.php:31
+msgctxt "options-panel"
+msgid "https://t.me/cupcode"
+msgstr "https://t.me/cupcode_ir"
+
+#: settings/init.php:32
+msgctxt "options-panel"
+msgid "Follow us on Telegram"
+msgstr "ما را در تلگرام دنبال کنید"
+
+#. translators: Plugin author website link
+#: settings/init.php:38
+msgctxt "options-panel"
+msgid "We are so happy that you use %s services."
+msgstr "بسیار خوشنودیم که از خدمات %s بهره می برید."
+
+#. translators: Plugin author website link
+#: settings/init.php:38
+msgid "CupCode"
+msgstr "کاپ کد"
+
+#. translators: Placeholder will be replaced by current year date
+#: settings/init.php:40
+msgctxt "options-panel"
+msgid "&copy; %s All rights reserved."
+msgstr "&copy; %s تمامی حقوق محفوظ است."
+
+#: settings/init.php:46
+msgid "This is the sidebar content, HTML is allowed."
+msgstr "این محتوای سایدبار است، تنها HTML مجاز است."
+
+#: settings/init.php:51
+msgid "Theme Information 1"
+msgstr "اطلاعات پوسته 1"
+
+#: settings/init.php:52 settings/init.php:57
+msgid "This is the tab content, HTML is allowed."
+msgstr "این محتوای سایدبار است، تنها HTML مجاز است."
+
+#: settings/init.php:56
+msgid "Theme Information 2"
+msgstr "اطلاعات پوسته 2"
+
+#: settings/init.php:65
+msgid "General Settings"
+msgstr "تنظیمات عمومی"
+
+#: settings/init.php:67
+msgid "General settings are presented here."
+msgstr "تنظیمات عمومی در این قسمت هستند."
+
+#: settings/init.php:75
+msgid "Example Text"
+msgstr "متن نمونه"
+
+#: settings/init.php:76
+msgid "Example description."
+msgstr "توضیح نمونه."
+
+#: settings/init.php:77
+msgid "Example subtitle."
+msgstr "زیرنویس نمونه."
+
+#: settings/init.php:79
+msgid ""
+"This is a <b>hint</b> tool-tip for the text field.<br/><br/>Add any HTML "
+"based text you like here."
+msgstr ""
+"این یک <b>راهنمایی</b> هشدار گونه برای فیلد متنی است.<br/><br/>هر متن بر "
+"پایه HTML که دوست دارید را اینجا وارد کنید."
+
+#: settings/init.php:86
+msgid "Data Cleansing"
+msgstr "پاکسازی داده ها"
+
+#: settings/init.php:88
+msgid "Decide which data should be removed when plugin uninstalled."
+msgstr ""
+"این که چه داده هایی در هنگام حذف افزونه بمانند در این قسمت قابل تنظیم است."
+
+#: settings/init.php:95
+msgctxt "options-panel"
+msgid "Delete All"
+msgstr "همگی پاک شوند"
+
+#: settings/init.php:96
+msgctxt "options-panel"
+msgid "All data will be removed"
+msgstr "همه داده ها پاک خواهند شد"
+
+#: settings/init.php:103
+msgctxt "options-panel"
+msgid "Delete Settings"
+msgstr "تنظیمات پاک شوند"
+
+#: settings/init.php:104
+msgctxt "options-panel"
+msgid "All settings data will be removed"
+msgstr "تمام داده های مربوط به تنظیمات پاک خواهند شد"
+
+#~ msgctxt "plugin-details"
+#~ msgid "CupCode Sample Plugin"
+#~ msgstr "افزونه نمونه کاپ کد"
+
+#~ msgctxt "plugin-details"
+#~ msgid "CupCode sample plugin which implements Redux.io option panel."
+#~ msgstr "افزونه نمونه کاپ کد که دارای پنل تنظیمات Redux.io است."
+
+#~ msgctxt "plugin-details"
+#~ msgid "Artin"
+#~ msgstr "آرتین"
+
+#~ msgctxt "plugin-details"
+#~ msgid "https://cupcode.xyz/en"
+#~ msgstr "https://cupcode.xyz"
+
+#~ msgctxt "plugin-details"
+#~ msgid "https://cupcode.xyz/en/portfolio/cupcode-sample-plugin"
+#~ msgstr "https://cupcode.xyz/portfolio/cupcode-sample-plugin"
+
+#~ msgctxt "plugin-details"
+#~ msgid "CupCode sample plugin which implements Redux.io option panel"
+#~ msgstr "افزونه نمونه کاپ کد که دارای پنل تنظیمات Redux.io است."
+
+#~ msgid ""
+#~ "Welcome to your plugin settings panel. Here you can manage every "
+#~ "functionality of your plugin."
+#~ msgstr ""
+#~ "به پنل تنظیمات افزونه خود خوش آمدید. در این جا می توانید تمام قابلیت های "
+#~ "افزونه تان را مدیریت کنید."
+
+#~ msgid "Basic Field"
+#~ msgstr "فیلد پایه"

@@ -1,0 +1,8 @@
+<wpml-config>
+    <admin-texts>
+        <key name="cupcode_mywc_settings">
+            <key name="customer-attr-page-title"></key>
+            <key name="customer-attr-page-intro"></key>
+        </key>
+    </admin-texts>
+</wpml-config>

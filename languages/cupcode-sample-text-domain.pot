@@ -1,0 +1,164 @@
+# Copyright (C) 2021 Artin
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: CupCode Sample Plugin 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cupcode-sample-plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-09-02T06:38:57+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: cupcode-sample-text-domain\n"
+
+#. Plugin Name of the plugin
+msgid "CupCode Sample Plugin"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://cupcode.xyz/en/portfolio/cupcode-sample-plugin"
+msgstr ""
+
+#. Description of the plugin
+msgid "CupCode sample plugin which implements Redux.io option panel."
+msgstr ""
+
+#. Author of the plugin
+msgid "Artin"
+msgstr ""
+
+#. Author URI of the plugin
+#. translators: Plugin author website link
+#: settings/init.php:38
+msgid "https://cupcode.xyz/en"
+msgstr ""
+
+#: cupcode-sample-plugin.php:55
+msgid "CupCode Sample plugin is dependent to Woocommerce and Digits plugins but at least one of them is not active!"
+msgstr ""
+
+#: settings/init.php:9
+#: settings/init.php:12
+#: settings/init.php:13
+msgctxt "options-panel"
+msgid "Sample Options"
+msgstr ""
+
+#: settings/init.php:21
+msgctxt "options-panel"
+msgid "https://github.com/cupcodeir"
+msgstr ""
+
+#: settings/init.php:22
+msgctxt "options-panel"
+msgid "Follow us on Github"
+msgstr ""
+
+#: settings/init.php:26
+msgctxt "options-panel"
+msgid "https://instagram.com/cup_code/"
+msgstr ""
+
+#: settings/init.php:27
+msgctxt "options-panel"
+msgid "Follow us on Instagram"
+msgstr ""
+
+#: settings/init.php:31
+msgctxt "options-panel"
+msgid "https://t.me/cupcode"
+msgstr ""
+
+#: settings/init.php:32
+msgctxt "options-panel"
+msgid "Follow us on Telegram"
+msgstr ""
+
+#. translators: Plugin author website link
+#: settings/init.php:38
+msgctxt "options-panel"
+msgid "We are so happy that you use %s services."
+msgstr ""
+
+#. translators: Plugin author website link
+#: settings/init.php:38
+msgid "CupCode"
+msgstr ""
+
+#. translators: Placeholder will be replaced by current year date
+#: settings/init.php:40
+msgctxt "options-panel"
+msgid "&copy; %s All rights reserved."
+msgstr ""
+
+#: settings/init.php:46
+msgid "This is the sidebar content, HTML is allowed."
+msgstr ""
+
+#: settings/init.php:51
+msgid "Theme Information 1"
+msgstr ""
+
+#: settings/init.php:52
+#: settings/init.php:57
+msgid "This is the tab content, HTML is allowed."
+msgstr ""
+
+#: settings/init.php:56
+msgid "Theme Information 2"
+msgstr ""
+
+#: settings/init.php:65
+msgid "General Settings"
+msgstr ""
+
+#: settings/init.php:67
+msgid "General settings are presented here."
+msgstr ""
+
+#: settings/init.php:75
+msgid "Example Text"
+msgstr ""
+
+#: settings/init.php:76
+msgid "Example description."
+msgstr ""
+
+#: settings/init.php:77
+msgid "Example subtitle."
+msgstr ""
+
+#: settings/init.php:79
+msgid "This is a <b>hint</b> tool-tip for the text field.<br/><br/>Add any HTML based text you like here."
+msgstr ""
+
+#: settings/init.php:86
+msgid "Data Cleansing"
+msgstr ""
+
+#: settings/init.php:88
+msgid "Decide which data should be removed when plugin uninstalled."
+msgstr ""
+
+#: settings/init.php:95
+msgctxt "options-panel"
+msgid "Delete All"
+msgstr ""
+
+#: settings/init.php:96
+msgctxt "options-panel"
+msgid "All data will be removed"
+msgstr ""
+
+#: settings/init.php:103
+msgctxt "options-panel"
+msgid "Delete Settings"
+msgstr ""
+
+#: settings/init.php:104
+msgctxt "options-panel"
+msgid "All settings data will be removed"
+msgstr ""
