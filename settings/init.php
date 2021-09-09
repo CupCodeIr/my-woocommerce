@@ -46,9 +46,13 @@ Redux::set_help_sidebar(CC_MYWC_PLUGIN_SLUG . '_settings', '<p>' . __('Here you 
 
 Redux::set_help_tab(CC_MYWC_PLUGIN_SLUG . '_settings', [
 
-    ['id' => 'redux-help-tab-1',
+    ['id' => CC_MYWC_PLUGIN_SLUG . '-help-attribute-management-page',
         'title' => esc_html__('Attributes Management Page', 'cupcode-mywc'),
         'content' => '<p>' . esc_html__('You can change Customer Attributes management page endpoint in WooCommerce Settings page on the Advanced tab.', 'cupcode-mywc') . '</p>'
+    ],
+    ['id' => CC_MYWC_PLUGIN_SLUG . '-help-guest-mode',
+        'title' => esc_html__('Guest Mode', 'cupcode-mywc'),
+        'content' => '<p>' . esc_html__('In guest mode, cookies will be used as type of storage.', 'cupcode-mywc') . '</p>'
     ]
 
 ]);
@@ -60,18 +64,27 @@ Redux::set_sections(CC_MYWC_PLUGIN_SLUG . '_settings', [
         'desc' => esc_html__('General settings are presented here.', 'cupcode-mywc'),
         'icon' => 'el el-home',
         'fields' => [
-//            [
-//                'id' => 'customer-attr-add-limit',
-//                'type' => 'text',
-//                'default' => '5',
-//                'validate' => ['not_empty','numeric'],
-//                'title' => esc_html__("Customer's Attributes Limit", 'cupcode-mywc'),
-//                'desc' => esc_html__('Limit for adding new attributes for customers.', 'cupcode-mywc'),
-//                'subtitle' => esc_html__('How many attribute set can be added by customer?', 'cupcode-mywc'),
-//                'hint' => [
-//                    'content' => __('This is a <b>hint</b> tool-tip for the text field.<br/><br/>Add any HTML based text you like here.','cupcode-mywc'),
-//                ]
-//            ],
+            [
+                'id' => 'storage-mode',
+                'type' => 'select',
+                'options' => [
+                    'database' => esc_html__("Database", 'cupcode-mywc'),
+                    'cookie' => esc_html__("Cookie", 'cupcode-mywc')
+                ],
+                'default' => 'database',
+                'title' => esc_html__("Storage Mode", 'cupcode-mywc'),
+                'desc' => esc_html__('Choose which storage type should be used.', 'cupcode-mywc'),
+                'subtitle' => esc_html__('For websites with large number of users, Cookie is better but Database is more futuristic.', 'cupcode-mywc'),
+            ],
+            [
+                'id' => 'guest-use',
+                'type' => 'checkbox',
+                'default' => '1',
+                'title' => esc_html__("Guest Mode", 'cupcode-mywc'),
+                'desc' => esc_html__('Let guest users add attributes', 'cupcode-mywc'),
+                'subtitle' => esc_html__('By checking this option, every visitor can add attributes without need to login.', 'cupcode-mywc'),
+            ],
+
         ],
 
     ],
@@ -98,7 +111,7 @@ Redux::set_sections(CC_MYWC_PLUGIN_SLUG . '_settings', [
                 'desc' => esc_html__('Limit for new attributes added by customers.', 'cupcode-mywc'),
                 'subtitle' => esc_html__('How many attribute sets can customer add?', 'cupcode-mywc'),
             ],
-                    [
+            [
                 'id' => 'customer-attr-add-same-multiple',
                 'type' => 'checkbox',
                 'default' => '1',
@@ -177,6 +190,14 @@ Redux::set_sections(CC_MYWC_PLUGIN_SLUG . '_settings', [
                 'required' => ['dc_all', '!=', '1'],
                 'title' => esc_html_x('Delete Settings', 'options-panel', 'cupcode-mywc'),
                 'subtitle' => esc_html_x('All settings data will be removed', 'options-panel', 'cupcode-mywc'),
+            ],
+            [
+                'id' => 'dc_attributes',
+                'type' => 'checkbox',
+                'default' => '0',
+                'required' => ['dc_all', '!=', '1'],
+                'title' => esc_html_x('Delete Attributes Data', 'options-panel', 'cupcode-mywc'),
+                'subtitle' => esc_html_x('All attributes data will be removed', 'options-panel', 'cupcode-mywc'),
             ],
         ],
 

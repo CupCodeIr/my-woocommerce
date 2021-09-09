@@ -43,12 +43,36 @@ if (class_exists('ReduxFramework')) {
 }
 
 
+\CupCode\MyWooCommerce\Attribute::get_instance(CC_MYWC_PLUGIN_SLUG);
+
+
 /**
  * Enqueue styles and scripts for non-admin environment
  */
 add_action('wp_enqueue_scripts', function () {
 
 
+});
+
+/**
+ * Enqueue styles and scripts for admin environment
+ */
+add_action('admin_enqueue_scripts', function ($hook) {
+
+    global $post_type;
+    if(is_admin() && $hook === 'post-new.php' && $post_type ===  CC_MYWC_PLUGIN_SLUG . '_sa'){
+        $locale = (explode('_',get_locale()))[0];
+        wp_enqueue_style(CC_MYWC_PLUGIN_SLUG . '-select2', CC_MYWC_PLUGIN_URL . 'assets/css/select2.min.css', array(), false, false);
+        wp_enqueue_script(CC_MYWC_PLUGIN_SLUG . '-select2', CC_MYWC_PLUGIN_URL . 'assets/js/select2/select2.min.js', [], false, true);
+        wp_localize_script(CC_MYWC_PLUGIN_SLUG . '-select2',  'select2_vars', [
+            'plugin_slug' => CC_MYWC_PLUGIN_SLUG,
+            'is_rtl' => is_rtl() ? 'true' : 'false',
+            'language' => $locale
+        ]);
+        wp_enqueue_script(CC_MYWC_PLUGIN_SLUG . '-select2-lang', CC_MYWC_PLUGIN_URL . 'assets/js/select2/i18n/' . $locale . '.js', [], false, true);
+        wp_enqueue_script(CC_MYWC_PLUGIN_SLUG . '-attributes-edit-post', CC_MYWC_PLUGIN_URL . 'assets/js/admin/attributes-edit-post.js', [], false, true);
+
+    }
 });
 
 /**
