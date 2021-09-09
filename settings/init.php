@@ -98,7 +98,7 @@ Redux::set_sections(CC_MYWC_PLUGIN_SLUG . '_settings', [
                 'desc' => esc_html__('Limit for new attributes added by customers.', 'cupcode-mywc'),
                 'subtitle' => esc_html__('How many attribute sets can customer add?', 'cupcode-mywc'),
             ],
-            [
+                    [
                 'id' => 'customer-attr-add-same-multiple',
                 'type' => 'checkbox',
                 'default' => '1',

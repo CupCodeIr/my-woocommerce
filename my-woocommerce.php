@@ -38,6 +38,8 @@ if (!class_exists('ReduxFramework') && file_exists(CC_MYWC_PLUGIN_PATH . '/setti
  **/
 if (class_exists('ReduxFramework')) {
     require_once CC_MYWC_PLUGIN_PATH . '/settings/init.php';
+    require_once CC_MYWC_PLUGIN_PATH . '/includes/class/Autoloader.php';
+
 }
 
 
