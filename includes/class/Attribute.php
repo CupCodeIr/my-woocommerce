@@ -13,9 +13,16 @@ abstract class Attribute
 
     protected $wpdb;
 
+    protected function __construct()
+    {
+    }
+
     abstract public static function get_instance(): Attribute;
 
-    abstract protected function init();
+    protected function init(){
+        global $wpdb;
+        $this->wpdb = $wpdb;
+    }
 
     abstract public function register_attribute_post_type(): bool;
 
@@ -34,19 +41,22 @@ abstract class Attribute
 
     protected function get_post_attribute_meta($post_id,$type = 'all') : array
     {
-        $all_meta = $this->wpdb->get_results("select meta_key, meta_value from {$this->wpdb->postmeta} where post_id = '{$post_id}' or meta_key = '_" . CC_MYWC_PLUGIN_SLUG .  "_category' or meta_key = '_" . CC_MYWC_PLUGIN_SLUG .  "_tag' or meta_key = '_" . CC_MYWC_PLUGIN_SLUG .  "_attribute'");
-        $meta = [];
+        $all_meta = $this->wpdb->get_results("select meta_key, meta_value from {$this->wpdb->postmeta} where post_id = '{$post_id}' and (meta_key = '_" . CC_MYWC_PLUGIN_SLUG .  "_category' or meta_key = '_" . CC_MYWC_PLUGIN_SLUG .  "_tag' or meta_key = '_" . CC_MYWC_PLUGIN_SLUG .  "_attribute')");
+        $meta_data['categories'] = [];
+        $meta_data['tags'] = [];
+        $meta_data['attributes'] = [];
+
         if($type === "all"){
             foreach ($all_meta as $meta){
                 if($meta->meta_key === "_" . CC_MYWC_PLUGIN_SLUG .  "_category")
-                    $meta['categories'][] = $meta->meta_value;
+                    $meta_data['categories'][] = $meta->meta_value;
                 elseif ($meta->meta_key === "_" . CC_MYWC_PLUGIN_SLUG .  "_tag")
-                    $meta['tags'][] = $meta->meta_value;
+                    $meta_data['tags'][] = $meta->meta_value;
                 elseif ($meta->meta_key === "_" . CC_MYWC_PLUGIN_SLUG .  "_attribute")
-                    $meta['attributes'][] = $meta->meta_value;
+                    $meta_data['attributes'][] = $meta->meta_value;
             }
         }
-        return $meta;
+        return $meta_data;
 
     }
 
