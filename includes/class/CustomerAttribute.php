@@ -12,10 +12,9 @@ class CustomerAttribute extends Attribute
 
 
     private static $instance;
-    protected $wpdb;
 
     private function __construct(){
-        
+        parent::__construct();
     }
 
 
@@ -24,14 +23,16 @@ class CustomerAttribute extends Attribute
         if (self::$instance === null) {
             self::$instance = new self();
             self::$instance->init();
-            global $wpdb;
-            self::$instance->wpdb = $wpdb;
+
+
         }
         return self::$instance;
     }
 
     protected function init()
     {
+        parent::init();
+
         add_action('init', function () {
 
             $this->register_attribute_post_type();
