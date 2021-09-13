@@ -236,3 +236,34 @@ register_activation_hook(CC_MYWC_PLUGIN_BASENAME, function () {
     }
 
 });
+
+add_filter('woocommerce_settings_pages', function ($settings) {
+
+    $settings_fields = [
+        [
+            'title' => esc_html__('My Attributes', 'cupcode-mywc'),
+            'desc' => esc_html__('Endpoint for the "My attributes" page.', 'cupcode-mywc'),
+            'id' => CC_MYWC_PLUGIN_SLUG . '_attribute_endpoint',
+            'type' => 'text',
+            'default' => 'my-woocommerce',
+            'desc_tip' => true,
+        ],
+    ];
+
+    $attributeendpoint_settings = array(
+        array(
+            'title' => esc_html__('My Attributes endpoints', 'cupcode-mywc'),
+            'type' => 'title',
+            'desc' => esc_html__('Endpoints are appended to your page URLs to handle specific actions on the accounts pages. They should be unique and can be left blank to disable the endpoint.', 'cupcode-mywc'),
+            'id' => CC_MYWC_PLUGIN_SLUG . '_attribute_endpoint_options'
+        )
+    );
+    foreach ($settings_fields as $settings_field) {
+        $attributeendpoint_settings[] = $settings_field;
+    }
+    $attributeendpoint_settings[] = array('type' => 'sectionend', 'id' => CC_MYWC_PLUGIN_SLUG . '_attribute_endpoint_options');
+
+    return array_merge($settings, $attributeendpoint_settings);
+});
+
+
