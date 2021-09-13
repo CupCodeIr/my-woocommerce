@@ -21,6 +21,8 @@ if ($cc_mywc_should_wipe['dc_all']) {
         //TODO
 //        cc_mywc_wipe_selectable_attributes();
     }
+    //Maybe delete customer attributes
+    //Maybe delete endpoint option
 
 }
 
