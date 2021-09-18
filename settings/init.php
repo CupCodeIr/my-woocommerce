@@ -1,4 +1,5 @@
 <?php
+namespace CupCode\MyWooCommerce;
 
 defined('ABSPATH') or die('No script kiddies please!');
 
@@ -83,6 +84,15 @@ Redux::set_sections(CC_MYWC_PLUGIN_SLUG . '_settings', [
                 'title' => esc_html__("Guest Mode", 'cupcode-mywc'),
                 'desc' => esc_html__('Let guest users add attributes', 'cupcode-mywc'),
                 'subtitle' => esc_html__('By checking this option, every visitor can add attributes without need to login.', 'cupcode-mywc'),
+            ],
+            [
+                'id' => 'guest-page',
+                'type' => 'select',
+                'data' => 'pages',
+                'required' => ['guest-use', '=', '1'],
+                'title' => esc_html__("Guest Page", 'cupcode-mywc'),
+                'subtitle' => esc_html__('The page where guest users can add attributes', 'cupcode-mywc'),
+                'desc' => sprintf(esc_html__('You should place %s shortcode in the page.', 'cupcode-mywc'),'<code>[' . CC_MYWC_PLUGIN_BASE .'-guest]</code>'),
             ],
 
         ],
@@ -179,7 +189,7 @@ Redux::set_sections(CC_MYWC_PLUGIN_SLUG . '_settings', [
             [
                 'id' => 'dc_all',
                 'type' => 'checkbox',
-                'default' => '0',
+                'default' => '1',
                 'title' => esc_html_x('Delete All', 'options-panel', 'cupcode-mywc'),
                 'subtitle' => esc_html_x('All data will be removed', 'options-panel', 'cupcode-mywc'),
             ],
