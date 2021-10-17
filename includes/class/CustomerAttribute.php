@@ -3,6 +3,7 @@
 
 namespace CupCode\MyWooCommerce;
 
+defined('ABSPATH') or die('No script kiddies please!');
 
 use Redux;
 use WP_Error;
@@ -10,13 +11,15 @@ use WP_Error;
 class CustomerAttribute extends Attribute
 {
 
+    use Template;
 
     private static $instance;
+    private $storage_mode,$attr_limit,$multiple_attr_allowed;
 
-    private function __construct(){
+    private function __construct()
+    {
         parent::__construct();
     }
-
 
     public static function get_instance(): Attribute
     {
@@ -36,9 +39,11 @@ class CustomerAttribute extends Attribute
         add_action('init', function () {
 
             $this->register_attribute_post_type();
-            add_action('save_post_'. CC_MYWC_PLUGIN_SLUG . '_sa', [$this, 'save_attributes']);
-
         });
+        $this->register_customer_attribute_panel();
+        $this->storage_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','storage-mode','database');
+        $this->attr_limit = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-limit','database');
+        $this->multiple_attr_allowed = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-same-multiple','database');
     }
 
     /**
@@ -47,7 +52,7 @@ class CustomerAttribute extends Attribute
      * @since 0.1.0
      */
 
-    public function register_attribute_post_type() : bool
+    public function register_attribute_post_type(): bool
     {
 
         $storage_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'storage-mode');
@@ -55,6 +60,7 @@ class CustomerAttribute extends Attribute
 
         $admin_cap = "manage_options";
         $args = [
+            'labels' => ['name' => esc_html_x('Customer Attributes', 'post-type', 'cupcode-mywc')],
             'exclude_from_search' => true,
             'show_in_rest' => false,
             'query_var' => false,
@@ -82,5 +88,65 @@ class CustomerAttribute extends Attribute
     {
         // TODO: Implement save_attributes() method.
         return true;
+    }
+
+    /**
+     * Registers customer Attributes endpoint for WooCommerce
+     * @since 0.1.0
+     */
+    public function register_customer_attribute_panel()
+    {
+        $endpoint = get_option(CC_MYWC_PLUGIN_SLUG . '_attribute_endpoint');
+        $menu_name = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-page-title');
+        add_action('init', function () use ($endpoint) {
+            add_rewrite_endpoint(sanitize_title($endpoint),  EP_PAGES);
+        });
+        add_filter('woocommerce_account_menu_items', function ($items) use ($menu_name, $endpoint) {
+            $logout = $items['customer-logout'];
+            unset($items['customer-logout']);
+            $items[$endpoint] = $menu_name;
+            $items['customer-logout'] = $logout;
+            return $items;
+        });
+        add_action('woocommerce_account_' . rawurldecode($endpoint) . '_endpoint', function () {
+
+            $saved_count = $this->get_customer_attributes_count(get_current_user_id());
+            $intro_filtered_text = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-page-intro','');
+            $intro_filtered_text = str_replace('{remained_count}',$this->attr_limit - $saved_count,$intro_filtered_text);
+            $this->get_template('user-attribute-manage-page',
+                [
+                    'intro_text' => $intro_filtered_text,
+                    'remained_count' => $this->attr_limit - $saved_count
+                ]
+                ,true);
+        });
+    }
+
+    /**
+     * Counts customer saved attributes which may be saved inside database or using cookie.
+     * @param $user_id
+     * @return int
+     * @since 0.1.0
+     */
+    private function get_customer_attributes_count($user_id): int
+    {
+        if($this->storage_mode === 'database'){
+            if($user_id === 0) return 0;
+            return wp_count_posts(CC_MYWC_PLUGIN_SLUG . '_ua')->publish;
+
+        }elseif($this->storage_mode === 'cookie'){
+            //TODO
+            if(isset($_COOKIE['my_woocommerce_data'])){
+                $cookie_data = json_decode($_COOKIE['my_woocommerce_data']);
+            }
+        }
+    }
+
+
+    /**
+     *
+     */
+    private function remove_expired_customer_attributes(){
+        //TODO
     }
 }

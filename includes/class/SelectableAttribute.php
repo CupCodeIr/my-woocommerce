@@ -3,6 +3,8 @@
 
 namespace CupCode\MyWooCommerce;
 
+defined('ABSPATH') or die('No script kiddies please!');
+
 
 use WP_Error;
 
@@ -270,6 +272,10 @@ class SelectableAttribute extends Attribute
         foreach ($attributes as $attribute){
             $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)",$post_id,'_' . CC_MYWC_PLUGIN_SLUG . '_attribute',$attribute);
         }
+
+        $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)",$post_id,'_' . CC_MYWC_PLUGIN_SLUG . '_hash',md5(implode(',',$attributes)));
+
+
         $insert_query .= implode(",\n",$insert_values);
 
         $delete_query = "delete from {$this->wpdb->postmeta} where post_id = {$post_id} and 

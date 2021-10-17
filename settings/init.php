@@ -1,5 +1,6 @@
 <?php
 namespace CupCode\MyWooCommerce;
+use Redux;
 
 defined('ABSPATH') or die('No script kiddies please!');
 
@@ -74,8 +75,11 @@ Redux::set_sections(CC_MYWC_PLUGIN_SLUG . '_settings', [
                 ],
                 'default' => 'database',
                 'title' => esc_html__("Storage Mode", 'cupcode-mywc'),
-                'desc' => esc_html__('Choose which storage type should be used.', 'cupcode-mywc'),
-                'subtitle' => esc_html__('For websites with large number of users, Cookie is better but Database is more futuristic.', 'cupcode-mywc'),
+                'desc' => esc_html__('Choose your preferred type of storage.', 'cupcode-mywc'),
+                'subtitle' => esc_html__('Choose which storage type should be used.', 'cupcode-mywc'),
+                'hint' => [
+                    'title' => esc_html__('Database or Cookie?', 'cupcode-mywc'),
+                    'content' => esc_html__('If you choose Database, customer data will be persistence and you will have more control on it. On the other hand, if you have a large website, it may be need to manage a large amount of data. This option just effects on registered customers.', 'cupcode-mywc')],
             ],
             [
                 'id' => 'guest-use',
@@ -168,7 +172,7 @@ Redux::set_sections(CC_MYWC_PLUGIN_SLUG . '_settings', [
                 'type' => 'editor',
                 'default' => esc_html__("Here you can specify the attributes you want for each product category, and when viewing the products, only those that match the attributes you want will be displayed.", 'cupcode-mywc'),
                 'title' => esc_html__("Customer's attributes introduction", 'cupcode-mywc'),
-                'desc' => esc_html__('An introduction which will be shown before form for adding attributes and attribute sets table.', 'cupcode-mywc'),
+                'desc' => sprintf(esc_html__('An introduction which will be shown before form for adding attributes and attribute sets table.%s You can use %s to show number of remained attribute sets that can be added.', 'cupcode-mywc'),'<br>','<code>{remained_count}</code>'),
             ],
 
             [

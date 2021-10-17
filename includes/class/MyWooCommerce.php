@@ -34,8 +34,12 @@ class MyWooCommerce
 
             $this->copy_translations();
             $this->handle_plugin_version();
+            flush_rewrite_rules();
 
 
+        });
+        register_deactivation_hook(CC_MYWC_PLUGIN_BASENAME,function (){
+            flush_rewrite_rules();
         });
         add_action('admin_enqueue_scripts', [$this,'enqueue_admin_scripts']);
         add_action('wp_enqueue_scripts', [$this,'enqueue_public_scripts']);
