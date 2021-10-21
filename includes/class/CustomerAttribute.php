@@ -16,7 +16,7 @@ class CustomerAttribute extends Attribute
     private static $instance;
     private $storage_mode,$attr_limit,$multiple_attr_allowed;
 
-    private function __construct()
+    protected function __construct()
     {
         parent::__construct();
     }
@@ -35,15 +35,14 @@ class CustomerAttribute extends Attribute
     protected function init()
     {
         parent::init();
-
+        $this->storage_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','storage-mode','database');
+        $this->attr_limit = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-limit',5);
+        $this->multiple_attr_allowed = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-same-multiple');
         add_action('init', function () {
 
             $this->register_attribute_post_type();
         });
         $this->register_customer_attribute_panel();
-        $this->storage_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','storage-mode','database');
-        $this->attr_limit = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-limit','database');
-        $this->multiple_attr_allowed = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-same-multiple','database');
     }
 
     /**
@@ -55,8 +54,7 @@ class CustomerAttribute extends Attribute
     public function register_attribute_post_type(): bool
     {
 
-        $storage_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'storage-mode');
-        if ($storage_mode !== 'database') return false;
+        if ($this->storage_mode !== 'database') return false;
 
         $admin_cap = "manage_options";
         $args = [
@@ -147,6 +145,11 @@ class CustomerAttribute extends Attribute
      *
      */
     private function remove_expired_customer_attributes(){
+        //TODO Implement method
+    }
+
+    private function get_customer_attributes()
+    {
         //TODO
     }
 }
