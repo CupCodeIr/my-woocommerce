@@ -14,17 +14,11 @@ class SelectableAttribute extends Attribute
     private static $instance;
 
 
-    private function __construct()
+    protected function __construct()
     {
         parent::__construct();
     }
 
-
-    /**
-     * Registers a post type for saving attributes which are selectable for customers and those are for customer
-     * @return bool
-     * @since 0.1.0
-     */
     public static function get_instance(): Attribute
     {
         if (self::$instance === null) {
@@ -263,31 +257,63 @@ class SelectableAttribute extends Attribute
         }
         $insert_query = "insert into {$this->wpdb->postmeta} (post_id,meta_key,meta_value) values ";
         $insert_values = [];
-        foreach ($categories as $category){
-            $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)",$post_id,'_' . CC_MYWC_PLUGIN_SLUG . '_category',$category);
+        foreach ($categories as $category) {
+            $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)", $post_id, '_' . CC_MYWC_PLUGIN_SLUG . '_category', $category);
         }
-        foreach ($tags as $tag){
-            $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)",$post_id,'_' . CC_MYWC_PLUGIN_SLUG . '_tag',$tag);
+        foreach ($tags as $tag) {
+            $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)", $post_id, '_' . CC_MYWC_PLUGIN_SLUG . '_tag', $tag);
         }
-        foreach ($attributes as $attribute){
-            $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)",$post_id,'_' . CC_MYWC_PLUGIN_SLUG . '_attribute',$attribute);
+        foreach ($attributes as $attribute) {
+            $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)", $post_id, '_' . CC_MYWC_PLUGIN_SLUG . '_attribute', $attribute);
         }
 
-        $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)",$post_id,'_' . CC_MYWC_PLUGIN_SLUG . '_hash',md5(implode(',',$attributes)));
+        $insert_values[] = $this->wpdb->prepare("(%d,%s,%s)", $post_id, '_' . CC_MYWC_PLUGIN_SLUG . '_hash', md5(implode(',', $attributes)));
 
 
-        $insert_query .= implode(",\n",$insert_values);
+        $insert_query .= implode(",\n", $insert_values);
 
         $delete_query = "delete from {$this->wpdb->postmeta} where post_id = {$post_id} and 
                         (meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_category' or
                         meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_tag' or
                         meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_attribute')";
-        if($this->wpdb->query($delete_query) !== false)
-            return ($this->wpdb->query($insert_query) === (count($categories) + count($tags) + count($attributes) ));
+        if ($this->wpdb->query($delete_query) !== false)
+            return ($this->wpdb->query($insert_query) === (count($categories) + count($tags) + count($attributes)));
         return false;
 
 
+    }
 
+    /**
+     * Get all published (by default) selectable attributes
+     * @param array $excluded_taxonomies
+     * @return array
+     * @since 0.1.0
+     */
+    public function get_selectable_attributes_by_taxonomy($excluded_taxonomies = []): array
+    {
+
+        $attributes = [];
+        $plugin_slug = CC_MYWC_PLUGIN_SLUG;
+        $exclude_statement = '';
+        $query_statement = "SELECT ID,{$this->wpdb->postmeta}.meta_key,{$this->wpdb->postmeta}.meta_value from {$this->wpdb->posts} inner join {$this->wpdb->postmeta} on {$this->wpdb->posts}.ID = {$this->wpdb->postmeta}.post_id where post_type = '{$plugin_slug}_sa'
+and post_status = 'publish'
+and ({$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_category' or {$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_tag' or {$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_attribute')";
+        if (!empty($excluded_taxonomies))
+            $exclude_statement .= " and {$this->wpdb->postmeta}.meta_value NOT IN(" . implode(',', esc_sql($excluded_taxonomies)) . ")";
+        $query_statement .= $exclude_statement;
+        $selectable_items = $this->wpdb->get_results($query_statement);
+        if (!empty($selectable_items)) {
+            $list = [];
+            $categories = [];
+            $tags = [];
+            $attributes = [];
+            foreach ($selectable_items as $selectable_item) {
+                $slug = explode('_' , $selectable_item->meta_key);
+                $list[$selectable_item->ID][end($slug)][] = $selectable_item->meta_value;
+            }
+        }
+        return $list;
+        //TODO after you changed term saving logic, make this section complete
 
     }
 }

@@ -6,7 +6,7 @@
 
 defined('ABSPATH') or die('No script kiddies please!');
 //customer-attr-page-intro
-
+var_dump( $selectable_items);
 ?>
 <div id="mywc-customer-attributes-managment-wrapper">
     <div class="mywc-intro">

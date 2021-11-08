@@ -110,11 +110,13 @@ class CustomerAttribute extends Attribute
 
             $saved_count = $this->get_customer_attributes_count(get_current_user_id());
             $intro_filtered_text = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-page-intro','');
-            $intro_filtered_text = str_replace('{remained_count}',$this->attr_limit - $saved_count,$intro_filtered_text);
+            $intro_filtered_text = str_ireplace('{remained_count}',$this->attr_limit - $saved_count,$intro_filtered_text);
+            $selectable_attribute =  SelectableAttribute::get_instance();
             $this->get_template('user-attribute-manage-page',
                 [
                     'intro_text' => $intro_filtered_text,
-                    'remained_count' => $this->attr_limit - $saved_count
+                    'remained_count' => $this->attr_limit - $saved_count,
+                    'selectable_items' => $selectable_attribute->get_selectable_attributes_by_taxonomy()
                 ]
                 ,true);
         });
@@ -133,7 +135,7 @@ class CustomerAttribute extends Attribute
             return wp_count_posts(CC_MYWC_PLUGIN_SLUG . '_ua')->publish;
 
         }elseif($this->storage_mode === 'cookie'){
-            //TODO
+            //TODO if using cookies, get data from cookie
             if(isset($_COOKIE['my_woocommerce_data'])){
                 $cookie_data = json_decode($_COOKIE['my_woocommerce_data']);
             }
