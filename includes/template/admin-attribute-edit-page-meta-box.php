@@ -6,7 +6,6 @@
  */
 
 defined('ABSPATH') or die('No script kiddies please!');
-//TODO change UI and logic to behave category and tags as term.
 ?>
 
     <p><strong><?php esc_html_e('Selectable Product Categories', 'cupcode-mywc'); ?></strong></p>
