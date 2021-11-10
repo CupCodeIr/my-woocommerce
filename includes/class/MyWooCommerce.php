@@ -8,7 +8,7 @@ defined('ABSPATH') or die('No script kiddies please!');
 class MyWooCommerce
 {
     private static $instance;
-    private $customerAttribute;
+    private $customerAttribute,$selectableAttribute;
 
     /**
      * @return MyWooCommerce
@@ -94,7 +94,10 @@ class MyWooCommerce
         global $wp;
         if(is_account_page() && array_key_exists($this->customerAttribute->get_wc_add_attribute_endpoint(),$wp->query_vars)){
 
-            wp_enqueue_script(CC_MYWC_PLUGIN_SLUG . '-select2', CC_MYWC_PLUGIN_URL . 'assets/js/select2/select2.min.js', ['jquery'], false, true);
+            wp_enqueue_script(CC_MYWC_PLUGIN_SLUG . '-customer-attributes', CC_MYWC_PLUGIN_URL . 'assets/js/select2/select2.min.js', ['jquery'], false, true);
+            wp_localize_script(CC_MYWC_PLUGIN_SLUG . '-customer-attributes','MyWooCommerce',[
+                'attribute_set' => $this->selectableAttribute->get_selectable_attributes_by_taxonomy()
+            ]);
             wp_enqueue_style(CC_MYWC_PLUGIN_SLUG . '-customer-attributes', CC_MYWC_PLUGIN_URL . 'assets/css/customer-attributes-manage.css', array(), false, false);
         }
     }
