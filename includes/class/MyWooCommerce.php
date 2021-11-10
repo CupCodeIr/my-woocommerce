@@ -8,6 +8,7 @@ defined('ABSPATH') or die('No script kiddies please!');
 class MyWooCommerce
 {
     private static $instance;
+    private $customerAttribute;
 
     /**
      * @return MyWooCommerce
@@ -28,8 +29,8 @@ class MyWooCommerce
      */
     private function init()
     {
-        SelectableAttribute::get_instance();
-        CustomerAttribute::get_instance();
+        $this->selectableAttribute = SelectableAttribute::get_instance();
+        $this->customerAttribute = CustomerAttribute::get_instance();
         register_activation_hook(CC_MYWC_PLUGIN_BASENAME, function () {
 
             $this->copy_translations();
@@ -90,6 +91,10 @@ class MyWooCommerce
      */
     public function enqueue_public_scripts()
     {
+        global $wp;
+        if(is_account_page() && array_key_exists($this->customerAttribute->get_wc_add_attribute_endpoint(),$wp->query_vars)){
 
+            wp_enqueue_style(CC_MYWC_PLUGIN_SLUG . '-customer-attributes', CC_MYWC_PLUGIN_URL . 'assets/css/customer-attributes-manage.css', array(), false, false);
+        }
     }
 }
