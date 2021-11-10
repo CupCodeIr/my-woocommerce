@@ -14,7 +14,7 @@ class CustomerAttribute extends Attribute
     use Template;
 
     private static $instance;
-    private $storage_mode,$attr_limit,$multiple_attr_allowed;
+    private $storage_mode,$attr_limit,$multiple_attr_allowed,$add_attribute_wc_endpoint;
 
     protected function __construct()
     {
@@ -38,6 +38,7 @@ class CustomerAttribute extends Attribute
         $this->storage_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','storage-mode','database');
         $this->attr_limit = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-limit',5);
         $this->multiple_attr_allowed = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-same-multiple');
+        $this->add_attribute_wc_endpoint = get_option(CC_MYWC_PLUGIN_SLUG . '_attribute_endpoint');
         add_action('init', function () {
 
             $this->register_attribute_post_type();
@@ -94,7 +95,7 @@ class CustomerAttribute extends Attribute
      */
     public function register_customer_attribute_panel()
     {
-        $endpoint = get_option(CC_MYWC_PLUGIN_SLUG . '_attribute_endpoint');
+        $endpoint = $this->get_wc_add_attribute_endpoint();
         $menu_name = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-page-title');
         add_action('init', function () use ($endpoint) {
             add_rewrite_endpoint(sanitize_title($endpoint),  EP_PAGES);
@@ -153,5 +154,16 @@ class CustomerAttribute extends Attribute
     private function get_customer_attributes()
     {
         //TODO
+    }
+
+    /**
+     * Retrieves add attribute endpoint defined in settings
+     * @return string
+     * @since 0.1.0
+     */
+    public function get_wc_add_attribute_endpoint() : string{
+
+        return $this->add_attribute_wc_endpoint;
+
     }
 }
