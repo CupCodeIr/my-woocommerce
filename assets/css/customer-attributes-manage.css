@@ -1,0 +1,12 @@
+#mywc-customer-attributes-management{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: 100% inherit;
+    vertical-align: baseline;
+    display: block;
+}
+#mywc-customer-attributes-management .mywc-add-attribute{
+    margin-top: 10px;
+    padding-inline: 10px;
+}
