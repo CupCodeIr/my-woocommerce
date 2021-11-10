@@ -292,7 +292,6 @@ class SelectableAttribute extends Attribute
     public function get_selectable_attributes_by_taxonomy($excluded_taxonomies = []): array
     {
 
-        $attributes = [];
         $plugin_slug = CC_MYWC_PLUGIN_SLUG;
         $exclude_statement = '';
         $query_statement = "SELECT ID,{$this->wpdb->postmeta}.meta_key,{$this->wpdb->postmeta}.meta_value from {$this->wpdb->posts} inner join {$this->wpdb->postmeta} on {$this->wpdb->posts}.ID = {$this->wpdb->postmeta}.post_id where post_type = '{$plugin_slug}_sa'
@@ -302,18 +301,15 @@ and ({$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_category' or {$this->wp
             $exclude_statement .= " and {$this->wpdb->postmeta}.meta_value NOT IN(" . implode(',', esc_sql($excluded_taxonomies)) . ")";
         $query_statement .= $exclude_statement;
         $selectable_items = $this->wpdb->get_results($query_statement);
+        $list = [];
         if (!empty($selectable_items)) {
-            $list = [];
-            $categories = [];
-            $tags = [];
-            $attributes = [];
             foreach ($selectable_items as $selectable_item) {
-                $slug = explode('_' , $selectable_item->meta_key);
-                $list[$selectable_item->ID][end($slug)][] = $selectable_item->meta_value;
+                $slug = explode('_', $selectable_item->meta_key);
+                $list["#" . $selectable_item->ID][end($slug)][] = $selectable_item->meta_value;
             }
+
         }
-        return $list;
-        //TODO after you changed term saving logic, make this section complete
+        return array_values($list);
 
     }
 }
