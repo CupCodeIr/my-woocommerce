@@ -96,7 +96,7 @@ class MyWooCommerce
 
             wp_enqueue_script(CC_MYWC_PLUGIN_SLUG . '-customer-attributes', CC_MYWC_PLUGIN_URL . 'assets/js/customer-attributes-manage.js', ['jquery'], false, true);
             wp_localize_script(CC_MYWC_PLUGIN_SLUG . '-customer-attributes','MyWooCommerce',[
-                'attribute_set' => $this->selectableAttribute->get_selectable_attributes_by_taxonomy()
+                'attribute_set' => $this->selectableAttribute->get_formatted_selectable_attributes_by_taxonomy()
             ]);
             wp_enqueue_style(CC_MYWC_PLUGIN_SLUG . '-customer-attributes', CC_MYWC_PLUGIN_URL . 'assets/css/customer-attributes-manage.css', [], false, false);
         }
