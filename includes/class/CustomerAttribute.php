@@ -112,12 +112,10 @@ class CustomerAttribute extends Attribute
             $saved_count = $this->get_customer_attributes_count(get_current_user_id());
             $intro_filtered_text = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-page-intro','');
             $intro_filtered_text = str_ireplace('{remained_count}',$this->attr_limit - $saved_count,$intro_filtered_text);
-            $selectable_attribute =  SelectableAttribute::get_instance();
             $this->get_template('user-attribute-manage-page',
                 [
                     'intro_text' => $intro_filtered_text,
                     'remained_count' => $this->attr_limit - $saved_count,
-                    'selectable_items' => $selectable_attribute->get_selectable_attributes_by_taxonomy()
                 ]
                 ,true);
         });
