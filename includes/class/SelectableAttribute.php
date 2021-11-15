@@ -312,4 +312,41 @@ and ({$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_category' or {$this->wp
         return array_values($list);
 
     }
+
+    /**
+     * Generates a formatted set of selectable attributes to be rendered in forms
+     * @return array
+     * @since 0.1.0
+     */
+    public function get_formatted_selectable_attributes_by_taxonomy(): array
+    {
+        $attributes_set = $this->get_selectable_attributes_by_taxonomy();
+        foreach ($attributes_set as $rootKey => $item){
+            if(isset($item['category']))
+                foreach ($item['category'] as $key => $category){
+                    $attributes_set[$rootKey]['category'][$key] =
+                        [
+                        'id' => $category , 'title' => get_term($category)->name,
+                        ];
+                }
+
+            if(isset($item['tag']))
+                foreach ($item['tag'] as $key => $tag){
+                    $attributes_set[$rootKey]['tag'][$key] =
+                        [
+                        'id' => $tag , 'title' => get_term($tag)->name,
+                        ];
+                }
+
+            if(isset($item['attribute']))
+                foreach ($item['attribute'] as $key => $attribute){
+                    $attributes_set[$rootKey]['attribute'][$key] =
+                        [
+                        'id' => $attribute , 'title' => wc_attribute_label(wc_attribute_taxonomy_name_by_id((int)$attribute))
+                        ];
+                }
+        }
+        return $attributes_set;
+
+    }
 }
