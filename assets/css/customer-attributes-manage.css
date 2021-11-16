@@ -1,4 +1,4 @@
-#mywc-customer-attributes-management{
+#mywc-customer-attributes-management {
     margin: 0;
     padding: 0;
     border: 0;
@@ -6,7 +6,16 @@
     vertical-align: baseline;
     display: block;
 }
-#mywc-customer-attributes-management .mywc-add-attribute{
+
+#mywc-customer-attributes-management .mywc-add-attribute {
     margin-top: 10px;
     padding-inline: 10px;
+}
+
+#mywc-customer-attributes-management .mywc-add-attribute.woocommerce .mywc-add-attribute__attributes {
+    padding: 10px 0 10px 10px;
+}
+
+#mywc-customer-attributes-management.mywc-rtl .mywc-add-attribute.woocommerce .mywc-add-attribute__attributes {
+    padding: 10px 10px 10px 0;
 }
