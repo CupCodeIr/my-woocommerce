@@ -137,7 +137,7 @@ class SelectableAttribute extends Attribute
         $wc_excluded_terms = $this->get_used_taxonomies();
         $wc_remained_taxonomies = get_terms([
             'taxonomy' => ['product_cat', 'product_tag'],
-            'hide_empty' => true,
+            'hide_empty' => false,
             'count' => false,
             'exclude' => $wc_excluded_terms
         ]);
@@ -326,7 +326,7 @@ and ({$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_category' or {$this->wp
                 foreach ($item['category'] as $key => $category){
                     $attributes_set[$rootKey]['category'][$key] =
                         [
-                        'id' => $category , 'title' => get_term($category)->name,
+                        'id' => $category , 'title' => get_term((int)$category)->name,
                         ];
                 }
 
@@ -334,16 +334,26 @@ and ({$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_category' or {$this->wp
                 foreach ($item['tag'] as $key => $tag){
                     $attributes_set[$rootKey]['tag'][$key] =
                         [
-                        'id' => $tag , 'title' => get_term($tag)->name,
+                        'id' => $tag , 'title' => get_term((int)$tag)->name,
                         ];
                 }
 
             if(isset($item['attribute']))
                 foreach ($item['attribute'] as $key => $attribute){
+                    $attribute_taxonomy_name = wc_attribute_taxonomy_name_by_id((int)$attribute);
                     $attributes_set[$rootKey]['attribute'][$key] =
                         [
-                        'id' => $attribute , 'title' => wc_attribute_label(wc_attribute_taxonomy_name_by_id((int)$attribute))
+                            'id' => $attribute ,
+                            'title' => wc_attribute_label($attribute_taxonomy_name)
                         ];
+                    $attribute_terms = get_terms(['taxonomy' => $attribute_taxonomy_name , 'hide_empty' => false]);
+                    foreach ($attribute_terms as $attribute_term){
+                        $attributes_set[$rootKey]['attribute'][$key]['term'][] =
+                            [
+                                'id' => $attribute_term->term_id ,
+                                'title' => $attribute_term->name
+                            ];
+                    }
                 }
         }
         return $attributes_set;
