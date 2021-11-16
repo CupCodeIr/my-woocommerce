@@ -19,7 +19,6 @@ defined('ABSPATH') or die('No script kiddies please!');
                 ?></option>
         <?php } ?>
     </select>
-    <small><?php esc_html_e('Empty categories are excluded.', 'cupcode-mywc'); ?></small>
     <hr>
 
     <p><strong><?php esc_html_e('Selectable Product Tags', 'cupcode-mywc'); ?></strong></p>
@@ -31,7 +30,6 @@ defined('ABSPATH') or die('No script kiddies please!');
             <option <?php echo (in_array($tag->term_id,$selected_data['tags'])) ? 'selected="selected"' : '' ?> value="<?php echo $tag->term_id ?>"><?php echo $tag->name ?></option>
         <?php } ?>
     </select>
-    <small><?php esc_html_e('Empty tags are excluded.', 'cupcode-mywc'); ?></small>
     <hr>
     <p><strong><?php esc_html_e('Selectable Attributes', 'cupcode-mywc'); ?></strong></p>
     <p> <?php esc_html_e('Please select the WooCommerce Attributes that your customers can use to define their desired Attributes in selected product categories or tags.', 'cupcode-mywc') ?></p>
