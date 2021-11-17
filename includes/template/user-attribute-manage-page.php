@@ -11,9 +11,44 @@ defined('ABSPATH') or die('No script kiddies please!');
     <div class="mywc-intro">
         <?php echo $intro_text ?>
     </div>
+    <?php if (!empty($message)) { ?>
+        <div class="mywc-notice-wrapper">
+            <div class="woocommerce-notices-wrapper">
+
+                <?php if (isset($message['error'])) { ?>
+
+                    <ul class="woocommerce-error" role="alert">
+
+                        <?php foreach ($message['error'] as $error) {
+
+                            echo "<li>{$error}</li>";
+                        }
+                        ?>
+                    </ul>
+
+                <?php } ?>
+
+                <?php if (isset($message['notice'])) { ?>
+
+                    <ul class="woocommerce-message" role="alert">
+
+                        <?php foreach ($message['notice'] as $notice) {
+
+                            echo "<li>{$notice}</li>";
+                        }
+                        ?>
+                    </ul>
+
+                <?php } ?>
+
+
+            </div>
+        </div>
+    <?php } ?>
+
     <div class="mywc-add-attribute woocommerce">
         <form method="post" action="">
-            <?php wp_nonce_field(CC_MYWC_PLUGIN_SLUG . 'new_attribute')?>
+            <?php wp_nonce_field(CC_MYWC_PLUGIN_SLUG . 'new_attribute') ?>
             <h3><?php _e('Add new attribute', 'cupcode-mywc'); ?></h3>
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label>
@@ -21,8 +56,9 @@ defined('ABSPATH') or die('No script kiddies please!');
                     /* translator: label for select box in add attribute page */
                     _e('Name', 'cupcode-mywc');
                     ?>
-                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="mywc-new-attribute-name" placeholder="<?php _e('e.g. My Set','cupcode-mywc') ?>">
-                    <span><em><?php _e('By naming your set you can find it easily in products pages','cupcode-mywc'); ?></em></span>
+                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
+                           name="mywc-new-attribute-name" placeholder="<?php _e('e.g. My Set', 'cupcode-mywc') ?>">
+                    <span><em><?php _e('By naming your set you can find it easily in products pages', 'cupcode-mywc'); ?></em></span>
                 </label>
             </p>
             <div class="mywc-add-attribute__termSelect">
@@ -42,7 +78,8 @@ defined('ABSPATH') or die('No script kiddies please!');
             <div id="mywc-add-attribute__attributes" class="mywc-add-attribute__attributes">
 
             </div>
-            <button type="submit" class="woocommerce-Button button" name="mywc_save_attribute" value="save"><?php _e('Save','cupcode-mywc'); ?></button>
+            <button type="submit" class="woocommerce-Button button" name="mywc-save-attribute"
+                    value="save_attribute"><?php _e('Save', 'cupcode-mywc'); ?></button>
         </form>
     </div>
 

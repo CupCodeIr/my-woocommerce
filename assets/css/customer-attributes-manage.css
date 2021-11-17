@@ -19,3 +19,7 @@
 #mywc-customer-attributes-management.mywc-rtl .mywc-add-attribute.woocommerce .mywc-add-attribute__attributes {
     padding: 10px 10px 10px 0;
 }
+
+#mywc-customer-attributes-management .mywc-intro {
+    margin-bottom: 20px;
+}
