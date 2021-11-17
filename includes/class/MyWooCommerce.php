@@ -92,7 +92,7 @@ class MyWooCommerce
     public function enqueue_public_scripts()
     {
         global $wp;
-        if(is_account_page() && array_key_exists($this->customerAttribute->get_wc_add_attribute_endpoint(),$wp->query_vars)){
+        if(is_account_page() && array_key_exists($this->customerAttribute->get_wc_add_attribute_endpoint_slug(),$wp->query_vars)){
 
             wp_enqueue_script(CC_MYWC_PLUGIN_SLUG . '-customer-attributes', CC_MYWC_PLUGIN_URL . 'assets/js/customer-attributes-manage.js', ['jquery'], false, true);
             wp_localize_script(CC_MYWC_PLUGIN_SLUG . '-customer-attributes','MyWooCommerce',[
@@ -100,5 +100,22 @@ class MyWooCommerce
             ]);
             wp_enqueue_style(CC_MYWC_PLUGIN_SLUG . '-customer-attributes', CC_MYWC_PLUGIN_URL . 'assets/css/customer-attributes-manage.css', [], false, false);
         }
+    }
+
+    /**
+     * @param $code
+     * @return string
+     * @since 0.1.0
+     */
+    public function get_message_from_code($code): string
+    {
+
+        $notices = [
+            0 => _x("Something went wrong, please try again.",'general-notice','cupcode-mywc'),
+            1 => _x("You are not allowed to perform this action.",'general-notice','cupcode-mywc'),
+            2 => _x("Attribute saved successfully!",'general-notice','cupcode-mywc')
+        ];
+        return isset($notices[$code]) ? $notices[$code] : '';
+
     }
 }
