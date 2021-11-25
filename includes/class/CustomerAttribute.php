@@ -14,7 +14,7 @@ class CustomerAttribute extends Attribute
     use Template;
 
     private static $instance;
-    private $storage_mode,$attribute_limit,$guest_mode,$multiple_attr_allowed,$add_attribute_wc_endpoint_slug,$plugin;
+    private $storage_mode, $attribute_limit, $guest_mode, $multiple_attr_allowed, $add_attribute_wc_endpoint_slug, $plugin, $db_record;
 
     protected function __construct()
     {
@@ -36,11 +36,11 @@ class CustomerAttribute extends Attribute
     {
         parent::init();
         $this->plugin = MyWooCommerce::get_instance();
-        $this->storage_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','storage-mode','database');
-        $this->attribute_limit = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-limit',5);
-        $this->multiple_attr_allowed = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-add-same-multiple');
+        $this->storage_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'storage-mode', 'database');
+        $this->attribute_limit = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-add-limit', 5);
+        $this->multiple_attr_allowed = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-add-same-multiple');
         $this->add_attribute_wc_endpoint_slug = get_option(CC_MYWC_PLUGIN_SLUG . '_attribute_endpoint');
-        $this->guest_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','guest-use');
+        $this->guest_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'guest-use');
         add_action('init', function () {
 
             $this->register_attribute_post_type();
@@ -85,12 +85,6 @@ class CustomerAttribute extends Attribute
 
     }
 
-    public function save_attributes(int $post_id): bool
-    {
-        // TODO: Implement save_attributes() method.
-        return true;
-    }
-
     /**
      * Registers customer Attributes endpoint for WooCommerce
      * @since 0.1.0
@@ -100,7 +94,7 @@ class CustomerAttribute extends Attribute
         $endpoint = $this->get_wc_add_attribute_endpoint_slug();
         $menu_name = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-page-title');
         add_action('init', function () use ($endpoint) {
-            add_rewrite_endpoint(sanitize_title($endpoint),  EP_PAGES);
+            add_rewrite_endpoint(sanitize_title($endpoint), EP_PAGES);
         });
         add_filter('woocommerce_account_menu_items', function ($items) use ($menu_name, $endpoint) {
             $logout = $items['customer-logout'];
@@ -113,28 +107,79 @@ class CustomerAttribute extends Attribute
 
             $message = [];
 
-            if(isset($_POST['mywc-save-attribute'])){
+            if (isset($_POST['mywc-save-attribute'])) {
 
-                if(!wp_verify_nonce($_POST['_wpnonce'],CC_MYWC_PLUGIN_SLUG . 'new_attribute')) $message['error'][] = $this->plugin->get_message_from_code(0);
-                else{
-                    if($this->can_customer_save_attribute($_POST['mywc-new-attribute-term'])){
+                $wp_nonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : '';
+
+                if (!wp_verify_nonce($wp_nonce, CC_MYWC_PLUGIN_SLUG . 'new_attribute')) $message['error'][] = $this->plugin->get_message_from_code(0);
+                else {
+
+                    $term_id = isset($_POST['mywc-new-attribute-term']) ? $_POST['mywc-new-attribute-term'] : '0';
+                    $attribute_name = isset($_POST['mywc-new-attribute-name']) ? $_POST['mywc-new-attribute-name'] : '';
+
+                    if ($this->can_customer_save_attribute($term_id)) {
+
+
                         $message['notice'][] = $this->plugin->get_message_from_code(2);
-                    }else{
+                    } else {
                         $message['error'][] = $this->plugin->get_message_from_code(1);
                     }
                 }
             }
             $saved_count = $this->get_customer_attributes_count(get_current_user_id());
-            $intro_filtered_text = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings','customer-attr-page-intro','');
-            $intro_filtered_text = str_ireplace('{remained_count}',$this->attribute_limit - $saved_count,$intro_filtered_text);
+            $intro_filtered_text = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-page-intro', '');
+            $intro_filtered_text = str_ireplace('{remained_count}', $this->attribute_limit - $saved_count, $intro_filtered_text);
             $this->get_template('user-attribute-manage-page',
                 [
                     'intro_text' => $intro_filtered_text,
                     'remained_count' => $this->attribute_limit - $saved_count,
                     'message' => $message
                 ]
-                ,true);
+                , true);
         });
+    }
+
+    /**
+     * Retrieves add attribute endpoint defined in settings
+     * @return string
+     * @since 0.1.0
+     */
+    public function get_wc_add_attribute_endpoint_slug(): string
+    {
+
+        return $this->add_attribute_wc_endpoint_slug;
+
+    }
+
+    /**
+     * Checks if user can save attribute with given $attribute_id
+     * @param string $term_id
+     * @return bool
+     * @since 0.1.0
+     */
+    private function can_customer_save_attribute(string $term_id): bool
+    {
+        //TODO get user_id as argument and check for other factors such as allowed attributes...
+        $current_user_id = get_current_user_id();
+        if ($current_user_id === 0 && !($this->guest_mode)) return false;
+
+        $term_exists = get_term_by('term_taxonomy_id', $term_id);
+        if ($term_exists === false) return false;
+
+        $current_attributes_count = $this->get_customer_attributes_count($current_user_id);
+        if ($current_attributes_count >= $this->attribute_limit) return false;
+
+        global $wpdb;
+
+        $term_exists_in_selectable_attributes = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} INNER JOIN {$wpdb->posts} ON {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID  where (meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_tag' OR meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_category') AND {$wpdb->posts}.post_type = '" . CC_MYWC_PLUGIN_SLUG . "_sa' AND meta_value = %s", $term_id));
+
+        $term_exists_in_user_attributes = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} INNER JOIN {$wpdb->posts} ON {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID  where (meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_tag' OR meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_category') AND {$wpdb->posts}.post_type = '" . CC_MYWC_PLUGIN_SLUG . "_ua' AND {$wpdb->posts}.post_author = %s AND meta_value = %s", ["$current_user_id", $term_id]));
+
+        if (($term_exists_in_user_attributes && !$this->multiple_attr_allowed) || !$term_exists_in_selectable_attributes) return false;
+
+        return true;
+
+
     }
 
     /**
@@ -146,59 +191,92 @@ class CustomerAttribute extends Attribute
     private function get_customer_attributes_count($user_id): int
     {
         $count = 0;
-        if($this->storage_mode === 'database'){
-            if($user_id === 0) return 0;
+        if ($this->storage_mode === 'database') {
+            if ($user_id === 0) return 0;
             $count = wp_count_posts(CC_MYWC_PLUGIN_SLUG . '_ua')->publish;
 
-        }elseif($this->storage_mode === 'cookie'){
+        } elseif ($this->storage_mode === 'cookie') {
             //TODO if using cookies, get data from cookie
-            if(isset($_COOKIE['my_woocommerce_data'])){
+            if (isset($_COOKIE['my_woocommerce_data'])) {
                 $cookie_data = json_decode($_COOKIE['my_woocommerce_data']);
             }
         }
         return $count;
     }
 
+    public function save_attributes(int $post_id): bool
+    {
+        // TODO: Implement save_attributes() method.
+        return true;
+    }
 
     /**
      *
      */
-    private function remove_expired_customer_attributes(){
+    private function remove_expired_customer_attributes()
+    {
         //TODO Implement method
     }
 
     private function get_customer_attributes()
     {
-        //TODO
+        //TODO for both db and cookie
     }
 
     /**
-     * Retrieves add attribute endpoint defined in settings
-     * @return string
-     * @since 0.1.0
+     * Fills customer attribute variable record to be inserted into database or other kinds of storage
+     * @param $customer_id
+     * @param $title
+     * @param $term_id
+     * @param $term_type
+     * @param $attributes
+     * @since 0.10
      */
-    public function get_wc_add_attribute_endpoint_slug() : string{
-
-        return $this->add_attribute_wc_endpoint_slug;
-
-    }
-
-    private function can_customer_save_attribute($attribute_id): bool
+    private function set_customer_attribute($customer_id,$title, $term_id, $term_type, $attributes)
     {
-        $current_user_id = get_current_user_id();
-        if($current_user_id === 0 && !($this->guest_mode)) return false;
+        $this->db_record['title'] = $title;
+        $this->db_record['author'] = $customer_id;
+        $this->db_record['meta_data'] = [
+            '_' . CC_MYWC_PLUGIN_SLUG . '_' . $term_type => $term_id
+        ];
 
-        $current_attributes_count = $this->get_customer_attributes_count($current_user_id);
-        if($current_attributes_count >= $this->attribute_limit) return false;
-
-        global $wpdb;
-        $attribute_exists = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} where (meta_key = '_" . CC_MYWC_PLUGIN_SLUG ."_tag' OR meta_key = '_" . CC_MYWC_PLUGIN_SLUG ."_category') AND meta_value = %s",$attribute_id));
-        if($attribute_exists && !$this->multiple_attr_allowed) return false;
-
-        return true;
-
+        $formatted_attributes = [];
+        foreach ($attributes as $key => $attribute) {
+            $this->db_record['meta_data'] = [
+                '_' . CC_MYWC_PLUGIN_SLUG . '_' . 'attribute' => $key
+            ];
+            $formatted_attributes[] = [
+                'attribute_id' => $key,
+                'attribute_value' => $attribute
+            ];
+        }
+        $this->db_record['meta_data'] = [
+            '_' . CC_MYWC_PLUGIN_SLUG . '_attribute_values' => json_encode($formatted_attributes)
+        ];
 
     }
 
-    //TODO check for saved attributes and do not let customer to add again if its not allowed.
+    /**
+     * Saves prepared record into database or other kinds of storage
+     * @return bool
+     */
+    private function save_customer_attribute(): bool
+    {
+        if ($this->storage_mode === 'database') {
+            $post = wp_insert_post([
+                'post_title' => $this->db_record['title'],
+                'post_content' => '',
+                'post_author' => $this->db_record['author'],
+                'post_status' => 'publish',
+                'post_type' => CC_MYWC_PLUGIN_SLUG . '_ua',
+                'meta_input' => $this->db_record['meta_data'],
+            ]);
+            return ($post !== 0);
+
+        } elseif ($this->storage_mode === 'cookie') {
+            //TODO if using cookies, save data to cookie
+        }
+
+    }
+
 }
