@@ -113,7 +113,8 @@ class MyWooCommerce
         $notices = [
             0 => _x("Something went wrong, please try again.",'general-notice','cupcode-mywc'),
             1 => _x("You are not allowed to perform this action.",'general-notice','cupcode-mywc'),
-            2 => _x("Attribute saved successfully!",'general-notice','cupcode-mywc')
+            2 => _x("Attribute saved successfully!",'general-notice','cupcode-mywc'),
+            3 => _x("Please fill and set all the fields!",'general-notice','cupcode-mywc')
         ];
         return isset($notices[$code]) ? $notices[$code] : '';
 
