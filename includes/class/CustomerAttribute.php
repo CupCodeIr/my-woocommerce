@@ -197,22 +197,14 @@ class CustomerAttribute extends Attribute
 
         } elseif ($this->storage_mode === 'cookie') {
             //TODO if using cookies, get data from cookie
-            if (isset($_COOKIE['my_woocommerce_data'])) {
-                $cookie_data = json_decode($_COOKIE['my_woocommerce_data']);
+            if (isset($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'])) {
+                $cookie_data = json_decode($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'], true);
+                $count = count($cookie_data['attribute_sets']);
             }
         }
         return $count;
     }
 
-    public function save_attributes(int $post_id): bool
-    {
-        // TODO: Implement save_attributes() method.
-        return true;
-    }
-
-    /**
-     *
-     */
     private function remove_expired_customer_attributes()
     {
         //TODO Implement method
@@ -232,7 +224,7 @@ class CustomerAttribute extends Attribute
      * @param $attributes
      * @since 0.10
      */
-    private function set_customer_attribute($customer_id,$title, $term_id, $term_type, $attributes)
+    private function set_customer_attribute($customer_id, $title, $term_id, $term_type, $attributes)
     {
         $this->db_record['title'] = $title;
         $this->db_record['author'] = $customer_id;
@@ -263,6 +255,7 @@ class CustomerAttribute extends Attribute
     private function save_customer_attribute(): bool
     {
         if ($this->storage_mode === 'database') {
+
             $post = wp_insert_post([
                 'post_title' => $this->db_record['title'],
                 'post_content' => '',
@@ -274,7 +267,17 @@ class CustomerAttribute extends Attribute
             return ($post !== 0);
 
         } elseif ($this->storage_mode === 'cookie') {
-            //TODO if using cookies, save data to cookie
+
+            $cookie_data = [];
+            if (isset($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'])) {
+
+                $cookie_data = json_decode($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'], true);
+            }
+            $cookie_data['attribute_sets'][] = [
+                'title' => $this->db_record['title'],
+                'attribute' => $this->db_record['meta_data'],
+            ];
+            setcookie(CC_MYWC_PLUGIN_SLUG . '_data', json_encode($cookie_data), time() + 31556926);
         }
 
     }
