@@ -106,7 +106,7 @@ class CustomerAttribute extends Attribute
         add_action('woocommerce_account_' . rawurldecode($endpoint) . '_endpoint', function () {
 
             $message = [];
-
+            $current_user_id = get_current_user_id();
             if (isset($_POST['mywc-save-attribute'])) {
 
                 $wp_nonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : '';
@@ -115,18 +115,26 @@ class CustomerAttribute extends Attribute
                 else {
 
                     $term_id = isset($_POST['mywc-new-attribute-term']) ? $_POST['mywc-new-attribute-term'] : '0';
-                    $attribute_name = isset($_POST['mywc-new-attribute-name']) ? $_POST['mywc-new-attribute-name'] : '';
-
-                    if ($this->can_customer_save_attribute($term_id)) {
-
-
+                    $attribute_name = isset($_POST['mywc-new-attribute-name']) ? sanitize_text_field($_POST['mywc-new-attribute-name']) : '';
+                    $attribute_values = isset($_POST['mywc-new-attribute-value']) ? $_POST['mywc-new-attribute-value'] : [];
+                    $attribute_set = [];
+                    foreach ($attribute_values as $key => $attribute){
+                        $attribute_set[] = [
+                            'id' => intval($key),
+                            'value' => intval($attribute),
+                        ];
+                    }
+                    if(mb_strlen($attribute_name) < 1 || count($attribute_set) < 1)
+                        $message['error'][] = $this->plugin->get_message_from_code(3);
+                    else if ($this->can_customer_save_attribute($current_user_id,$term_id,$attribute_set)) {
+                        //$this->set_customer_attribute($current_user_id,$attribute_name,$term_id,)
                         $message['notice'][] = $this->plugin->get_message_from_code(2);
                     } else {
                         $message['error'][] = $this->plugin->get_message_from_code(1);
                     }
                 }
             }
-            $saved_count = $this->get_customer_attributes_count(get_current_user_id());
+            $saved_count = $this->get_customer_attributes_count($current_user_id);
             $intro_filtered_text = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-page-intro', '');
             $intro_filtered_text = str_ireplace('{remained_count}', $this->attribute_limit - $saved_count, $intro_filtered_text);
             $this->get_template('user-attribute-manage-page',
@@ -153,14 +161,23 @@ class CustomerAttribute extends Attribute
 
     /**
      * Checks if user can save attribute with given $attribute_id
+     * - if current customer legitimate
+     * - if term exists
+     * - if user attributes haven't passed the limit
+     * - if term can be selected
+     * - if customer can save multiple attributes for same term
+     * - if attributes and their values exist.
+     * @param int $user_id
      * @param string $term_id
-     * @return bool
+     * @param array $attributes
+     * @return bool Whether data are valid to be saved.
      * @since 0.1.0
      */
-    private function can_customer_save_attribute(string $term_id): bool
+    private function can_customer_save_attribute(int $user_id, string $term_id, array $attributes): bool
     {
-        //TODO get user_id as argument and check for other factors such as allowed attributes...
-        $current_user_id = get_current_user_id();
+
+        //TODO check if attributes exists?
+        $current_user_id = $user_id;
         if ($current_user_id === 0 && !($this->guest_mode)) return false;
 
         $term_exists = get_term_by('term_taxonomy_id', $term_id);
@@ -252,8 +269,10 @@ class CustomerAttribute extends Attribute
      * Saves prepared record into database or other kinds of storage
      * @return bool
      */
-    private function save_customer_attribute(): bool
+    protected function save_attribute(): bool
     {
+        if(!isset($this->db_record)) return false ;
+
         if ($this->storage_mode === 'database') {
 
             $post = wp_insert_post([
