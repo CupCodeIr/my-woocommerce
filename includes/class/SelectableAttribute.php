@@ -37,7 +37,7 @@ class SelectableAttribute extends Attribute
         add_action('init', function () {
 
             $this->register_attribute_post_type();
-            add_action('save_post_' . CC_MYWC_PLUGIN_SLUG . '_sa', [$this, 'save_attributes']);
+            add_action('save_post_' . CC_MYWC_PLUGIN_SLUG . '_sa', [$this, 'save_attribute']);
             add_filter('redirect_post_location', [$this, 'maybe_redirect_for_error_display']);
             add_filter('post_updated_messages', [$this, 'post_type_save_message']);
             add_filter('admin_notices', [$this, 'post_type_save_error_display']);
@@ -222,7 +222,7 @@ class SelectableAttribute extends Attribute
      * @return bool
      * @since 0.1.0
      */
-    public function save_attributes(int $post_id): bool
+    public function save_attribute(int $post_id): bool
     {
 
         $nonce_name = isset($_POST[CC_MYWC_PLUGIN_SLUG . '_save_selectable_attributes_nonce']) ? $_POST[CC_MYWC_PLUGIN_SLUG . '_save_selectable_attributes_nonce'] : '';

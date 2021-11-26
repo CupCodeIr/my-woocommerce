@@ -26,7 +26,6 @@ abstract class Attribute
 
     abstract public function register_attribute_post_type(): bool;
 
-    abstract public function save_attributes(int $post_id) : bool;
 
     /**
      * Gets all used taxonomies such as product categories and product tags
