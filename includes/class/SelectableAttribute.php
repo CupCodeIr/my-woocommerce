@@ -326,7 +326,7 @@ and ({$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_category' or {$this->wp
                 foreach ($item['category'] as $key => $category){
                     $attributes_set[$rootKey]['category'][$key] =
                         [
-                        'id' => $category , 'title' => get_term((int)$category)->name,
+                        'id' => $category , 'title' => get_term_by('term_taxonomy_id', $category)->name,
                         ];
                 }
 
@@ -334,7 +334,7 @@ and ({$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_category' or {$this->wp
                 foreach ($item['tag'] as $key => $tag){
                     $attributes_set[$rootKey]['tag'][$key] =
                         [
-                        'id' => $tag , 'title' => get_term((int)$tag)->name,
+                        'id' => $tag , 'title' => get_term_by('term_taxonomy_id', $tag)->name,
                         ];
                 }
 
