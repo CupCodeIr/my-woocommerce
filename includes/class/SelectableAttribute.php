@@ -284,6 +284,53 @@ class SelectableAttribute extends Attribute
     }
 
     /**
+     * Generates a formatted set of selectable attributes to be rendered in forms
+     * @return array
+     * @since 0.1.0
+     */
+    public function get_formatted_selectable_attributes_by_taxonomy(): array
+    {
+        $attributes_set = $this->get_selectable_attributes_by_taxonomy();
+        foreach ($attributes_set as $rootKey => $item) {
+            if (isset($item['category']))
+                foreach ($item['category'] as $key => $category) {
+                    $attributes_set[$rootKey]['category'][$key] =
+                        [
+                            'id' => $category, 'title' => get_term_by('term_taxonomy_id', $category)->name,
+                        ];
+                }
+
+            if (isset($item['tag']))
+                foreach ($item['tag'] as $key => $tag) {
+                    $attributes_set[$rootKey]['tag'][$key] =
+                        [
+                            'id' => $tag, 'title' => get_term_by('term_taxonomy_id', $tag)->name,
+                        ];
+                }
+
+            if (isset($item['attribute']))
+                foreach ($item['attribute'] as $key => $attribute) {
+                    $attribute_taxonomy_name = wc_attribute_taxonomy_name_by_id((int)$attribute);
+                    $attributes_set[$rootKey]['attribute'][$key] =
+                        [
+                            'id' => $attribute,
+                            'title' => wc_attribute_label($attribute_taxonomy_name)
+                        ];
+                    $attribute_terms = get_terms(['taxonomy' => $attribute_taxonomy_name, 'hide_empty' => false]);
+                    foreach ($attribute_terms as $attribute_term) {
+                        $attributes_set[$rootKey]['attribute'][$key]['term'][] =
+                            [
+                                'id' => $attribute_term->term_id,
+                                'title' => $attribute_term->name
+                            ];
+                    }
+                }
+        }
+        return $attributes_set;
+
+    }
+
+    /**
      * Get all published (by default) selectable attributes
      * @param array $excluded_taxonomies
      * @return array
@@ -309,54 +356,12 @@ and ({$this->wpdb->postmeta}.meta_key = '_{$plugin_slug}_category' or {$this->wp
             }
 
         }
-        return array_values($list);
-
-    }
-
-    /**
-     * Generates a formatted set of selectable attributes to be rendered in forms
-     * @return array
-     * @since 0.1.0
-     */
-    public function get_formatted_selectable_attributes_by_taxonomy(): array
-    {
-        $attributes_set = $this->get_selectable_attributes_by_taxonomy();
-        foreach ($attributes_set as $rootKey => $item){
-            if(isset($item['category']))
-                foreach ($item['category'] as $key => $category){
-                    $attributes_set[$rootKey]['category'][$key] =
-                        [
-                        'id' => $category , 'title' => get_term_by('term_taxonomy_id', $category)->name,
-                        ];
-                }
-
-            if(isset($item['tag']))
-                foreach ($item['tag'] as $key => $tag){
-                    $attributes_set[$rootKey]['tag'][$key] =
-                        [
-                        'id' => $tag , 'title' => get_term_by('term_taxonomy_id', $tag)->name,
-                        ];
-                }
-
-            if(isset($item['attribute']))
-                foreach ($item['attribute'] as $key => $attribute){
-                    $attribute_taxonomy_name = wc_attribute_taxonomy_name_by_id((int)$attribute);
-                    $attributes_set[$rootKey]['attribute'][$key] =
-                        [
-                            'id' => $attribute ,
-                            'title' => wc_attribute_label($attribute_taxonomy_name)
-                        ];
-                    $attribute_terms = get_terms(['taxonomy' => $attribute_taxonomy_name , 'hide_empty' => false]);
-                    foreach ($attribute_terms as $attribute_term){
-                        $attributes_set[$rootKey]['attribute'][$key]['term'][] =
-                            [
-                                'id' => $attribute_term->term_id ,
-                                'title' => $attribute_term->name
-                            ];
-                    }
-                }
-        }
-        return $attributes_set;
+        $list = array_values($list);
+        if (!empty($excluded_taxonomies))
+            foreach ($list as $key => $item) {
+                if (count($item) === 1) unset($list[$key]);
+            }
+        return $list;
 
     }
 }
