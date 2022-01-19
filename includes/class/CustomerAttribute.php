@@ -129,6 +129,7 @@ class CustomerAttribute extends Attribute
                     else if ($this->can_customer_save_attribute($current_user_id, $term_id, $attribute_set)) {
                         $taxonomy = $this->get_taxonomy_name_from_term($term_id);
                         $this->set_customer_attribute($current_user_id,$attribute_name,$term_id,$taxonomy,$attribute_set);
+                        $this->save_attribute();
                         $message['notice'][] = $this->plugin->get_message_from_code(2);
                     } else {
                         $message['error'][] = $this->plugin->get_message_from_code(1);
@@ -320,23 +321,16 @@ class CustomerAttribute extends Attribute
     {
         $this->db_record['title'] = $title;
         $this->db_record['author'] = $customer_id;
-        $this->db_record['meta_data'] = [
-            '_' . CC_MYWC_PLUGIN_SLUG . '_' . $term_type => $term_id
-        ];
+        $this->db_record['meta_data']['_' . CC_MYWC_PLUGIN_SLUG . '_' . $term_type] = $term_id;
 
         $formatted_attributes = [];
-        foreach ($attributes as $key => $attribute) {
-            $this->db_record['meta_data'] = [
-                '_' . CC_MYWC_PLUGIN_SLUG . '_' . 'attribute' => $key
-            ];
+        foreach ($attributes as $attribute) {
             $formatted_attributes[] = [
-                'attribute_id' => $key,
-                'attribute_value' => $attribute
+                'attribute_id' => $attribute['id'],
+                'attribute_value' => $attribute['value']
             ];
         }
-        $this->db_record['meta_data'] = [
-            '_' . CC_MYWC_PLUGIN_SLUG . '_attribute_values' => json_encode($formatted_attributes)
-        ];
+        $this->db_record['meta_data']['_' . CC_MYWC_PLUGIN_SLUG . '_attribute_values'] = $formatted_attributes;
 
     }
 
