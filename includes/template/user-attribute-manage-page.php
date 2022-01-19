@@ -6,7 +6,7 @@
 
 defined('ABSPATH') or die('No script kiddies please!');
 ?>
-<section id="mywc-customer-attributes-management" <?php echo(is_rtl() ? 'class="mywc-rtl"' : '') ?>>
+<section id="mywc-customer-attributes-management" class="woocommerce" <?php echo(is_rtl() ? 'class="mywc-rtl"' : '') ?>>
 
     <div class="mywc-intro">
         <?php echo $intro_text ?>
@@ -46,7 +46,7 @@ defined('ABSPATH') or die('No script kiddies please!');
         </div>
     <?php } ?>
 
-    <div class="mywc-add-attribute woocommerce">
+    <div class="mywc-add-attribute">
         <h3><?php _e('Add new attribute', 'cupcode-mywc'); ?></h3>
         <form method="post" action="">
             <?php wp_nonce_field(CC_MYWC_PLUGIN_SLUG . 'new_attribute') ?>
@@ -82,7 +82,7 @@ defined('ABSPATH') or die('No script kiddies please!');
                     value="save_attribute"><?php _e('Save', 'cupcode-mywc'); ?></button>
         </form>
     </div>
-    <div class="mywc-attribute-list woocommerce">
+    <div class="mywc-attribute-list">
         <h3><?php _e('Your attributes', 'cupcode-mywc'); ?></h3>
         <table class="shop_table shop_table_responsive">
             <thead>
