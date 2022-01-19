@@ -12,6 +12,7 @@ class SelectableAttribute extends Attribute
 {
 
     private static $instance;
+    protected static $selectable_data;
 
 
     protected function __construct()
@@ -290,13 +291,16 @@ class SelectableAttribute extends Attribute
      */
     public function get_formatted_selectable_attributes_by_taxonomy(): array
     {
+
+        if(self::$selectable_data !== null) return self::$selectable_data;
+
         $attributes_set = $this->get_selectable_attributes_by_taxonomy();
         foreach ($attributes_set as $rootKey => $item) {
             if (isset($item['category']))
                 foreach ($item['category'] as $key => $category) {
                     $attributes_set[$rootKey]['category'][$key] =
                         [
-                            'id' => $category, 'title' => get_term_by('term_taxonomy_id', $category)->name,
+                            'id' => intval($category), 'title' => get_term_by('term_taxonomy_id', $category)->name,
                         ];
                 }
 
@@ -304,7 +308,7 @@ class SelectableAttribute extends Attribute
                 foreach ($item['tag'] as $key => $tag) {
                     $attributes_set[$rootKey]['tag'][$key] =
                         [
-                            'id' => $tag, 'title' => get_term_by('term_taxonomy_id', $tag)->name,
+                            'id' => intval($tag), 'title' => get_term_by('term_taxonomy_id', $tag)->name,
                         ];
                 }
 
@@ -313,7 +317,7 @@ class SelectableAttribute extends Attribute
                     $attribute_taxonomy_name = wc_attribute_taxonomy_name_by_id((int)$attribute);
                     $attributes_set[$rootKey]['attribute'][$key] =
                         [
-                            'id' => $attribute,
+                            'id' => intval($attribute),
                             'title' => wc_attribute_label($attribute_taxonomy_name)
                         ];
                     $attribute_terms = get_terms(['taxonomy' => $attribute_taxonomy_name, 'hide_empty' => false]);
@@ -326,10 +330,10 @@ class SelectableAttribute extends Attribute
                     }
                 }
         }
+        self::$selectable_data = $attributes_set;
         return $attributes_set;
 
     }
-
     /**
      * Get all published (by default) selectable attributes
      * @param array $excluded_taxonomies
