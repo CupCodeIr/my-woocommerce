@@ -7,9 +7,9 @@
     display: block;
 }
 
-#mywc-customer-attributes-management .mywc-add-attribute {
-    margin-top: 10px;
-    padding-inline: 10px;
+#mywc-customer-attributes-management .mywc-add-attribute,#mywc-customer-attributes-management .mywc-attribute-list {
+    margin-block: 3rem;
+    padding-inline: 1rem;
 }
 
 #mywc-customer-attributes-management .mywc-add-attribute.woocommerce .mywc-add-attribute__attributes {

@@ -47,9 +47,9 @@ defined('ABSPATH') or die('No script kiddies please!');
     <?php } ?>
 
     <div class="mywc-add-attribute woocommerce">
+        <h3><?php _e('Add new attribute', 'cupcode-mywc'); ?></h3>
         <form method="post" action="">
             <?php wp_nonce_field(CC_MYWC_PLUGIN_SLUG . 'new_attribute') ?>
-            <h3><?php _e('Add new attribute', 'cupcode-mywc'); ?></h3>
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label>
                     <?php
@@ -81,6 +81,18 @@ defined('ABSPATH') or die('No script kiddies please!');
             <button type="submit" class="woocommerce-Button button" name="mywc-save-attribute"
                     value="save_attribute"><?php _e('Save', 'cupcode-mywc'); ?></button>
         </form>
+    </div>
+    <div class="mywc-attribute-list woocommerce">
+        <h3><?php _e('Your attributes', 'cupcode-mywc'); ?></h3>
+        <table class="shop_table shop_table_responsive">
+            <thead>
+            <tr>
+                <th><?php _e('Name', 'cupcode-mywc'); ?></th>
+                <th><?php _e('Description', 'cupcode-mywc'); ?></th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 
 
