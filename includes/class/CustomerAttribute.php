@@ -127,7 +127,8 @@ class CustomerAttribute extends Attribute
                     if (mb_strlen($attribute_name) < 1 || count($attribute_set) < 1)
                         $message['error'][] = $this->plugin->get_message_from_code(3);
                     else if ($this->can_customer_save_attribute($current_user_id, $term_id, $attribute_set)) {
-                        //$this->set_customer_attribute($current_user_id,$attribute_name,$term_id,)
+                        $taxonomy = $this->get_taxonomy_name_from_term($term_id);
+                        $this->set_customer_attribute($current_user_id,$attribute_name,$term_id,$taxonomy,$attribute_set);
                         $message['notice'][] = $this->plugin->get_message_from_code(2);
                     } else {
                         $message['error'][] = $this->plugin->get_message_from_code(1);
@@ -336,6 +337,37 @@ class CustomerAttribute extends Attribute
         $this->db_record['meta_data'] = [
             '_' . CC_MYWC_PLUGIN_SLUG . '_attribute_values' => json_encode($formatted_attributes)
         ];
+
+    }
+
+    /**
+     * Searches for taxonomy name of a term in selectable attributes
+     * @param int $term_id
+     * @return string
+     * @since 0.1.0
+     */
+    protected function get_taxonomy_name_from_term(int $term_id): string{
+
+        $selectable_attribute_instance = SelectableAttribute::get_instance();
+        $selectable_data = $selectable_attribute_instance->get_formatted_selectable_attributes_by_taxonomy();
+
+        foreach ($selectable_data as $selectable_datum){
+
+            if(isset($selectable_datum['tag'])){
+                foreach ($selectable_datum['tag'] as $item){
+                    if($item['id'] === $term_id){
+                        return 'tag';
+                    }
+                }
+            }
+            if(isset($selectable_datum['category'])){
+                foreach ($selectable_datum['category'] as $item){
+                    if($item['id'] === $term_id){
+                        return 'category';
+                    }
+                }
+            }
+        }
 
     }
 
