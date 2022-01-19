@@ -6,10 +6,14 @@
  * Version: 0.1.0
  * Author: Artin
  * Author URI: https://cupcode.xyz/en
+ * Developer: Artin
+ * Developer URI: https://cupcode.xyz/en
  * Text Domain: cupcode-mywc
  * License: GPL2
  * Requires at least: 5.2
  * Requires PHP: 7.0
+ * WC requires at least: 4.0.0
+ * WC tested up to: 5.6.0
  */
 
 use CupCode\MyWooCommerce\MyWooCommerce;
@@ -44,13 +48,6 @@ if (class_exists('ReduxFramework')) {
 
 }
 
-
 MyWooCommerce::get_instance();
-
-
-
-
-
-
 
 
