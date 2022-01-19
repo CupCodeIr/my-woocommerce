@@ -114,19 +114,19 @@ class CustomerAttribute extends Attribute
                 if (!wp_verify_nonce($wp_nonce, CC_MYWC_PLUGIN_SLUG . 'new_attribute')) $message['error'][] = $this->plugin->get_message_from_code(0);
                 else {
 
-                    $term_id = isset($_POST['mywc-new-attribute-term']) ? $_POST['mywc-new-attribute-term'] : '0';
+                    $term_id = isset($_POST['mywc-new-attribute-term']) ? intval($_POST['mywc-new-attribute-term']) : 0;
                     $attribute_name = isset($_POST['mywc-new-attribute-name']) ? sanitize_text_field($_POST['mywc-new-attribute-name']) : '';
                     $attribute_values = isset($_POST['mywc-new-attribute-value']) ? $_POST['mywc-new-attribute-value'] : [];
                     $attribute_set = [];
-                    foreach ($attribute_values as $key => $attribute){
+                    foreach ($attribute_values as $key => $attribute) {
                         $attribute_set[] = [
                             'id' => intval($key),
                             'value' => intval($attribute),
                         ];
                     }
-                    if(mb_strlen($attribute_name) < 1 || count($attribute_set) < 1)
+                    if (mb_strlen($attribute_name) < 1 || count($attribute_set) < 1)
                         $message['error'][] = $this->plugin->get_message_from_code(3);
-                    else if ($this->can_customer_save_attribute($current_user_id,$term_id,$attribute_set)) {
+                    else if ($this->can_customer_save_attribute($current_user_id, $term_id, $attribute_set)) {
                         //$this->set_customer_attribute($current_user_id,$attribute_name,$term_id,)
                         $message['notice'][] = $this->plugin->get_message_from_code(2);
                     } else {
@@ -176,27 +176,53 @@ class CustomerAttribute extends Attribute
     private function can_customer_save_attribute(int $user_id, string $term_id, array $attributes): bool
     {
 
-        //TODO check if attributes exists?
         $current_user_id = $user_id;
         if ($current_user_id === 0 && !($this->guest_mode)) return false;
 
-        $term_exists = get_term_by('term_taxonomy_id', $term_id);
-        if ($term_exists === false) return false;
+        $attribute_valid = $this->validate_customer_attribute($attributes, $term_id);
+        if (!$attribute_valid) return false;
 
         $current_attributes_count = $this->get_customer_attributes_count($current_user_id);
         if ($current_attributes_count >= $this->attribute_limit) return false;
 
-        global $wpdb;
-
-        $term_exists_in_selectable_attributes = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} INNER JOIN {$wpdb->posts} ON {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID  where (meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_tag' OR meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_category') AND {$wpdb->posts}.post_type = '" . CC_MYWC_PLUGIN_SLUG . "_sa' AND meta_value = %s", $term_id));
-
-        $term_exists_in_user_attributes = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} INNER JOIN {$wpdb->posts} ON {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID  where (meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_tag' OR meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_category') AND {$wpdb->posts}.post_type = '" . CC_MYWC_PLUGIN_SLUG . "_ua' AND {$wpdb->posts}.post_author = %s AND meta_value = %s", ["$current_user_id", $term_id]));
-
-        if (($term_exists_in_user_attributes && !$this->multiple_attr_allowed) || !$term_exists_in_selectable_attributes) return false;
+        $term_exists_in_user_attributes = $this->user_has_term($current_user_id, $term_id);
+        if (($term_exists_in_user_attributes && !$this->multiple_attr_allowed)) return false;
 
         return true;
 
 
+    }
+
+    /**
+     * Checks whether attributes are related to a term
+     * @param array $attribute_value
+     * @param int $term_id
+     * @return bool
+     */
+    protected function validate_customer_attribute(array $attribute_value, int $term_id): bool
+    {
+        $selectable_attribute_instance = SelectableAttribute::get_instance();
+        $selectable_data = $selectable_attribute_instance->get_formatted_selectable_attributes_by_taxonomy();
+
+        foreach ($selectable_data as $datum) {
+
+            $tags = isset($datum['tag']) ? wp_list_pluck($datum['tag'], 'id') : [];
+            $categories = isset($datum['category']) ? wp_list_pluck($datum['category'], 'id') : [];
+            $terms = array_merge($tags, $categories);
+            if (in_array($term_id, $terms) && (count($datum['attribute']) === count($attribute_value))) {
+                $av_ordered_list = wp_list_pluck($attribute_value, 'value', 'id');
+                $attributes_ordered_list = wp_list_pluck($datum['attribute'], 'term', 'id');
+                foreach ($av_ordered_list as $key => $item) {
+                    if (isset($attributes_ordered_list[$key])) {
+                        $value_ids = wp_list_pluck($attributes_ordered_list[$key], 'id');
+                        if (!in_array($item, $value_ids)) return false;
+                    } else return false;
+                }
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -220,6 +246,54 @@ class CustomerAttribute extends Attribute
             }
         }
         return $count;
+    }
+
+    /**
+     * Checks whether the customer has profiled a term already
+     * @param int $user_id
+     * @param int $term_id
+     * @return bool
+     */
+    protected function user_has_term(int $user_id, int $term_id): bool
+    {
+
+        return $this->wpdb->get_var($this->wpdb->prepare("SELECT COUNT(*) FROM {$this->wpdb->postmeta} INNER JOIN {$this->wpdb->posts} ON {$this->wpdb->postmeta}.post_id = {$this->wpdb->posts}.ID  where (meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_tag' OR meta_key = '_" . CC_MYWC_PLUGIN_SLUG . "_category') AND {$this->wpdb->posts}.post_type = '" . CC_MYWC_PLUGIN_SLUG . "_ua' AND {$this->wpdb->posts}.post_author = %s AND meta_value = %s", ["$user_id", $term_id]));
+    }
+
+    /**
+     * Saves prepared record into database or other kinds of storage
+     * @return bool
+     */
+    protected function save_attribute(): bool
+    {
+        if (!isset($this->db_record)) return false;
+
+        if ($this->storage_mode === 'database') {
+
+            $post = wp_insert_post([
+                'post_title' => $this->db_record['title'],
+                'post_content' => '',
+                'post_author' => $this->db_record['author'],
+                'post_status' => 'publish',
+                'post_type' => CC_MYWC_PLUGIN_SLUG . '_ua',
+                'meta_input' => $this->db_record['meta_data'],
+            ]);
+            return ($post !== 0);
+
+        } elseif ($this->storage_mode === 'cookie') {
+
+            $cookie_data = [];
+            if (isset($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'])) {
+
+                $cookie_data = json_decode($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'], true);
+            }
+            $cookie_data['attribute_sets'][] = [
+                'title' => $this->db_record['title'],
+                'attribute' => $this->db_record['meta_data'],
+            ];
+            setcookie(CC_MYWC_PLUGIN_SLUG . '_data', json_encode($cookie_data), time() + 31556926);
+        }
+
     }
 
     private function remove_expired_customer_attributes()
@@ -262,42 +336,6 @@ class CustomerAttribute extends Attribute
         $this->db_record['meta_data'] = [
             '_' . CC_MYWC_PLUGIN_SLUG . '_attribute_values' => json_encode($formatted_attributes)
         ];
-
-    }
-
-    /**
-     * Saves prepared record into database or other kinds of storage
-     * @return bool
-     */
-    protected function save_attribute(): bool
-    {
-        if(!isset($this->db_record)) return false ;
-
-        if ($this->storage_mode === 'database') {
-
-            $post = wp_insert_post([
-                'post_title' => $this->db_record['title'],
-                'post_content' => '',
-                'post_author' => $this->db_record['author'],
-                'post_status' => 'publish',
-                'post_type' => CC_MYWC_PLUGIN_SLUG . '_ua',
-                'meta_input' => $this->db_record['meta_data'],
-            ]);
-            return ($post !== 0);
-
-        } elseif ($this->storage_mode === 'cookie') {
-
-            $cookie_data = [];
-            if (isset($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'])) {
-
-                $cookie_data = json_decode($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'], true);
-            }
-            $cookie_data['attribute_sets'][] = [
-                'title' => $this->db_record['title'],
-                'attribute' => $this->db_record['meta_data'],
-            ];
-            setcookie(CC_MYWC_PLUGIN_SLUG . '_data', json_encode($cookie_data), time() + 31556926);
-        }
 
     }
 
