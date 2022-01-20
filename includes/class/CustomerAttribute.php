@@ -128,7 +128,7 @@ class CustomerAttribute extends Attribute
                         $message['error'][] = $this->plugin->get_message_from_code(3);
                     else if ($this->can_customer_save_attribute($current_user_id, $term_id, $attribute_set)) {
                         $taxonomy = $this->get_taxonomy_name_from_term($term_id);
-                        $this->set_customer_attribute($current_user_id,$attribute_name,$term_id,$taxonomy,$attribute_set);
+                        $this->set_customer_attribute($current_user_id, $attribute_name, $term_id, $taxonomy, $attribute_set);
                         $this->save_attribute();
                         $message['notice'][] = $this->plugin->get_message_from_code(2);
                     } else {
@@ -263,49 +263,35 @@ class CustomerAttribute extends Attribute
     }
 
     /**
-     * Saves prepared record into database or other kinds of storage
-     * @return bool
+     * Searches for taxonomy name of a term in selectable attributes
+     * @param int $term_id
+     * @return string
+     * @since 0.1.0
      */
-    protected function save_attribute(): bool
+    protected function get_taxonomy_name_from_term(int $term_id): string
     {
-        if (!isset($this->db_record)) return false;
 
-        if ($this->storage_mode === 'database') {
+        $selectable_attribute_instance = SelectableAttribute::get_instance();
+        $selectable_data = $selectable_attribute_instance->get_formatted_selectable_attributes_by_taxonomy();
 
-            $post = wp_insert_post([
-                'post_title' => $this->db_record['title'],
-                'post_content' => '',
-                'post_author' => $this->db_record['author'],
-                'post_status' => 'publish',
-                'post_type' => CC_MYWC_PLUGIN_SLUG . '_ua',
-                'meta_input' => $this->db_record['meta_data'],
-            ]);
-            return ($post !== 0);
+        foreach ($selectable_data as $selectable_datum) {
 
-        } elseif ($this->storage_mode === 'cookie') {
-
-            $cookie_data = [];
-            if (isset($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'])) {
-
-                $cookie_data = json_decode($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'], true);
+            if (isset($selectable_datum['tag'])) {
+                foreach ($selectable_datum['tag'] as $item) {
+                    if ($item['id'] === $term_id) {
+                        return 'tag';
+                    }
+                }
             }
-            $cookie_data['attribute_sets'][] = [
-                'title' => $this->db_record['title'],
-                'attribute' => $this->db_record['meta_data'],
-            ];
-            setcookie(CC_MYWC_PLUGIN_SLUG . '_data', json_encode($cookie_data), time() + 31556926);
+            if (isset($selectable_datum['category'])) {
+                foreach ($selectable_datum['category'] as $item) {
+                    if ($item['id'] === $term_id) {
+                        return 'category';
+                    }
+                }
+            }
         }
 
-    }
-
-    private function remove_expired_customer_attributes()
-    {
-        //TODO Implement method
-    }
-
-    private function get_customer_attributes()
-    {
-        //TODO for both db and cookie
     }
 
     /**
@@ -335,34 +321,67 @@ class CustomerAttribute extends Attribute
     }
 
     /**
-     * Searches for taxonomy name of a term in selectable attributes
-     * @param int $term_id
-     * @return string
-     * @since 0.1.0
+     * Saves prepared record into database or other kinds of storage
+     * @return bool
      */
-    protected function get_taxonomy_name_from_term(int $term_id): string{
+    protected function save_attribute(): bool
+    {
+        if (!isset($this->db_record)) return false;
 
-        $selectable_attribute_instance = SelectableAttribute::get_instance();
-        $selectable_data = $selectable_attribute_instance->get_formatted_selectable_attributes_by_taxonomy();
+        if ($this->storage_mode === 'database') {
 
-        foreach ($selectable_data as $selectable_datum){
+            $post = wp_insert_post([
+                'post_title' => $this->db_record['title'],
+                'post_content' => '',
+                'post_author' => $this->db_record['author'],
+                'post_status' => 'publish',
+                'post_type' => CC_MYWC_PLUGIN_SLUG . '_ua',
+                'meta_input' => $this->db_record['meta_data'],
+            ]);
+            return ($post !== 0);
 
-            if(isset($selectable_datum['tag'])){
-                foreach ($selectable_datum['tag'] as $item){
-                    if($item['id'] === $term_id){
-                        return 'tag';
-                    }
-                }
+        } elseif ($this->storage_mode === 'cookie') {
+
+            $cookie_data = [];
+            if (isset($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'])) {
+
+                $cookie_data = json_decode($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'], true);
             }
-            if(isset($selectable_datum['category'])){
-                foreach ($selectable_datum['category'] as $item){
-                    if($item['id'] === $term_id){
-                        return 'category';
-                    }
-                }
-            }
+            $cookie_data['attribute_sets'][] = [
+                'id' => uniqid(wp_rand(10, 99)),
+                'title' => $this->db_record['title'],
+                'attribute' => $this->db_record['meta_data'],
+            ];
+            setcookie(CC_MYWC_PLUGIN_SLUG . '_data', json_encode($cookie_data), time() + 31556926);
         }
 
+    }
+
+    private function remove_expired_customer_attributes()
+    {
+        //TODO Implement method
+    }
+
+    private function get_customer_attributes(int $customer_id, array $attribute_id = [])
+    {
+        $attributes = [];
+        if ($this->storage_mode === 'database') {
+
+            $args = [
+                'numberposts' => -1,
+                'post_type' => CC_MYWC_PLUGIN_SLUG . '_ua',
+                'author' => $customer_id,
+            ];
+            if (!empty($attribute_id))
+                $args['include'] = $attribute_id;
+
+            $posts = get_posts($args);
+
+
+        } elseif ($this->storage_mode === 'cookie') {
+
+        }
+        //TODO for both db and cookie
     }
 
 }
