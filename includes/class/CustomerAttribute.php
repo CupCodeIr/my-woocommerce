@@ -307,16 +307,20 @@ class CustomerAttribute extends Attribute
     {
         $this->db_record['title'] = $title;
         $this->db_record['author'] = $customer_id;
-        $this->db_record['meta_data']['_' . CC_MYWC_PLUGIN_SLUG . '_' . $term_type] = $term_id;
+        $this->db_record['meta_data']['term'] =
+            [
+                'taxonomy' => $term_type,
+                'id' => $term_id
+            ];
 
         $formatted_attributes = [];
         foreach ($attributes as $attribute) {
             $formatted_attributes[] = [
-                'attribute_id' => $attribute['id'],
-                'attribute_value' => $attribute['value']
+                'id' => $attribute['id'],
+                'value' => $attribute['value']
             ];
         }
-        $this->db_record['meta_data']['_' . CC_MYWC_PLUGIN_SLUG . '_attribute_values'] = $formatted_attributes;
+        $this->db_record['meta_data']['attribute'] = $formatted_attributes;
 
     }
 
@@ -332,11 +336,10 @@ class CustomerAttribute extends Attribute
 
             $post = wp_insert_post([
                 'post_title' => $this->db_record['title'],
-                'post_content' => '',
+                'post_content' => wp_json_encode($this->db_record['meta_data']),
                 'post_author' => $this->db_record['author'],
                 'post_status' => 'publish',
                 'post_type' => CC_MYWC_PLUGIN_SLUG . '_ua',
-                'meta_input' => $this->db_record['meta_data'],
             ]);
             return ($post !== 0);
 
@@ -352,7 +355,7 @@ class CustomerAttribute extends Attribute
                 'title' => $this->db_record['title'],
                 'attribute' => $this->db_record['meta_data'],
             ];
-            setcookie(CC_MYWC_PLUGIN_SLUG . '_data', json_encode($cookie_data), time() + 31556926);
+            return setcookie(CC_MYWC_PLUGIN_SLUG . '_data', wp_json_encode($cookie_data), time() + 31556926);
         }
 
     }
