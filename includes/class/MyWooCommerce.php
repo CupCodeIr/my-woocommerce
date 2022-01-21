@@ -119,4 +119,16 @@ class MyWooCommerce
         return isset($notices[$code]) ? $notices[$code] : '';
 
     }
+
+    /**
+     * Returns true if the current page which is vied by user is attribute management page
+     * @return bool
+     * @since 0.1.0
+     */
+    public function is_attributes_management_endpoint(): bool
+    {
+        global $wp;
+        return is_account_page() && array_key_exists($this->customerAttribute->get_wc_add_attribute_endpoint_slug(),$wp->query_vars);
+
+    }
 }
