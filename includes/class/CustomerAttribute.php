@@ -41,11 +41,19 @@ class CustomerAttribute extends Attribute
         $this->multiple_attr_allowed = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-add-same-multiple');
         $this->add_attribute_wc_endpoint_slug = get_option(CC_MYWC_PLUGIN_SLUG . '_attribute_endpoint');
         $this->guest_mode = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'guest-use');
+
         add_action('init', function () {
 
             $this->register_attribute_post_type();
         });
         $this->register_customer_attribute_panel();
+
+        if ($this->guest_mode) {
+            add_action('admin_post_nopriv_' . CC_MYWC_PLUGIN_SLUG . '_manage_attribute', [$this, 'handle_attribute_management_request']);
+        }
+        add_action('admin_post_' . CC_MYWC_PLUGIN_SLUG . '_manage_attribute', [$this, 'handle_attribute_management_request']);
+
+
     }
 
     /**
@@ -103,39 +111,35 @@ class CustomerAttribute extends Attribute
             $items['customer-logout'] = $logout;
             return $items;
         });
+        add_action('template_redirect',function (){
+            if($this->plugin->is_attributes_management_endpoint()){
+                if(session_status() === PHP_SESSION_NONE)
+                session_start();
+            }
+        });
         add_action('woocommerce_account_' . rawurldecode($endpoint) . '_endpoint', function () {
 
             $message = [];
-            $current_user_id = get_current_user_id();
-            if (isset($_POST['mywc-save-attribute'])) {
+            if(isset($_SESSION[CC_MYWC_PLUGIN_SLUG . "_attribute_management_message"])){
+                $session = $_SESSION[CC_MYWC_PLUGIN_SLUG . "_attribute_management_message"];
+                if(isset($session['error']) && is_array($session['error'])){
+                    foreach ($session['error'] as $error_code){
+                        $error_message = $this->plugin->get_message_from_code(intval($error_code));
+                        if(mb_strlen($error_message) > 0)
+                            $message['error'][] = $error_message;
 
-                $wp_nonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : '';
-
-                if (!wp_verify_nonce($wp_nonce, CC_MYWC_PLUGIN_SLUG . 'new_attribute')) $message['error'][] = $this->plugin->get_message_from_code(0);
-                else {
-
-                    $term_id = isset($_POST['mywc-new-attribute-term']) ? intval($_POST['mywc-new-attribute-term']) : 0;
-                    $attribute_name = isset($_POST['mywc-new-attribute-name']) ? sanitize_text_field($_POST['mywc-new-attribute-name']) : '';
-                    $attribute_values = isset($_POST['mywc-new-attribute-value']) ? $_POST['mywc-new-attribute-value'] : [];
-                    $attribute_set = [];
-                    foreach ($attribute_values as $key => $attribute) {
-                        $attribute_set[] = [
-                            'id' => intval($key),
-                            'value' => intval($attribute),
-                        ];
-                    }
-                    if (mb_strlen($attribute_name) < 1 || count($attribute_set) < 1)
-                        $message['error'][] = $this->plugin->get_message_from_code(3);
-                    else if ($this->can_customer_save_attribute($current_user_id, $term_id, $attribute_set)) {
-                        $taxonomy = $this->get_taxonomy_name_from_term($term_id);
-                        $this->set_customer_attribute($current_user_id, $attribute_name, $term_id, $taxonomy, $attribute_set);
-                        $this->save_attribute();
-                        $message['notice'][] = $this->plugin->get_message_from_code(2);
-                    } else {
-                        $message['error'][] = $this->plugin->get_message_from_code(1);
                     }
                 }
+                if(isset($session['notice']) && is_array($session['notice'])){
+                    foreach ($session['notice'] as $notice_code){
+                        $notice_message = $this->plugin->get_message_from_code(intval($notice_code));
+                        if(mb_strlen($notice_message) > 0)
+                            $message['notice'][] = $notice_message;
+                    }
+                }
+                unset($_SESSION[CC_MYWC_PLUGIN_SLUG . "_attribute_management_message"]);
             }
+            $current_user_id = get_current_user_id();
             $saved_count = $this->get_customer_attributes_count($current_user_id);
             $intro_filtered_text = Redux::get_option(CC_MYWC_PLUGIN_SLUG . '_settings', 'customer-attr-page-intro', '');
             $intro_filtered_text = str_ireplace('{remained_count}', $this->attribute_limit - $saved_count, $intro_filtered_text);
@@ -159,6 +163,29 @@ class CustomerAttribute extends Attribute
 
         return $this->add_attribute_wc_endpoint_slug;
 
+    }
+
+    /**
+     * Counts customer saved attributes which may be saved inside database or using cookie.
+     * @param $user_id
+     * @return int
+     * @since 0.1.0
+     */
+    private function get_customer_attributes_count($user_id): int
+    {
+        $count = 0;
+        if ($this->storage_mode === 'database') {
+            if ($user_id === 0) return 0;
+            $count = wp_count_posts(CC_MYWC_PLUGIN_SLUG . '_ua')->publish;
+
+        } elseif ($this->storage_mode === 'cookie') {
+            //TODO if using cookies, get data from cookie
+            if (isset($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'])) {
+                $cookie_data = json_decode($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'], true);
+                $count = count($cookie_data['attribute_sets']);
+            }
+        }
+        return $count;
     }
 
     /**
@@ -225,29 +252,6 @@ class CustomerAttribute extends Attribute
         }
 
         return false;
-    }
-
-    /**
-     * Counts customer saved attributes which may be saved inside database or using cookie.
-     * @param $user_id
-     * @return int
-     * @since 0.1.0
-     */
-    private function get_customer_attributes_count($user_id): int
-    {
-        $count = 0;
-        if ($this->storage_mode === 'database') {
-            if ($user_id === 0) return 0;
-            $count = wp_count_posts(CC_MYWC_PLUGIN_SLUG . '_ua')->publish;
-
-        } elseif ($this->storage_mode === 'cookie') {
-            //TODO if using cookies, get data from cookie
-            if (isset($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'])) {
-                $cookie_data = json_decode($_COOKIE[CC_MYWC_PLUGIN_SLUG . '_data'], true);
-                $count = count($cookie_data['attribute_sets']);
-            }
-        }
-        return $count;
     }
 
     /**
@@ -386,5 +390,43 @@ class CustomerAttribute extends Attribute
         }
         //TODO for both db and cookie
     }
+
+    public function handle_attribute_management_request()
+    {
+        $message = [];
+        if (isset($_POST['mywc-save-attribute'])) {
+            $wp_nonce = isset($_POST['_wpnonce']) ? $_POST['_wpnonce'] : '';
+            if (!wp_verify_nonce($wp_nonce, CC_MYWC_PLUGIN_SLUG . 'new_attribute')) $message['error'][] = $this->plugin->get_message_from_code(0);
+            else {
+                $current_user_id = get_current_user_id();
+                $term_id = isset($_POST['mywc-new-attribute-term']) ? intval($_POST['mywc-new-attribute-term']) : 0;
+                $attribute_name = isset($_POST['mywc-new-attribute-name']) ? sanitize_text_field($_POST['mywc-new-attribute-name']) : '';
+                $attribute_values = isset($_POST['mywc-new-attribute-value']) ? $_POST['mywc-new-attribute-value'] : [];
+                $attribute_set = [];
+                foreach ($attribute_values as $key => $attribute) {
+                    $attribute_set[] = [
+                        'id' => intval($key),
+                        'value' => intval($attribute),
+                    ];
+                }
+                if (mb_strlen($attribute_name) < 1 || count($attribute_set) < 1)
+                    $message['error'][] = 3;
+                else if ($this->can_customer_save_attribute($current_user_id, $term_id, $attribute_set)) {
+                    $taxonomy = $this->get_taxonomy_name_from_term($term_id);
+                    $this->set_customer_attribute($current_user_id, $attribute_name, $term_id, $taxonomy, $attribute_set);
+                    $this->save_attribute();
+                    $message['notice'][] = 2;
+                } else {
+                    $message['error'][] = 1;
+                }
+            }
+        }
+        session_start();
+        $_SESSION[CC_MYWC_PLUGIN_SLUG . "_attribute_management_message"] = $message;
+        wp_safe_redirect(wc_get_account_endpoint_url($this->get_wc_add_attribute_endpoint_slug()));
+
+
+    }
+
 
 }

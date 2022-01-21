@@ -48,7 +48,8 @@ defined('ABSPATH') or die('No script kiddies please!');
 
     <div class="mywc-add-attribute">
         <h3><?php _e('Add new attribute', 'cupcode-mywc'); ?></h3>
-        <form method="post" action="">
+        <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
+            <input name="action" type="hidden" value="<?php echo CC_MYWC_PLUGIN_SLUG . '_manage_attribute' ?>">
             <?php wp_nonce_field(CC_MYWC_PLUGIN_SLUG . 'new_attribute') ?>
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label>
